@@ -161,6 +161,19 @@ ul{margin:0; padding:0; list-style:none;}
 .card .tagrow{margin-bottom:18px;}
 .card-quiet{background:var(--surface-2); border-color:transparent;}
 
+/* executive-summary dashboard */
+.dash{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+.dash-3{grid-template-columns:repeat(3,1fr);}
+@media(max-width:880px){.dash,.dash-3{grid-template-columns:1fr;}}
+.dash .card{display:flex; flex-direction:column; padding:28px;}
+.dash .card .dash-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px;}
+.dash .card .dash-head h3{margin:0;}
+.kv{border-top:1px solid var(--border-soft);}
+.kv li{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:9px 0; border-bottom:1px solid var(--border-soft); font-size:13px; color:var(--text-3); max-width:none;}
+.kv li .kvv{font-weight:600; color:var(--text); text-align:right; font-family:var(--serif); letter-spacing:-0.01em; font-variant-numeric:tabular-nums;}
+.frame.mini{aspect-ratio:16/9; padding:18px; margin-top:18px;}
+.dash .card .more{margin-top:auto; padding-top:18px;}
+
 /* metrics */
 .metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:40px;}
 .metric .num{font-family:var(--serif); font-weight:700; font-size:34px; color:var(--accent); letter-spacing:-0.02em; line-height:1;}
@@ -323,6 +336,7 @@ ul{margin:0; padding:0; list-style:none;}
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
       <button class="nav-link" data-route="home">Overview</button>
+      <button class="nav-link" data-route="summary">Executive Summary</button>
       <button class="nav-link" data-route="agenda">Agenda</button>
       <button class="nav-link" data-route="financials">Financials</button>
       <button class="nav-link" data-route="construction">Construction</button>
@@ -361,7 +375,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Building specifications</p>
-          <h2>Property summary.</h2>
+          <h2>Property Summary</h2>
           <div class="glance" style="margin-bottom:24px;">
             <div><div class="g-lbl">Address</div><div class="g-val">12556 15th Ave NE, Seattle 98125</div></div>
             <div><div class="g-lbl">Units</div><div class="g-val">21</div></div>
@@ -386,7 +400,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Current status</p>
-          <h2>Position at a glance.</h2>
+          <h2>Position at a Glance</h2>
           <div class="metrics" style="margin-bottom:36px;">
             <div class="metric"><div class="num">13</div><div class="lbl">of 21 units occupied, plus one pre-leased and moving in</div></div>
             <div class="metric"><div class="num">7</div><div class="lbl">units renovated and delivered to date</div></div>
@@ -402,7 +416,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Availabilities</p>
-          <h2>Units currently or soon available.</h2>
+          <h2>Units Currently or Soon Available</h2>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>Status</th><th>Market rent</th></tr></thead>
@@ -424,7 +438,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Amenities</p>
-          <h2>Building amenities.</h2>
+          <h2>Building Amenities</h2>
           <p class="todo-note">To confirm with Isabella — placeholder list</p>
           <div>
             <span class="tag">On-site laundry</span>
@@ -436,11 +450,165 @@ ul{margin:0; padding:0; list-style:none;}
         </section>
       </div>
 
+      <!-- ============ EXECUTIVE SUMMARY ============ -->
+      <div class="page" id="page-summary">
+        <section class="reveal">
+          <p class="eyebrow">Executive summary</p>
+          <h2>The Engagement at a Glance</h2>
+          <p class="lead" style="margin-bottom:36px;">A single-screen overview of White Heather Apartments — the building, the financial position, the work completed and remaining, and the decisions we are requesting on Friday. Each panel below links to its full page.</p>
+          <div class="frame wide" role="img" aria-label="White Heather Apartments — exterior photograph placeholder">
+            <div><div class="ft">Photo slot</div><div class="fd">Current exterior photograph — to be loaded</div></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Headline figures</p>
+          <h2>The Numbers That Matter</h2>
+          <div class="metrics">
+            <div class="metric"><div class="num">21</div><div class="lbl">units · 12 one-bed, 9 two-bed</div></div>
+            <div class="metric"><div class="num" data-static>61.9%</div><div class="lbl">occupied — 13 of 21 units</div></div>
+            <div class="metric"><div class="num">7</div><div class="lbl">units renovated and delivered</div></div>
+            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place today</div></div>
+            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at full market</div></div>
+            <div class="metric"><div class="num" data-static>$17,124</div><div class="lbl">monthly gap — roughly $205,000 a year</div></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">The dashboard</p>
+          <h2>Every Workstream, Summarized</h2>
+          <div class="dash">
+
+            <div class="card card-link" data-route="home">
+              <div class="dash-head"><h3>The Building</h3><span class="chip ok">Operating</span></div>
+              <ul class="kv">
+                <li><span>Address</span><span class="kvv">12556 15th Ave NE</span></li>
+                <li><span>Units / mix</span><span class="kvv">21 · 12×1bd · 9×2bd</span></li>
+                <li><span>Rentable area</span><span class="kvv">17,645 SF</span></li>
+                <li><span>Renovated</span><span class="kvv">7 units</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Building exterior photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Exterior</div></div></div>
+              <span class="more">Full overview →</span>
+            </div>
+
+            <div class="card card-link" data-route="home">
+              <div class="dash-head"><h3>Lease-Up Status</h3><span class="chip warn">In progress</span></div>
+              <ul class="kv">
+                <li><span>Occupied</span><span class="kvv">13 units</span></li>
+                <li><span>Pre-leased</span><span class="kvv">1 unit</span></li>
+                <li><span>Vacant</span><span class="kvv">8 units</span></li>
+                <li><span>Notice (6/30)</span><span class="kvv">1 unit</span></li>
+              </ul>
+              <span class="more">See availabilities →</span>
+            </div>
+
+            <div class="card card-link" data-route="financials">
+              <div class="dash-head"><h3>Financials</h3><span class="chip warn">Figures to load</span></div>
+              <ul class="kv">
+                <li><span>Income today</span><span class="kvv">$20,911 / mo</span></li>
+                <li><span>At stabilization</span><span class="kvv">$38,035 / mo</span></li>
+                <li><span>Insurance proceeds</span><span class="kvv">$ —</span></li>
+                <li><span>Spent to date</span><span class="kvv">$ —</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Lease-up forecast exhibit placeholder"><div><div class="ft">Exhibit slot</div><div class="fd">Lease-up forecast</div></div></div>
+              <span class="more">The full financials →</span>
+            </div>
+
+            <div class="card card-link" data-route="construction">
+              <div class="dash-head"><h3>Construction</h3><span class="chip ok">On track</span></div>
+              <ul class="kv">
+                <li><span>Water incident</span><span class="kvv">Remediated</span></li>
+                <li><span>Hazardous materials</span><span class="kvv">Abated</span></li>
+                <li><span>Units delivered</span><span class="kvv">7</span></li>
+                <li><span>Remaining</span><span class="kvv">Phase two</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Construction progress photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Before / progress</div></div></div>
+              <span class="more">What we found &amp; what's left →</span>
+            </div>
+
+            <div class="card card-link" data-route="leasing">
+              <div class="dash-head"><h3>Leasing &amp; Market</h3><span class="chip ok">Proven</span></div>
+              <ul class="kv">
+                <li><span>Monthly gap</span><span class="kvv">$17,124 / mo</span></li>
+                <li><span>Unit 305 (1/1)</span><span class="kvv">Leased $1,850</span></li>
+                <li><span>Unit 307 (2/2)</span><span class="kvv">Leased $2,350</span></li>
+                <li><span>Unit 102 (2/2)</span><span class="kvv">Pre-leased</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Renovated unit photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Renovated unit</div></div></div>
+              <span class="more">The gap and the plan →</span>
+            </div>
+
+            <div class="card card-link" data-route="marketing">
+              <div class="dash-head"><h3>Marketing</h3><span class="chip warn">For approval</span></div>
+              <ul class="kv">
+                <li><span>Zillow package</span><span class="kvv">Recommended</span></li>
+                <li><span>Google drip campaign</span><span class="kvv">Recommended</span></li>
+                <li><span>EDDM mailer</span><span class="kvv">Recommended</span></li>
+                <li><span>Apartments.com</span><span class="kvv">Not recommended</span></li>
+              </ul>
+              <p class="sub" style="margin:14px 0 0;">Measured on cost per lease against one month's rent.</p>
+              <span class="more">Channel recommendations →</span>
+            </div>
+
+            <div class="card card-link" data-route="tenants">
+              <div class="dash-head"><h3>Tenant Experience</h3><span class="chip ok">In place</span></div>
+              <ul class="kv">
+                <li><span>Move-ins since Sep</span><span class="kvv">3 (+1 pending)</span></li>
+                <li><span>Welcome packet</span><span class="kvv">Standard</span></li>
+                <li><span>Move-in gifts</span><span class="kvv">To select</span></li>
+                <li><span>Process</span><span class="kvv">AppFolio</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Welcome packet photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Welcome packet</div></div></div>
+              <span class="more">Retention approach →</span>
+            </div>
+
+            <div class="card card-link" data-route="gallery">
+              <div class="dash-head"><h3>Design Decisions</h3><span class="chip warn">4 to decide</span></div>
+              <ul class="kv">
+                <li><span>Acoustic paneling</span><span class="kvv">2 options</span></li>
+                <li><span>Exterior lighting</span><span class="kvv">2 options</span></li>
+                <li><span>Exterior doors</span><span class="kvv">2 options</span></li>
+                <li><span>Door numbering</span><span class="kvv">2 options</span></li>
+              </ul>
+              <div class="frame mini" role="img" aria-label="Design option photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Option boards</div></div></div>
+              <span class="more">Options side by side →</span>
+            </div>
+
+            <div class="card card-link" data-route="portal">
+              <div class="dash-head"><h3>Owner Portal</h3><span class="chip ok">Live demo</span></div>
+              <ul class="kv">
+                <li><span>Platform</span><span class="kvv">AppFolio</span></li>
+                <li><span>Statements</span><span class="kvv">Monthly, automatic</span></li>
+                <li><span>Access</span><span class="kvv">Chen family logins</span></li>
+                <li><span>Repository</span><span class="kvv">Bids · Reports · Comps</span></li>
+              </ul>
+              <span class="more">Documents &amp; access →</span>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Decisions requested Friday</p>
+          <h2>Four Decisions to Settle</h2>
+          <div class="studies" style="margin-top:0;">
+            <div class="study"><div class="s-k">Rent positioning</div><div class="s-v">Confirm targets</div><div class="s-d">Market-rate targets for the vacant and renovated units.</div></div>
+            <div class="study"><div class="s-k">Marketing budget</div><div class="s-v">Approve spend</div><div class="s-d">The recommended channel mix on the Marketing page.</div></div>
+            <div class="study"><div class="s-k">Design selections</div><div class="s-v">Marlene's picks</div><div class="s-d">Paneling, sconces, doors, and door numbering.</div></div>
+            <div class="study"><div class="s-k">Refinance timing</div><div class="s-v">Now or later</div><div class="s-d">Begin lender discussions now or following lease-up.</div></div>
+          </div>
+          <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-arrow" data-route="agenda">View Friday's agenda</button>
+            <button class="btn btn-ghost" data-route="leasing">Open the leasing analysis</button>
+          </div>
+        </section>
+      </div>
+
       <!-- ============ AGENDA ============ -->
       <div class="page" id="page-agenda">
         <section class="reveal">
           <p class="eyebrow">Friday's meeting</p>
-          <h2>Agenda and order of presentation.</h2>
+          <h2>Agenda and Order of Presentation</h2>
           <p class="lead" style="margin-bottom:36px;">Each item below corresponds to a page on this site. We will proceed through them in order, with every figure referenced presented on screen.</p>
           <div class="steps">
             <div class="step"><div><h4>Welcome &amp; introductions <span class="tag" style="margin-left:8px;">Presenter slot</span></h4><p>Introductions and the objectives for the meeting.</p></div></div>
@@ -457,7 +625,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Decisions requested Friday</p>
-          <h2>Items requiring your direction.</h2>
+          <h2>Items Requiring Your Direction</h2>
           <ul class="points">
             <li><strong>Rent positioning.</strong> Confirmation of the market-rate targets for the remaining vacant and renovated units.</li>
             <li><strong>Marketing budget.</strong> Approval (or adjustment) of the recommended channel spend on the Marketing page.</li>
@@ -469,7 +637,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Your team</p>
-          <h2>The team serving White Heather.</h2>
+          <h2>The Team Serving White Heather</h2>
           <p class="todo-note">Names, roles, and descriptions to be added</p>
           <div class="grid grid-2">
             <div class="card"><h4>[Name] — Principal</h4><p>One or two sentences: oversight role and history with the building.</p></div>
@@ -484,7 +652,7 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-financials">
         <section class="reveal">
           <p class="eyebrow">Cover summary</p>
-          <h2>Financial summary.</h2>
+          <h2>Financial Summary</h2>
           <p class="lead">A concise accounting of funds received, funds expended, the remaining balance, and the outlook ahead. Complete statements and approved bids are available in the owner portal.</p>
           <p class="todo-note" style="margin-top:18px;">Figures to be loaded from the final budget before the meeting</p>
           <div class="studies" style="margin-top:18px;">
@@ -497,7 +665,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Budget vs. actuals</p>
-          <h2>Expenditures by category.</h2>
+          <h2>Expenditures by Category</h2>
           <p class="todo-note">Skeleton table — load final categories and figures</p>
           <div class="table-wrap">
             <table class="table">
@@ -516,7 +684,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Forecast</p>
-          <h2>Projected income as units are delivered.</h2>
+          <h2>Projected Income as Units Are Delivered</h2>
           <p class="measure sub" style="margin-bottom:28px;">The building currently collects $20,911 per month. Fully leased at market rates, it would collect $38,035. The forecast below maps that progression against the construction schedule — month-by-month figures to be loaded from the pro forma.</p>
           <p class="todo-note">Forecast table / chart to be loaded from pro forma</p>
           <div class="frame wide"><div><div class="ft">Exhibit slot</div><div class="fd">Lease-up forecast — monthly income vs. delivery schedule</div></div></div>
@@ -524,7 +692,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Phase two</p>
-          <h2>Financial impact of phase two.</h2>
+          <h2>Financial Impact of Phase Two</h2>
           <div class="grid grid-2">
             <div class="card"><h4>Scope</h4><p>Remaining unrenovated units and exterior items — itemized on the Construction page. Cost basis drawn from approved bids in the owner portal.</p></div>
             <div class="card"><h4>Impact</h4><p>Each renovated one-bedroom moves from $1,500 to $1,750 at market; each two-bedroom from $2,150 to $2,295. Phase two extends that uplift across the remainder of the building.</p></div>
@@ -533,7 +701,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Refinance / loan discussion</p>
-          <h2>Refinancing considerations.</h2>
+          <h2>Refinancing Considerations</h2>
           <ul class="points">
             <li><strong>Why timing matters.</strong> Lenders underwrite on in-place income. Each month of lease-up at market rents improves the loan terms for which the building qualifies.</li>
             <li><strong>What we would present to a lender.</strong> A stabilized rent roll, the renovation record, and the comparable set from the Leasing page.</li>
@@ -546,13 +714,13 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-construction">
         <section class="reveal">
           <p class="eyebrow">Project review</p>
-          <h2>Conditions identified during construction.</h2>
+          <h2>Conditions Identified During Construction</h2>
           <p class="lead">Buildings of this era frequently present conditions that cannot be assessed until walls are opened. Some of the items below were anticipated in the original scope; others could not reasonably have been foreseen. All are documented here in full, with photographs in the Gallery and every approved bid in the owner portal.</p>
         </section>
 
         <section class="reveal">
           <p class="eyebrow">Conditions encountered</p>
-          <h2>Issue by issue.</h2>
+          <h2>Issue by Issue</h2>
           <div class="reality">
             <h3>Status as of June 2026</h3>
             <p class="sub" style="margin-bottom:8px;">Each item links to photos in the Gallery; supporting documents are in the owner portal.</p>
@@ -566,7 +734,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Remaining work</p>
-          <h2>Remaining scope, in sequence.</h2>
+          <h2>Remaining Scope, in Sequence</h2>
           <p class="todo-note">Load actual remaining scope and target dates</p>
           <div class="steps">
             <div class="step"><div><h4>Remaining unit renovations</h4><p>Units and scope — phase two list, with target delivery dates.</p></div></div>
@@ -587,13 +755,13 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-leasing">
         <section class="reveal">
           <p class="eyebrow">The central point</p>
-          <h2>Below-market rents have a measurable cost to the building's value.</h2>
+          <h2>Below-Market Rents Have a Measurable Cost to the Building's Value</h2>
           <p class="lead">Maintaining rents below market preserved excellent long-term tenancies. It also constrained the building's income, and a building's value is a direct function of its income. The figures below quantify that gap and outline the plan to close it on the renovated units while honoring commitments to existing tenants.</p>
         </section>
 
         <section class="reveal">
           <p class="eyebrow">Current vs. market</p>
-          <h2>The gap, per the rent roll.</h2>
+          <h2>The Gap, per the Rent Roll</h2>
           <div class="metrics" style="margin-bottom:32px;">
             <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place today (13 occupied units)</div></div>
             <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at full occupancy, at market</div></div>
@@ -615,7 +783,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Performance to date</p>
-          <h2>Renovated units are achieving their target rents.</h2>
+          <h2>Renovated Units Are Achieving Their Target Rents</h2>
           <ul class="points">
             <li><strong>Unit 305 (1/1, renovated)</strong> leased September 2025 at <strong>$1,850</strong> — above the $1,750 renovated target.</li>
             <li><strong>Unit 307 (2/2, renovated)</strong> leased April 2026 at <strong>$2,350</strong> — above the $2,295 renovated target.</li>
@@ -626,7 +794,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Advertised vs. net effective</p>
-          <h2>Advertised rents versus collected rents.</h2>
+          <h2>Advertised Rents Versus Collected Rents</h2>
           <p class="measure sub" style="margin-bottom:24px;">Concessions (such as a complimentary week or a reduced deposit) allow us to maintain a strong advertised rate while remaining competitive on the prospective renter's initial costs. The table presents both figures so the building's actual earnings are fully transparent.</p>
           <p class="todo-note">Load current concession structure per unit type</p>
           <div class="table-wrap">
@@ -643,7 +811,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">The comparable set</p>
-          <h2>Why pricing is based on a half-mile radius.</h2>
+          <h2>Why Pricing Is Based on a Half-Mile Radius</h2>
           <p class="measure sub" style="margin-bottom:28px;">Prospective renters evaluating White Heather compare it against nearby buildings — not against averages from other neighborhoods. A half-mile radius around 15th Ave NE captures the properties genuinely competing for the same renter, which is the basis for our rent targets. Jerry's complete digital comparable report is available in the owner portal.</p>
           <p class="todo-note">Load comp table from Jerry's market comp report</p>
           <div class="table-wrap">
@@ -661,7 +829,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Anticipated questions</p>
-          <h2>Prepared responses.</h2>
+          <h2>Prepared Responses</h2>
           <div>
             <details class="faq"><summary>Are rents being raised on long-term tenants?</summary><p>State the policy clearly: which tenants are affected, by how much, on what schedule, and with what notice. If no decision has been made, state that and identify when the decision point will be.</p></details>
             <details class="faq"><summary>Does the below-market rent position affect the building's value?</summary><p>Yes. Value follows income. Below-market rents were a deliberate trade-off the family chose, and the plan on this page addresses it through unit turnover rather than through increases on existing tenancies.</p></details>
@@ -674,13 +842,13 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-marketing">
         <section class="reveal">
           <p class="eyebrow">The approach</p>
-          <h2>Invest in the channels where renters search; forgo the rest.</h2>
+          <h2>Invest in the Channels Where Renters Search; Forgo the Rest</h2>
           <p class="lead">With eight units to lease, marketing is a near-term expenditure with a measurable return: cost per lease. Below are the channels we recommend funding, the expected return from each, and one channel we recommend declining.</p>
         </section>
 
         <section class="reveal">
           <p class="eyebrow">Recommended channels</p>
-          <h2>Three recommended channels; one not recommended.</h2>
+          <h2>Three Recommended Channels; One Not Recommended</h2>
           <div class="grid grid-2" style="margin-bottom:28px;">
             <div class="card">
               <div class="tagrow"><span class="tag accent">Recommended</span></div>
@@ -718,7 +886,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Digital presence</p>
-          <h2>The building's website is a long-term asset.</h2>
+          <h2>The Building's Website Is a Long-Term Asset</h2>
           <ul class="points">
             <li><strong>Owned, not rented.</strong> Listing sites carry an indefinite monthly cost; the building's own site and its Google presence appreciate over time.</li>
             <li><strong>Search visibility.</strong> Searches for "White Heather Apartments" and the surrounding neighborhood should lead to our page, our photographs, and our application link — not to a listing aggregator's.</li>
@@ -731,13 +899,13 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-tenants">
         <section class="reveal">
           <p class="eyebrow">Tenant experience</p>
-          <h2>Tenant retention begins with the resident experience.</h2>
+          <h2>Tenant Retention Begins With the Resident Experience</h2>
           <p class="lead">Turnover is among the most significant costs a small building incurs. The welcome packet, move-in process, and thoughtful details below are how we retain the tenants we have invested in finding.</p>
         </section>
 
         <section class="reveal">
           <p class="eyebrow">Welcome packet</p>
-          <h2>What every new tenant receives.</h2>
+          <h2>What Every New Tenant Receives</h2>
           <div class="grid grid-2" style="margin-bottom:24px;">
             <div class="card">
               <h4>Packet contents</h4>
@@ -749,7 +917,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Move-in gifts</p>
-          <h2>A modest investment in tenant goodwill.</h2>
+          <h2>A Modest Investment in Tenant Goodwill</h2>
           <p class="todo-note">Select the example(s) to present</p>
           <div>
             <span class="tag">Local coffee / bakery gift card</span>
@@ -761,7 +929,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Operations</p>
-          <h2>The move-in process.</h2>
+          <h2>The Move-In Process</h2>
           <div class="steps">
             <div class="step"><div><h4>Application &amp; screening</h4><p>Through AppFolio — consistent criteria, documented decisions.</p></div></div>
             <div class="step"><div><h4>Lease signing &amp; deposit</h4><p>Digital signing; deposits and terms per the schedule on the Leasing page.</p></div></div>
@@ -775,14 +943,14 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-gallery">
         <section class="reveal">
           <p class="eyebrow">Visual record</p>
-          <h2>Before, during, and ahead.</h2>
+          <h2>Before, During, and Ahead</h2>
           <p class="lead" style="margin-bottom:8px;">A complete visual history of the project — including the conditions encountered along the way — together with the design options still to be selected. This page also serves as Marlene's design reference following the meeting.</p>
           <p class="todo-note" style="margin-top:16px;">All frames below are slots — drop photos in as single data-URI images</p>
         </section>
 
         <section class="reveal">
           <p class="eyebrow">Before &amp; damage</p>
-          <h2>Initial conditions.</h2>
+          <h2>Initial Conditions</h2>
           <div class="gallery">
             <div class="frame" tabindex="0" role="button" aria-label="Before — typical unit condition at takeover"><div><div class="ft">Before</div><div class="fd">Typical unit condition at takeover</div></div></div>
             <div class="frame" tabindex="0" role="button" aria-label="Before — common areas"><div><div class="ft">Before</div><div class="fd">Common areas</div></div></div>
@@ -795,7 +963,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Progress</p>
-          <h2>Current progress.</h2>
+          <h2>Current Progress</h2>
           <div class="gallery">
             <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — kitchen"><div><div class="ft">Renovated</div><div class="fd">Kitchen — delivered unit</div></div></div>
             <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — bath"><div><div class="ft">Renovated</div><div class="fd">Bath — delivered unit</div></div></div>
@@ -806,7 +974,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Design options — for Marlene</p>
-          <h2>Four decisions, with options presented side by side.</h2>
+          <h2>Four Decisions, With Options Presented Side by Side</h2>
           <p class="measure sub" style="margin-bottom:28px;">Curated toward natural materials and mid-century lines. Each pairing below represents a decision we would like to resolve Friday; renderings or product photographs will be loaded into the frames.</p>
           <div class="grid grid-2">
             <div class="card">
@@ -845,7 +1013,7 @@ ul{margin:0; padding:0; list-style:none;}
       <div class="page" id="page-portal">
         <section class="reveal">
           <p class="eyebrow">Owner access</p>
-          <h2>All official records, accessible through a single login.</h2>
+          <h2>All Official Records, Accessible Through a Single Login</h2>
           <p class="lead" style="margin-bottom:28px;">The AppFolio owner portal serves as the permanent document repository: statements, approved bids, reports, and Jerry's market comparable study are maintained there. This page is the point of entry, and we will demonstrate the portal live on Friday.</p>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn-primary btn-arrow" href="#" id="portalLink" target="_blank" rel="noopener">Open the AppFolio owner portal</a>
@@ -855,7 +1023,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">The demonstration</p>
-          <h2>What we will present live.</h2>
+          <h2>What We Will Present Live</h2>
           <div class="steps">
             <div class="step"><div><h4>Log in</h4><p>Each family member receives individual credentials — provisioned by AGM and resettable at any time.</p></div></div>
             <div class="step"><div><h4>Monthly statements</h4><p>Income, expenses, and distributions, delivered every month without the need for a request.</p></div></div>
@@ -866,7 +1034,7 @@ ul{margin:0; padding:0; list-style:none;}
 
         <section class="reveal">
           <p class="eyebrow">Document register</p>
-          <h2>Documents available and pending.</h2>
+          <h2>Documents Available and Pending</h2>
           <div class="reality">
             <h3>Owner portal document repository</h3>
             <p class="sub" style="margin-bottom:8px;">Update the status indicators as items are uploaded — this list serves as the pre-meeting checklist.</p>
@@ -921,14 +1089,22 @@ function track(event, props){
    ============================================================ */
 var RAILS = {
   'home': {
-    eyebrow:'Owner Presentation · Confidential', title:'White Heather Apartments.',
+    eyebrow:'Owner Presentation · Confidential', title:'White Heather Apartments',
     pos:'A 21-unit building in North Seattle, currently in lease-up following renovation. Prepared by AGM Real Estate Group for Ernie and Marlene Chen.',
     glance:[['Address','12556 15th Ave NE'],['Units','21'],['Mix','12×1bd · 9×2bd'],['Rentable','17,645 SF'],['Occupancy','61.9%'],['Renovated','7 units']],
     primary:['agenda','Begin with the agenda'], secondary:['portal','Open the owner portal'],
     foot:'Rent roll data as of June 11, 2026 (AppFolio). Managed by AGM Real Estate Group.'
   },
+  'summary': {
+    eyebrow:'Executive Summary · Confidential', title:'Executive Summary',
+    pos:'The full engagement on one screen — the building, the numbers, the work completed and remaining, and the decisions ahead. Each panel links to its full page.',
+    glance:[['Units','21'],['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 units']],
+    primary:['leasing','The leasing analysis'], secondary:['financials','The financials'],
+    print:true,
+    foot:'A one-page overview of the full presentation. All figures from the June 11, 2026 AppFolio rent roll.'
+  },
   'agenda': {
-    eyebrow:'Friday’s Meeting', title:'Agenda, order of presentation, and the team.',
+    eyebrow:'Friday’s Meeting', title:'Agenda, Order of Presentation, and the Team',
     pos:'Nine items, each corresponding to a page on this site, concluding with the decisions we are requesting at the meeting.',
     glance:[['Attendees','Ernie & Marlene Chen'],['Format','Site-driven, on screen'],['Items','9'],['Decisions sought','4']],
     primary:['home','Begin with the current status'], secondary:null,
@@ -936,7 +1112,7 @@ var RAILS = {
     foot:'Presenter names and team descriptions to be added before the meeting.'
   },
   'financials': {
-    eyebrow:'Financials', title:'Funds received, expenditures, and the outlook ahead.',
+    eyebrow:'Financials', title:'Funds Received, Expenditures, and the Outlook Ahead',
     pos:'Insurance proceeds, owner funds, budget versus actuals, the lease-up forecast, phase two, and the refinancing discussion.',
     glance:[['Income today','$20,911 / mo'],['At stabilization','$38,035 / mo'],['Budget figures','To be loaded'],['Statements','Owner portal']],
     primary:['portal','Documents in the portal'], secondary:['leasing','The path to stabilized income'],
@@ -944,7 +1120,7 @@ var RAILS = {
     foot:'Final figures load from the approved budget before the meeting. Statements live in AppFolio.'
   },
   'construction': {
-    eyebrow:'Construction', title:'Conditions identified, work completed, and remaining scope.',
+    eyebrow:'Construction', title:'Conditions Identified, Work Completed, and Remaining Scope',
     pos:'A candid account of the project: the water incident, existing conditions, abatement, unforeseen discoveries, and the remaining scope.',
     glance:[['Water incident','Remediated'],['Hazmat','Abated'],['Units delivered','7'],['Remaining scope','Phase two']],
     primary:['gallery','View the photographs'], secondary:['financials','Cost treatment'],
@@ -952,7 +1128,7 @@ var RAILS = {
     foot:'Approved bids and clearance reports live in the owner portal filing cabinet.'
   },
   'leasing': {
-    eyebrow:'Leasing & Market', title:'Rents drive value: the gap and the plan to close it.',
+    eyebrow:'Leasing & Market', title:'Rents Drive Value: The Gap and the Plan to Close It',
     pos:'Current rents versus market, the half-mile comparable methodology, concession structure, and evidence that renovated units are achieving their targets.',
     glance:[['In place','$20,911 / mo'],['At market, full','$38,035 / mo'],['Gap','$17,124 / mo'],['Vacant','8 (+1 notice)'],['Pre-leased','1']],
     primary:['marketing','The plan to lease the units'], secondary:['portal','Jerry’s comparable report'],
@@ -960,7 +1136,7 @@ var RAILS = {
     foot:'All figures from the June 11, 2026 AppFolio rent roll. Comp detail per the market comp report.'
   },
   'marketing': {
-    eyebrow:'Marketing', title:'Three recommended channels; one not recommended.',
+    eyebrow:'Marketing', title:'Three Recommended Channels; One Not Recommended',
     pos:'Zillow, a Google drip campaign, and a neighborhood mailer — each framed in cost per lease — together with the rationale for declining apartments.com.',
     glance:[['Units to lease','8 (+1 notice)'],['Recommended','3 channels'],['Not recommended','Apartments.com'],['Measure','Cost per lease']],
     primary:['leasing','The rents being marketed'], secondary:null,
@@ -968,21 +1144,21 @@ var RAILS = {
     foot:'Package costs and lead estimates to be loaded before the meeting.'
   },
   'tenants': {
-    eyebrow:'Tenant Experience', title:'Retaining the tenants we have invested in finding.',
+    eyebrow:'Tenant Experience', title:'Retaining the Tenants We Have Invested in Finding',
     pos:'The welcome packet, move-in process, and considered details that reduce turnover.',
     glance:[['Move-ins since Sep','3 (+1 pending)'],['Packet','Example on page'],['Process','AppFolio end-to-end']],
     primary:['leasing','Leasing progress'], secondary:null,
     foot:'Welcome packet example and gift selection to be confirmed before the meeting.'
   },
   'gallery': {
-    eyebrow:'Gallery & Design', title:'The visual record, and Marlene’s design decisions.',
+    eyebrow:'Gallery & Design', title:'The Visual Record, and Marlene’s Design Decisions',
     pos:'Before, damage, and progress photographs, together with side-by-side options for paneling, lighting, doors, and door numbering.',
     glance:[['Categories','Before · Damage · Progress'],['Design decisions','4'],['Direction','Natural · mid-century'],['Status','Photos to load']],
     primary:['construction','The context behind the photographs'], secondary:null,
     foot:'This page stays live after the meeting as Marlene’s design reference.'
   },
   'portal': {
-    eyebrow:'Owner Portal', title:'Statements, bids, and reports — a single login.',
+    eyebrow:'Owner Portal', title:'Statements, Bids, and Reports — A Single Login',
     pos:'The AppFolio owner portal is the permanent document repository. This page is the point of entry and the basis for Friday’s live demonstration.',
     glance:[['Platform','AppFolio'],['Access','Chen family logins'],['Statements','Monthly, automatic'],['Repository','Bids · Reports · Comps']],
     primary:null, secondary:['financials','Return to the financials'],
@@ -1015,9 +1191,10 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['home','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
+var ROUTES = ['home','summary','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
 var TITLES = {
   'home':'White Heather Apartments — Owner Presentation',
+  'summary':'Executive Summary — White Heather Apartments',
   'agenda':'Agenda — White Heather Apartments',
   'financials':'Financials — White Heather Apartments',
   'construction':'Construction — White Heather Apartments',
