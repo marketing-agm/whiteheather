@@ -331,6 +331,7 @@ a.doc:hover .dmeta{color:var(--accent);}
 .step::before{content:counter(step,decimal-leading-zero); font-family:var(--serif); font-weight:700; color:var(--accent); font-size:15px; padding-top:2px;}
 .step h4{margin-bottom:7px;}
 .step p{font-size:13.5px; color:var(--text-3); margin:0; line-height:1.65; max-width:58ch;}
+.step .story-next{margin-top:10px; font-size:12.5px; font-weight:500; color:var(--accent);}
 
 /* summary strip */
 .studies{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-top:36px;}
@@ -429,10 +430,11 @@ a.doc:hover .dmeta{color:var(--accent);}
 <!-- ===================== TOP BAR (full width) ===================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand" data-route="summary" role="button" tabindex="0">
+    <div class="brand" data-route="overview" role="button" tabindex="0">
       White&nbsp;Heather&nbsp;Apartments <span class="mark">AGM</span>
     </div>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
+      <button class="nav-link" data-route="overview">Overview</button>
       <button class="nav-link" data-route="summary">Executive Summary</button>
       <button class="nav-link" data-route="agenda">Contents</button>
       <button class="nav-link" data-route="financials">Financials</button>
@@ -463,12 +465,75 @@ a.doc:hover .dmeta{color:var(--accent);}
     <main class="content" id="content">
       <div class="content-inner">
 
+      <!-- ============ OVERVIEW (NARRATIVE) ============ -->
+      <div class="page" id="page-overview">
+        <section class="reveal">
+          <p class="eyebrow">A working view</p>
+          <h2>How the Work Connects</h2>
+          <p class="measure sub">Six chapters — what happened, what was done, and the impact — each one setting up the next. The detail lives in the full sections; this page is the thread that ties them together.</p>
+        </section>
+
+        <section class="reveal">
+          <div class="steps">
+            <div class="step"><div>
+              <h4>The starting point <span class="tag" style="margin-left:8px;">Construction</span></h4>
+              <p>A water event and the realities of an older building. Everything was remediated, abated, and documented before money went into finishes — the building was stabilized first, assessed second, improved third.</p>
+              <p class="story-next">That assessment shaped a renovation plan that never takes the building offline &rarr;</p>
+            </div></div>
+            <div class="step"><div>
+              <h4>Seven units delivered, building never offline <span class="tag" style="margin-left:8px;">Renovation</span></h4>
+              <p>Four phases, funded through line-of-credit draws. Completed units re-lease and produce income while the next phase runs — through November 2026.</p>
+              <p class="story-next">Each delivered unit becomes the proof behind the leasing strategy &rarr;</p>
+            </div></div>
+            <div class="step"><div>
+              <h4>Renovated units are proving the rents <span class="tag" style="margin-left:8px;">Leasing</span></h4>
+              <p>Leased at or above target — $2,350 against a $2,295 target, $1,850 against $1,750. The remaining gap between in-place and market: $17,124 a month.</p>
+              <p class="story-next">Demonstrated demand is what justifies the marketing spend &rarr;</p>
+            </div></div>
+            <div class="step"><div>
+              <h4>Spend measured in cost per lease <span class="tag" style="margin-left:8px;">Marketing</span></h4>
+              <p>Zillow for traffic, the building's own website for an owned pipeline, a neighborhood mailer for local reach — every channel held to one number.</p>
+              <p class="story-next">Leases won are kept through the resident experience &rarr;</p>
+            </div></div>
+            <div class="step"><div>
+              <h4>Residents first, by design <span class="tag" style="margin-left:8px;">Tenants</span></h4>
+              <p>Renovated units offered in-house before public advertising; long-term residents honored in place. Retention protects every gain above it.</p>
+              <p class="story-next">All of it rolls up into one financial picture &rarr;</p>
+            </div></div>
+            <div class="step"><div>
+              <h4>Income — and value — follow <span class="tag" style="margin-left:8px;">Financials</span></h4>
+              <p>From $20,911 toward $38,035 a month as units deliver; projected 2027 net operating income of about $322,000, and a clean financing decision at stabilization.</p>
+              <p class="story-next">The open decisions connect it back to the building &rarr;</p>
+            </div></div>
+          </div>
+          <div style="margin-top:32px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-arrow" data-route="summary">The executive summary</button>
+            <button class="btn btn-ghost" data-route="agenda">Browse all sections</button>
+          </div>
+        </section>
+      </div>
+
       <!-- ============ EXECUTIVE SUMMARY ============ -->
       <div class="page" id="page-summary">
         <section class="reveal">
           <p class="eyebrow">The property</p>
           <div class="frame wide" role="img" aria-label="White Heather Apartments — exterior photograph placeholder">
             <div><div class="ft">Photo slot</div><div class="fd">Current exterior photograph</div></div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Decades of stewardship</p>
+          <h2>The Next Phase of a Family Property</h2>
+          <div class="grid grid-2">
+            <div class="card">
+              <h4>The foundation</h4>
+              <p>Decades of hands-on family stewardship built this property's real strength: residents who stayed, and rents kept deliberately affordable. None of that is treated as a problem to fix — it is the foundation the next phase builds on.</p>
+            </div>
+            <div class="card">
+              <h4>AGM's role</h4>
+              <p>Support for the next phase: clearer structure, reporting, leasing strategy, and renovation coordination — organizing what White Heather already has going for it, while respecting the residents and history that define it.</p>
+            </div>
           </div>
         </section>
 
@@ -631,15 +696,23 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Awaiting your direction</p>
           <h2>Open Decisions</h2>
+          <p class="measure sub" style="margin-bottom:24px;">To keep things moving efficiently, these are the points where your direction helps most.</p>
           <div class="studies" style="margin-top:0;">
             <div class="study"><div class="s-k">Rent positioning</div><div class="s-v">Confirm targets</div><div class="s-d">Market-rate targets for the vacant and renovated units.</div></div>
             <div class="study"><div class="s-k">Marketing budget</div><div class="s-v">Approve spend</div><div class="s-d">The recommended channel mix on the Marketing page.</div></div>
-            <div class="study"><div class="s-k">Design selections</div><div class="s-v">Marlene's picks</div><div class="s-d">Paneling, sconces, doors, and door numbering.</div></div>
+            <div class="study"><div class="s-k">Design selections</div><div class="s-v">Four selections</div><div class="s-d">Paneling, sconces, doors, and door numbering.</div></div>
             <div class="study"><div class="s-k">Refinance timing</div><div class="s-v">Now or later</div><div class="s-d">Begin lender discussions now or following lease-up.</div></div>
           </div>
           <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn btn-primary btn-arrow" data-route="financials">The financial review</button>
             <button class="btn btn-ghost" data-route="leasing">The leasing analysis</button>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <div class="card card-quiet">
+            <h3>From the record to the building</h3>
+            <p>Everything here is meant to be walked: the delivered units, the work underway, and the spaces where choices are still open. White Heather already has a strong foundation — our role is to organize, improve, and support its next phase in a way that is thoughtful, visible, and financially clear.</p>
           </div>
         </section>
       </div>
@@ -649,7 +722,9 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">The full record</p>
           <h2>Section Guide</h2>
+          <p class="measure sub" style="margin-bottom:28px;">A clear view of what has been done, what comes next, and where your direction keeps things moving — section by section.</p>
           <div class="steps">
+            <div class="step"><div><h4>Overview</h4><p>The story of the work in six connected chapters.</p></div></div>
             <div class="step"><div><h4>Executive Summary</h4><p>Every division on one screen, with the open decisions.</p></div></div>
             <div class="step"><div><h4>Financials</h4><p>Outlook, funding, valuation, and the 2027 financing decision.</p></div></div>
             <div class="step"><div><h4>Construction</h4><p>Conditions encountered and the four-phase plan.</p></div></div>
@@ -744,6 +819,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Rent premiums</p>
           <h2>Renovation Economics</h2>
+          <p class="measure sub" style="margin-bottom:24px;">The clearest way to show value is unit by unit: where rent started, what was done, and what it returns.</p>
           <div class="grid grid-2">
             <div class="card"><h4>Per unit</h4><p>One-bedrooms move from $1,500 to $1,750 at market; two-bedrooms from $2,150 to $2,295. Delivered units have leased at or above target — 307 at $2,350, 305 at $1,850.</p></div>
             <div class="card"><h4>Across the building</h4><p>Phases 2&ndash;4 extend the uplift as units turn, carrying income from $20,911 toward $38,035 per month.</p></div>
@@ -786,7 +862,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Findings to date</p>
           <h2>Conditions Encountered</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Status as of June 2026. Photographs in the Gallery; supporting documents in the owner portal.</p>
+          <p class="measure sub" style="margin-bottom:28px;">A building of this era carries its history in the walls — none of what follows is unusual, and each item was addressed deliberately and documented. Status as of June 2026; photographs in the Gallery, supporting documents in the owner portal.</p>
           <div class="grid grid-2">
             <div class="card">
               <div class="card-head"><h4>Water incident</h4><span class="chip ok">Remediated</span></div>
@@ -810,7 +886,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Late 2025 &ndash; November 2026</p>
           <h2>The Four-Phase Plan</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Each phase completes a set of units that re-lease while the next proceeds — the building is never taken fully offline. All phases fund through line-of-credit draws (Financials).</p>
+          <p class="measure sub" style="margin-bottom:28px;">Sequenced to create visible momentum early — presentation, leasing readiness, and day-to-day organization first. Each phase completes a set of units that re-lease while the next proceeds, so the building is never taken fully offline; all phases fund through line-of-credit draws (Financials).</p>
           <div class="flow">
             <div class="fstep is-done">
               <div class="fs-n">01</div>
@@ -834,7 +910,7 @@ a.doc:hover .dmeta{color:var(--accent);}
               <div class="fs-n">04</div>
               <div class="fs-d">Following Phase 4</div>
               <div class="fs-k"><h4>Closeout</h4><span class="chip warn">Scheduled</span></div>
-              <p>Common areas, exterior, Marlene's selections, punch list, and warranty documentation.</p>
+              <p>Common areas, exterior, design selections, punch list, and warranty documentation.</p>
             </div>
           </div>
         </section>
@@ -852,7 +928,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">The thesis</p>
           <h2>Rents Drive Value</h2>
-          <p class="measure sub" style="margin-bottom:32px;">Years of below-market rents kept excellent long-term residents — and capped the building's income and value. The plan closes the gap on turnover, not on existing tenants.</p>
+          <p class="measure sub" style="margin-bottom:32px;">Keeping rents affordable was a deliberate part of the family's stewardship, and it kept excellent residents for decades. It also capped the building's income and value. The plan honors that history: the gap closes on turnover and renovation — never on the residents who stayed.</p>
           <div class="metrics" style="margin-bottom:32px;">
             <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place (13 occupied units)</div></div>
             <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at market, fully leased</div></div>
@@ -953,7 +1029,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Pricing methodology</p>
           <h2>The Half-Mile Comparable Set</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Renters compare White Heather to buildings minutes away, so pricing is set against the half-mile radius around 15th Ave NE. The full comparable-set report (HelloData) is available <a href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" target="_blank" rel="noopener">as a live report</a> and in the owner portal.</p>
+          <p class="measure sub" style="margin-bottom:28px;">Pricing recommendations are grounded in the actual market, unit condition, and the improvements made — not opinion. Renters compare White Heather to buildings minutes away, so targets are set against the half-mile radius around 15th Ave NE. The full comparable-set report (HelloData) is available <a href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" target="_blank" rel="noopener">as a live report</a> and in the owner portal.</p>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Property</th><th>Distance</th><th>1-bed</th><th>2-bed</th><th>Note</th></tr></thead>
@@ -1069,7 +1145,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Retention</p>
           <h2>Resident Transfer Program</h2>
-          <p class="measure sub" style="margin-bottom:24px;">Turnover is among the costliest events in a small building. Renovated units are therefore offered to existing residents first — at a preferred in-house rate, before public advertising — keeping good tenants, upgrading the resident profile, and filling vacancies faster.</p>
+          <p class="measure sub" style="margin-bottom:24px;">Residents-first has defined White Heather for decades; the transfer program carries that approach into the renovation. Renovated units are offered to existing residents first — at a preferred in-house rate, before public advertising — keeping good tenants, upgrading the resident profile, and filling vacancies faster.</p>
           <div class="grid grid-2">
             <div class="card">
               <h4>How it works</h4>
@@ -1125,7 +1201,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Start to finish</p>
           <h2>The Renovation in Photographs</h2>
-          <p class="measure sub" style="margin-bottom:8px;">The project's visual history, and the design options open for selection — maintained as Marlene's ongoing reference.</p>
+          <p class="measure sub" style="margin-bottom:8px;">The project's visual history, and the design options open for selection — maintained as the ongoing design reference.</p>
           
         </section>
 
@@ -1155,8 +1231,8 @@ a.doc:hover .dmeta{color:var(--accent);}
 
         <section class="reveal">
           <p class="eyebrow">Four selections</p>
-          <h2>Design Decisions for Marlene</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Natural materials, mid-century lines. Renderings and product photographs load as options are sourced.</p>
+          <h2>Design Decisions</h2>
+          <p class="measure sub" style="margin-bottom:28px;">The aim is design that feels right for White Heather — improving the building without making it generic. Natural materials and mid-century lines; renderings and product photographs load as options are sourced.</p>
           <div class="grid grid-2">
             <div class="card">
               <h4>Acoustic paneling</h4>
@@ -1201,7 +1277,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal" style="border-top:none; padding-top:0;">
           <p class="eyebrow">Quick reference</p>
           <h2>Property Documents</h2>
-          <p class="sub" style="margin:0 0 24px; max-width:62ch;">Each folder opens to its documents — mirrored from the records in AppFolio.</p>
+          <p class="sub" style="margin:0 0 24px; max-width:62ch;">One place to see progress, review materials, and track decisions. Each folder opens to its documents — mirrored from the records in AppFolio.</p>
 
           <!-- =============================================================
                TO ADD A DOCUMENT: drop the PDF into a /docs folder in the
@@ -1494,9 +1570,16 @@ function track(event, props){
    RAIL CONTENT — adapts per route
    ============================================================ */
 var RAILS = {
+  'overview': {
+    eyebrow:'Overview · Confidential', title:'The Story of the Work',
+    pos:'Six connected chapters — what happened, what was done, and the impact — each leading into the full record.',
+    glance:[['Chapters','6'],['Detail','Executive Summary'],['Updated','June 2026']],
+    primary:['summary','The executive summary'], secondary:['portal','Owner portal'],
+    foot:'A narrative thread through the record. Figures from the June 11, 2026 rent roll.'
+  },
   'summary': {
     eyebrow:'Executive Summary · Confidential', title:'Where the Property Stands',
-    pos:'A 21-unit building in lease-up after renovation. Each panel summarizes a division and links into the full record.',
+    pos:'A clear view of what has been done, what comes next, and where your direction helps. Each panel links into the full record.',
     glance:[['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 of 21']],
     primary:['financials','The financial review'], secondary:['leasing','The leasing analysis'],
     print:true,
@@ -1505,7 +1588,7 @@ var RAILS = {
   'agenda': {
     eyebrow:'Contents', title:'How This Record Is Organized',
     pos:'Where everything lives, and the team behind the property.',
-    glance:[['Sections','9'],['Open decisions','4'],['Updated','Continually']],
+    glance:[['Sections','10'],['Open decisions','4'],['Updated','Continually']],
     primary:['summary','Executive summary'], secondary:null,
     print:true,
     foot:'Maintained by AGM Real Estate Group.'
@@ -1551,10 +1634,10 @@ var RAILS = {
   },
   'gallery': {
     eyebrow:'Gallery & Design', title:'A Complete Visual History',
-    pos:'Before, damage, and progress photographs, with Marlene’s four design decisions side by side.',
+    pos:'Before, damage, and progress photographs, with the four open design decisions side by side.',
     glance:[['Categories','Before · Damage · Progress'],['Design decisions','4'],['Direction','Natural · mid-century']],
     primary:['construction','The work behind the photos'], secondary:null,
-    foot:'Maintained as Marlene’s ongoing design reference.'
+    foot:'Maintained as the ongoing design reference.'
   },
   'portal': {
     eyebrow:'Owner Portal', title:'Official Records and Access',
@@ -1566,7 +1649,7 @@ var RAILS = {
 };
 
 function renderRail(route){
-  var d = RAILS[route] || RAILS.summary;
+  var d = RAILS[route] || RAILS.overview;
   var html = '';
   html += '<p class="eyebrow-accent">'+d.eyebrow+'</p>';
   html += '<h1>'+d.title+'</h1>';
@@ -1590,8 +1673,9 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['summary','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
+var ROUTES = ['overview','summary','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
 var TITLES = {
+  'overview':'Overview — White Heather Apartments',
   'summary':'Executive Summary — White Heather Apartments',
   'agenda':'Contents — White Heather Apartments',
   'financials':'Financials — White Heather Apartments',
@@ -1604,13 +1688,13 @@ var TITLES = {
 };
 /* short labels for the floating side nav + section pager */
 var NAVLABELS = {
-  'summary':'Executive Summary', 'agenda':'Contents',
+  'overview':'Overview', 'summary':'Executive Summary', 'agenda':'Contents',
   'financials':'Financials', 'construction':'Construction', 'leasing':'Leasing & Market',
   'marketing':'Marketing', 'tenants':'Tenants', 'gallery':'Gallery', 'portal':'Owner Portal'
 };
 function currentRoute(){
   var h = (location.hash || '').replace(/^#\/?/,'');
-  return ROUTES.indexOf(h) >= 0 ? h : 'summary';
+  return ROUTES.indexOf(h) >= 0 ? h : 'overview';
 }
 
 /* floating side nav */
@@ -1673,7 +1757,7 @@ function showRoute(route){
   });
   renderRail(route);
   renderPager(route);
-  document.title = TITLES[route] || TITLES.summary;
+  document.title = TITLES[route] || TITLES.overview;
   window.scrollTo({top:0, behavior:'auto'});
   closeMobileNav();
   runReveal();
