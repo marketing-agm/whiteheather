@@ -410,11 +410,10 @@ a.doc:hover .dmeta{color:var(--accent);}
 <!-- ===================== TOP BAR (full width) ===================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand" data-route="home" role="button" tabindex="0">
+    <div class="brand" data-route="summary" role="button" tabindex="0">
       White&nbsp;Heather&nbsp;Apartments <span class="mark">AGM</span>
     </div>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <button class="nav-link" data-route="home">Overview</button>
       <button class="nav-link" data-route="summary">Executive Summary</button>
       <button class="nav-link" data-route="agenda">Contents</button>
       <button class="nav-link" data-route="financials">Financials</button>
@@ -445,83 +444,6 @@ a.doc:hover .dmeta{color:var(--accent);}
     <main class="content" id="content">
       <div class="content-inner">
 
-      <!-- ============ OVERVIEW (HOME) ============ -->
-      <div class="page" id="page-home">
-        <section class="reveal">
-          <p class="eyebrow">12556 15th Ave NE, Seattle</p>
-          <div class="frame wide" role="img" aria-label="White Heather Apartments — exterior photograph placeholder">
-            <div><div class="ft">Photo slot</div><div class="fd">Current exterior photograph</div></div>
-          </div>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">As of June 11, 2026</p>
-          <h2>Current Position</h2>
-          <div class="metrics" style="margin-bottom:32px;">
-            <div class="metric"><div class="num">13</div><div class="lbl">of 21 units occupied, plus one pre-leased</div></div>
-            <div class="metric"><div class="num">7</div><div class="lbl">units renovated and delivered</div></div>
-            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place</div></div>
-            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at market, fully leased</div></div>
-          </div>
-          <p class="measure sub">The work ahead: deliver the remaining renovations and lease them at market. Income — and value — follow.</p>
-          <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary btn-arrow" data-route="leasing">The leasing analysis</button>
-            <button class="btn btn-ghost" data-route="summary">Executive summary</button>
-          </div>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Three floor plans</p>
-          <h2>Unit Mix &amp; Pricing</h2>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Unit type</th><th>Count</th><th>Size</th><th>Market rent</th><th>Renovated</th></tr></thead>
-              <tbody>
-                <tr><td>1 bed / 1 bath</td><td>12</td><td>735 SF</td><td>$1,500</td><td>$1,750</td></tr>
-                <tr><td>2 bed / 2 bath</td><td>7</td><td>985 SF</td><td>$2,150</td><td>$2,295</td></tr>
-                <tr><td>2 bed / 1.5 bath</td><td>2</td><td>965 SF</td><td>$1,900</td><td>—</td></tr>
-              </tbody>
-              <tfoot><tr><td>21 units</td><td colspan="2">17,645 SF</td><td colspan="2">$38,035/mo at full market</td></tr></tfoot>
-            </table>
-          </div>
-          <p class="form-note" style="margin-top:14px;">Source: AppFolio rent roll, June 11, 2026.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Lease-up</p>
-          <h2>Availability</h2>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>Status</th><th>Market rent</th></tr></thead>
-              <tbody>
-                <tr class="row-hl"><td>102</td><td>2/2 · renovated</td><td>985 SF</td><td><span class="chip ok">Pre-leased</span></td><td>$2,295</td></tr>
-                <tr><td>104</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
-                <tr><td>105</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
-                <tr><td>204</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
-                <tr><td>107</td><td>2/1.5</td><td>965 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,900</td></tr>
-                <tr><td>201</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
-                <tr><td>301</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
-                <tr><td>304</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
-                <tr><td>306</td><td>2/2</td><td>985 SF</td><td><span class="chip danger">Notice — 6/30</span></td><td>$2,150</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="form-note" style="margin-top:14px;">As of June 11, 2026. Units 104, 105, and 204 are renovated and in lease-up; 102 is pre-leased. The Phase 2 units (107, 201, 301, 304) return through July. Unit 306 is on notice and returns to inventory July 1.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">On site</p>
-          <h2>Amenities</h2>
-          <div>
-            <span class="tag">On-site laundry</span>
-            <span class="tag">Off-street parking</span>
-            <span class="tag">Renovated interiors (select units)</span>
-            <span class="tag">Pinehurst / Northgate location</span>
-            <span class="tag">Transit access — Northgate light rail</span>
-          </div>
-        </section>
-      </div>
-
       <!-- ============ EXECUTIVE SUMMARY ============ -->
       <div class="page" id="page-summary">
         <section class="reveal">
@@ -545,24 +467,34 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Nine workstreams</p>
+          <p class="eyebrow">Current inventory</p>
+          <h2>The Lease-Up Pipeline</h2>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>Status</th><th>Market rent</th></tr></thead>
+              <tbody>
+                <tr class="row-hl"><td>102</td><td>2/2 · renovated</td><td>985 SF</td><td><span class="chip ok">Pre-leased</span></td><td>$2,295</td></tr>
+                <tr><td>104</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
+                <tr><td>105</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
+                <tr><td>204</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td></tr>
+                <tr><td>107</td><td>2/1.5</td><td>965 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,900</td></tr>
+                <tr><td>201</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
+                <tr><td>301</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
+                <tr><td>304</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation · Phase 2</span></td><td>$1,500</td></tr>
+                <tr><td>306</td><td>2/2</td><td>985 SF</td><td><span class="chip danger">Notice — 6/30</span></td><td>$2,150</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:14px;">Three renovated units in lease-up, one pre-leased, four in Phase 2 renovation, and 306 returning July 1. Unit-level detail and timing on the Leasing &amp; Market page.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Eight workstreams</p>
           <h2>Status Across Divisions</h2>
           <p class="measure sub" style="margin-bottom:28px;">Each panel links to its full section.</p>
           <div class="dash">
 
-            <div class="card card-link" data-route="home">
-              <div class="dash-head"><h3>The Building</h3><span class="chip ok">Operating</span></div>
-              <ul class="kv">
-                <li><span>Address</span><span class="kvv">12556 15th Ave NE</span></li>
-                <li><span>Units / mix</span><span class="kvv">21 · 12×1bd · 9×2bd</span></li>
-                <li><span>Rentable area</span><span class="kvv">17,645 SF</span></li>
-                <li><span>Renovated</span><span class="kvv">7 units</span></li>
-              </ul>
-              <div class="frame mini" role="img" aria-label="Building exterior photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Exterior</div></div></div>
-              <span class="more">Full overview →</span>
-            </div>
-
-            <div class="card card-link" data-route="home">
+            <div class="card card-link" data-route="leasing">
               <div class="dash-head"><h3>Lease-Up Status</h3><span class="chip warn">In progress</span></div>
               <ul class="kv">
                 <li><span>Occupied</span><span class="kvv">13 units</span></li>
@@ -681,7 +613,6 @@ a.doc:hover .dmeta{color:var(--accent);}
           <p class="eyebrow">The full record</p>
           <h2>Section Guide</h2>
           <div class="steps">
-            <div class="step"><div><h4>Overview</h4><p>Position, unit mix, and availability.</p></div></div>
             <div class="step"><div><h4>Executive Summary</h4><p>Every division on one screen, with the open decisions.</p></div></div>
             <div class="step"><div><h4>Financials</h4><p>Outlook, funding, valuation, and the 2027 financing decision.</p></div></div>
             <div class="step"><div><h4>Construction</h4><p>Conditions encountered and the four-phase plan.</p></div></div>
@@ -866,6 +797,28 @@ a.doc:hover .dmeta{color:var(--accent);}
             <li><strong>Unit 202 (2/2)</strong> — occupied June 2026; <strong>unit 102 (2/2)</strong> pre-leased at $2,295.</li>
             <li><strong>Three renovated move-ins since September 2025,</strong> plus one pre-lease — demand at these rents is demonstrated.</li>
           </ul>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Unit-level detail</p>
+          <h2>Availability and Delivery Timing</h2>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>Status</th><th>Market</th><th>Advertised</th><th>Note</th></tr></thead>
+              <tbody>
+                <tr class="row-hl"><td>102</td><td>2/2 · renovated</td><td>985 SF</td><td><span class="chip ok">Pre-leased</span></td><td>$2,295</td><td>—</td><td>Leased before completion</td></tr>
+                <tr><td>104</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td><td>$1,795</td><td>In lease-up</td></tr>
+                <tr><td>105</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td><td>$1,650</td><td>Rent-ready</td></tr>
+                <tr><td>204</td><td>1/1 · renovated</td><td>735 SF</td><td><span class="chip ok">Available</span></td><td>$1,750</td><td>$1,750</td><td>In lease-up</td></tr>
+                <tr><td>107</td><td>2/1.5</td><td>965 SF</td><td><span class="chip warn">In renovation</span></td><td>$1,900</td><td>—</td><td>Phase 2 delivery</td></tr>
+                <tr><td>201</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation</span></td><td>$1,500</td><td>—</td><td>Phase 2 delivery</td></tr>
+                <tr><td>301</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation</span></td><td>$1,500</td><td>—</td><td>Phase 2 delivery</td></tr>
+                <tr><td>304</td><td>1/1</td><td>735 SF</td><td><span class="chip warn">In renovation</span></td><td>$1,500</td><td>—</td><td>Phase 2 · prior resident moved to 307</td></tr>
+                <tr><td>306</td><td>2/2</td><td>985 SF</td><td><span class="chip danger">On notice</span></td><td>$2,150</td><td>—</td><td>Returns to inventory July 1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="form-note" style="margin-top:14px;">As of June 11, 2026 (AppFolio). Advertised rent shown where a unit is actively listed; Phase 2 units price at delivery.</p>
         </section>
 
         <section class="reveal">
@@ -1438,17 +1391,10 @@ function track(event, props){
    RAIL CONTENT — adapts per route
    ============================================================ */
 var RAILS = {
-  'home': {
-    eyebrow:'Overview · Confidential', title:'White Heather Apartments',
-    pos:'In lease-up following a building-wide renovation. Maintained for Ernie and Marlene Chen by AGM Real Estate Group.',
-    glance:[['Address','12556 15th Ave NE'],['Units','21'],['Mix','12×1bd · 9×2bd'],['Rentable','17,645 SF'],['Occupancy','61.9%'],['Renovated','7 units']],
-    primary:['summary','Executive summary'], secondary:['portal','Owner portal'],
-    foot:'Rent roll as of June 11, 2026 (AppFolio).'
-  },
   'summary': {
-    eyebrow:'Executive Summary', title:'Where the Property Stands',
-    pos:'Each panel summarizes a division and links into the full record.',
-    glance:[['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 units']],
+    eyebrow:'Executive Summary · Confidential', title:'Where the Property Stands',
+    pos:'A 21-unit building in lease-up after renovation. Each panel summarizes a division and links into the full record.',
+    glance:[['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 of 21']],
     primary:['financials','The financial review'], secondary:['leasing','The leasing analysis'],
     print:true,
     foot:'All figures from the June 11, 2026 rent roll.'
@@ -1517,7 +1463,7 @@ var RAILS = {
 };
 
 function renderRail(route){
-  var d = RAILS[route] || RAILS.home;
+  var d = RAILS[route] || RAILS.summary;
   var html = '';
   html += '<p class="eyebrow-accent">'+d.eyebrow+'</p>';
   html += '<h1>'+d.title+'</h1>';
@@ -1541,9 +1487,8 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['home','summary','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
+var ROUTES = ['summary','agenda','financials','construction','leasing','marketing','tenants','gallery','portal'];
 var TITLES = {
-  'home':'White Heather Apartments — Owner Record',
   'summary':'Executive Summary — White Heather Apartments',
   'agenda':'Contents — White Heather Apartments',
   'financials':'Financials — White Heather Apartments',
@@ -1556,13 +1501,13 @@ var TITLES = {
 };
 /* short labels for the floating side nav + section pager */
 var NAVLABELS = {
-  'home':'Overview', 'summary':'Executive Summary', 'agenda':'Contents',
+  'summary':'Executive Summary', 'agenda':'Contents',
   'financials':'Financials', 'construction':'Construction', 'leasing':'Leasing & Market',
   'marketing':'Marketing', 'tenants':'Tenants', 'gallery':'Gallery', 'portal':'Owner Portal'
 };
 function currentRoute(){
   var h = (location.hash || '').replace(/^#\/?/,'');
-  return ROUTES.indexOf(h) >= 0 ? h : 'home';
+  return ROUTES.indexOf(h) >= 0 ? h : 'summary';
 }
 
 /* floating side nav */
@@ -1625,7 +1570,7 @@ function showRoute(route){
   });
   renderRail(route);
   renderPager(route);
-  document.title = TITLES[route] || TITLES.home;
+  document.title = TITLES[route] || TITLES.summary;
   window.scrollTo({top:0, behavior:'auto'});
   closeMobileNav();
   runReveal();
