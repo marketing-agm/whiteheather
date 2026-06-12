@@ -203,11 +203,13 @@ a.doc:hover .dmeta{color:var(--accent);}
 .doc.empty{color:var(--faint); font-style:italic;}
 .doc.empty .dmeta{font-style:normal;}
 
-/* section flow arrows — slide-style advance */
+/* floating section-advance arrow — sticky at viewport bottom */
 .content section{scroll-margin-top:84px;}
-.sec-next{display:grid; place-items:center; width:36px; height:36px; margin:44px auto 0; border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--faint); cursor:pointer; transition:color .15s var(--ease), border-color .15s var(--ease), transform .15s var(--ease);}
-.sec-next:hover{color:var(--accent); border-color:var(--accent); transform:translateY(2px);}
-.sec-next svg{width:16px; height:16px;}
+.flow-next{position:fixed; left:50%; bottom:26px; transform:translateX(-50%); z-index:110; display:grid; place-items:center; width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--text-3); cursor:pointer; box-shadow:0 6px 22px rgba(0,0,0,.14); transition:opacity .2s var(--ease), transform .2s var(--ease), color .15s var(--ease), border-color .15s var(--ease);}
+.flow-next:hover{color:var(--accent); border-color:var(--accent); transform:translateX(-50%) translateY(2px);}
+.flow-next svg{width:18px; height:18px;}
+.flow-next.hide{opacity:0; pointer-events:none; transform:translateX(-50%) translateY(10px);}
+@media(max-width:980px){.flow-next{display:none;}}
 
 /* channel detail modal */
 .modal{position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; place-items:center; z-index:240; padding:28px;}
@@ -353,7 +355,7 @@ a.doc:hover .dmeta{color:var(--accent);}
 
 /* print tear-sheets */
 @media print{
-  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager,.modal,.sec-next{display:none!important;}
+  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager,.modal,.flow-next{display:none!important;}
   body{background:#fff; color:#000; font-size:11pt;}
   .shell{display:block; max-width:none; border:none;}
   .rail{border:none; border-bottom:1.5pt solid #000;}
@@ -1239,6 +1241,11 @@ a.doc:hover .dmeta{color:var(--accent);}
   <div class="sidenav-list" id="sidenavList"></div>
 </nav>
 
+<!-- ===================== FLOATING SECTION ARROW ===================== -->
+<button class="flow-next" id="flowNext" aria-label="Next section" title="Next section">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+
 <!-- ===================== CHANNEL DETAIL MODAL ===================== -->
 <div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-label="Channel detail">
   <div class="modal-panel">
@@ -1552,24 +1559,23 @@ function renderPager(route){
   el.innerHTML = html;
 }
 
-/* section flow arrows — slide-style advance between sections */
-function buildSectionArrows(){
-  document.querySelectorAll('.sec-next').forEach(function(b){ b.remove(); });
+/* floating section-advance arrow — one sticky control at viewport bottom */
+function pageSections(){
   var page = document.querySelector('.page.active');
-  if (!page) return;
-  var secs = Array.prototype.filter.call(page.children, function(el){ return el.tagName === 'SECTION'; });
-  secs.forEach(function(sec, i){
-    if (i >= secs.length - 1) return;
-    var btn = document.createElement('button');
-    btn.className = 'sec-next';
-    btn.setAttribute('aria-label', 'Next section');
-    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
-    btn.addEventListener('click', function(){
-      secs[i+1].scrollIntoView({behavior:'smooth', block:'start'});
-      track('section_advance', {page:currentRoute(), to:i+1});
-    });
-    sec.appendChild(btn);
-  });
+  if (!page) return [];
+  return Array.prototype.filter.call(page.children, function(el){ return el.tagName === 'SECTION'; });
+}
+function nextSectionBelow(){
+  var secs = pageSections();
+  for (var i = 0; i < secs.length; i++){
+    if (secs[i].getBoundingClientRect().top > 100) return secs[i];
+  }
+  return null;
+}
+function updateFlowArrow(){
+  var btn = document.getElementById('flowNext');
+  if (!btn) return;
+  btn.classList.toggle('hide', !nextSectionBelow());
 }
 
 function showRoute(route){
@@ -1586,7 +1592,7 @@ function showRoute(route){
   window.scrollTo({top:0, behavior:'auto'});
   closeMobileNav();
   runReveal();
-  buildSectionArrows();
+  updateFlowArrow();
   engageRoute(route);
   track('page_view', {page:route});
 }
@@ -1618,6 +1624,20 @@ buildSideNav();
   if (openBtn) openBtn.addEventListener('click', function(){ setSideNavCollapsed(false); track('sidenav_expanded',{}); });
   var saved = null; try{ saved = localStorage.getItem('wh_sidenav'); }catch(e){}
   if (saved === 'collapsed') setSideNavCollapsed(true);
+})();
+
+(function(){
+  var btn = document.getElementById('flowNext');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var next = nextSectionBelow();
+    if (next){
+      next.scrollIntoView({behavior:'smooth', block:'start'});
+      track('section_advance', {page:currentRoute()});
+    }
+  });
+  window.addEventListener('scroll', updateFlowArrow, {passive:true});
+  window.addEventListener('resize', updateFlowArrow);
 })();
 
 /* ============================================================
