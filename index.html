@@ -297,14 +297,9 @@ a.doc:hover .dmeta{color:var(--accent);}
 .points strong{color:var(--text);}
 
 /* status module (construction conditions, document register) */
-.reality{border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:var(--radius); padding:36px; background:var(--surface);}
-.reality h3{margin-bottom:8px;}
-.reality > .sub{margin-bottom:10px;}
-.constraint{padding:20px 0; border-bottom:1px solid var(--border-soft);}
-.constraint:last-child{border-bottom:none; padding-bottom:0;}
-.constraint .ch{display:flex; align-items:center; gap:12px; margin-bottom:8px;}
-.constraint .ct{font-weight:600; color:var(--text); font-size:14px;}
-.constraint p{font-size:13.5px; color:var(--text-3); margin:0; line-height:1.65; max-width:62ch;}
+/* card header row — title + status chip, used outside the dashboard */
+.card-head{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px;}
+.card-head h3,.card-head h4{margin:0;}
 
 /* steps */
 .steps{counter-reset:step; border-top:1px solid var(--border-soft);}
@@ -365,7 +360,7 @@ a.doc:hover .dmeta{color:var(--accent);}
   .content-inner{max-width:none;}
   .content section{margin-bottom:16pt;}
   .content section + section{border-top:1pt solid #ccc; padding-top:14pt;}
-  .card,.table-wrap,.reality,.glance,.studies,.frame{break-inside:avoid;}
+  .card,.table-wrap,.glance,.studies,.frame{break-inside:avoid;}
   .reveal{opacity:1!important; transform:none!important;}
   a{color:#000;}
   .footer{border-top:1pt solid #000; padding:10pt 0;}
@@ -734,13 +729,24 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Findings to date</p>
           <h2>Conditions Encountered</h2>
-          <div class="reality">
-            <h3>Status as of June 2026</h3>
-            <p class="sub" style="margin-bottom:8px;">Photographs in the Gallery; supporting documents in the owner portal.</p>
-            <div class="constraint"><div class="ch"><span class="ct">Water incident</span><span class="chip ok">Remediated</span></div><p>Affected several units, including occupied 101, 103, and 106, whose long-term residents chose to remain. Insurance treatment on the Financials page.</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Building age / existing conditions</span><span class="chip warn">Ongoing management</span></div><p>Era-typical plumbing, electrical, and envelope conditions, sequenced into the phase plan.</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Hazardous materials</span><span class="chip ok">Abated per protocol</span></div><p>Identified, abated through licensed remediation, and cleared — documentation in the owner portal.</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Unforeseen conditions</span><span class="chip warn">Itemized</span></div><p>Scope and schedule impacts itemized with their cost treatment.</p></div>
+          <p class="measure sub" style="margin-bottom:28px;">Status as of June 2026. Photographs in the Gallery; supporting documents in the owner portal.</p>
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-head"><h4>Water incident</h4><span class="chip ok">Remediated</span></div>
+              <p>Affected several units, including occupied 101, 103, and 106, whose long-term residents chose to remain. Insurance treatment on the Financials page.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Building age &amp; existing conditions</h4><span class="chip warn">Ongoing</span></div>
+              <p>Era-typical plumbing, electrical, and envelope conditions, sequenced into the phase plan.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Hazardous materials</h4><span class="chip ok">Abated</span></div>
+              <p>Identified, abated through licensed remediation, and cleared — documentation in the owner portal.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Unforeseen conditions</h4><span class="chip warn">Itemized</span></div>
+              <p>Scope and schedule impacts itemized with their cost treatment.</p>
+            </div>
           </div>
         </section>
 
