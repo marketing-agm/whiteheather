@@ -264,10 +264,12 @@ a.doc:hover .dmeta{color:var(--accent);}
 .card .f-num{font-family:var(--serif); font-weight:700; font-size:30px; color:var(--accent); letter-spacing:-0.02em; line-height:1; margin-bottom:12px; font-variant-numeric:tabular-nums;}
 
 /* phase flow — chevron process strip */
-.flow{display:grid; grid-template-columns:repeat(4,1fr); gap:5px;}
-.flow .fstep{background:var(--surface-2); padding:26px 34px 26px 32px; clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%, 20px 50%);}
-.flow .fstep:first-child{clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%); padding-left:26px;}
-.flow .fstep:last-child{clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%, 20px 50%); padding-right:26px;}
+.flow{display:grid; grid-template-columns:repeat(4,1fr); gap:7px;}
+.flow .fstep{background:var(--surface-2); padding:24px 30px 24px 40px; clip-path:polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%, 26px 50%);}
+.flow .fstep:first-child{clip-path:polygon(0 0, calc(100% - 26px) 0, 100% 50%, calc(100% - 26px) 100%, 0 100%); padding-left:28px;}
+.flow .fstep:last-child{clip-path:polygon(0 0, 100% 0, 100% 100%, 0 100%, 26px 50%); padding-right:28px;}
+.flow .fstep.is-done{background:var(--accent-wash);}
+.fstep .fs-n{font-family:var(--serif); font-weight:700; font-size:13px; color:var(--accent); letter-spacing:.04em; margin-bottom:8px;}
 .fstep .fs-d{font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin-bottom:10px;}
 .fstep .fs-k{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:10px;}
 .fstep h4{margin:0;}
@@ -808,22 +810,26 @@ a.doc:hover .dmeta{color:var(--accent);}
           <h2>The Four-Phase Plan</h2>
           <p class="measure sub" style="margin-bottom:28px;">Each phase completes a set of units that re-lease while the next proceeds — the building is never taken fully offline. All phases fund through line-of-credit draws (Financials).</p>
           <div class="flow">
-            <div class="fstep">
+            <div class="fstep is-done">
+              <div class="fs-n">01</div>
               <div class="fs-d">Late 2025 &ndash; May 2026</div>
               <div class="fs-k"><h4>Phase 1</h4><span class="chip ok">Complete</span></div>
               <p>Units 102, 104, 105, 202, 204, 307, plus common areas. 307 leased at $2,350; 102 pre-leased.</p>
             </div>
             <div class="fstep">
+              <div class="fs-n">02</div>
               <div class="fs-d">May &ndash; July 2026</div>
               <div class="fs-k"><h4>Phase 2</h4><span class="chip warn">In progress</span></div>
               <p>Units 107, 201, 301, 304; unit 306 under change order. 304's resident moved to renovated 307.</p>
             </div>
             <div class="fstep">
+              <div class="fs-n">03</div>
               <div class="fs-d">Through November 2026</div>
               <div class="fs-k"><h4>Phases 3 &amp; 4</h4><span class="chip warn">Scheduled</span></div>
               <p>Remaining units, renovated as they turn — coordinated with residents requesting transfers.</p>
             </div>
             <div class="fstep">
+              <div class="fs-n">04</div>
               <div class="fs-d">Following Phase 4</div>
               <div class="fs-k"><h4>Closeout</h4><span class="chip warn">Scheduled</span></div>
               <p>Common areas, exterior, Marlene's selections, punch list, and warranty documentation.</p>
