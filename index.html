@@ -310,6 +310,12 @@ a.doc:hover .dmeta{color:var(--accent);}
 .frame.hero{aspect-ratio:3/2;}
 .frame .ft{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; margin-bottom:9px;}
 .frame .fd{font-family:var(--serif); font-size:15px; color:var(--text-3); letter-spacing:-0.01em; max-width:30ch;}
+/* 3D tour embeds (before / after) */
+.tours{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+@media(max-width:760px){.tours{grid-template-columns:1fr;}}
+.tour .tour-h{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); margin:0 0 8px;}
+.embed{position:relative; aspect-ratio:16/9; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface-2);}
+.embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
 .gallery .frame{cursor:zoom-in; transition:border-color .15s var(--ease);}
 .gallery .frame:hover{border-color:var(--border-strong);}
@@ -551,7 +557,6 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <li><span>2027 NOI (proj.)</span><span class="kvv">≈ $248,000</span></li>
                 <li><span>Construction line</span><span class="kvv">≈ $1,500,000</span></li>
               </ul>
-              <div class="frame mini" role="img" aria-label="Lease-up forecast exhibit placeholder"><div><div class="ft">Exhibit slot</div><div class="fd">Lease-up pro forma</div></div></div>
               <span class="more">The full financials →</span>
             </div>
 
@@ -563,7 +568,6 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <li><span>Units delivered</span><span class="kvv">7</span></li>
                 <li><span>Remaining</span><span class="kvv">Phases 2–4</span></li>
               </ul>
-              <div class="frame mini" role="img" aria-label="Construction progress photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Before / progress</div></div></div>
               <span class="more">What we found &amp; what's left →</span>
             </div>
 
@@ -575,7 +579,6 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <li><span>Unit 202 (2/2)</span><span class="kvv">Leased $2,595</span></li>
                 <li><span>Unit 102 (2/2)</span><span class="kvv">Leased $2,150</span></li>
               </ul>
-              <div class="frame mini" role="img" aria-label="Renovated unit photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Renovated unit</div></div></div>
               <span class="more">The gap and the plan →</span>
             </div>
 
@@ -599,7 +602,6 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <li><span>Move-in gifts</span><span class="kvv">To select</span></li>
                 <li><span>Process</span><span class="kvv">AppFolio</span></li>
               </ul>
-              <div class="frame mini" role="img" aria-label="Welcome packet photograph placeholder"><div><div class="ft">Photo slot</div><div class="fd">Welcome packet</div></div></div>
               <span class="more">Retention approach →</span>
             </div>
 
@@ -619,17 +621,24 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Before · during · delivered</p>
-          <h2>The Work in Photographs</h2>
-          <div class="gallery">
-            <div class="frame" tabindex="0" role="button" aria-label="Before — typical unit condition at takeover"><div><div class="ft">Before</div><div class="fd">Typical unit at takeover</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Water incident — affected units, as found"><div><div class="ft">Water incident</div><div class="fd">Affected units, as found</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Hazardous material abatement — containment and clearance"><div><div class="ft">Abatement</div><div class="fd">Containment and clearance</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — kitchen"><div><div class="ft">Renovated</div><div class="fd">Kitchen — delivered unit</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — living space"><div><div class="ft">Renovated</div><div class="fd">Living space — delivered unit</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Phase 2 unit in progress"><div><div class="ft">In progress</div><div class="fd">Phase 2 unit underway</div></div></div>
+          <p class="eyebrow">Before &amp; after</p>
+          <h2>Inside a Renovated Unit</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Walk a unit in 3D — before and after the renovation — alongside the rooms as they were found.</p>
+          <div class="tours">
+            <div class="tour">
+              <p class="tour-h">Before — 3D tour</p>
+              <div class="embed"><iframe src="https://my.matterport.com/show/?m=uMzFBSpyaok" title="White Heather — unit before renovation, 3D tour" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;" loading="lazy"></iframe></div>
+            </div>
+            <div class="tour">
+              <p class="tour-h">After — 3D tour</p>
+              <div class="embed"><iframe src="https://my.matterport.com/show/?m=2kEofNrRUzY" title="White Heather — unit after renovation, 3D tour" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;" loading="lazy"></iframe></div>
+            </div>
           </div>
-          <p class="form-note" style="margin-top:14px;">Photographs load into the frames as they are gathered; click any image to enlarge.</p>
+          <div class="gallery" style="margin-top:18px;">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Living room, as found before renovation"><img src="images/unit-living-room-old.jpg" alt="Unit living room before renovation" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Kitchen, as found before renovation"><img src="images/unit-rendering-pre-renovation.jpg" alt="Unit kitchen before renovation" loading="lazy" /></div>
+          </div>
+          <p class="form-note" style="margin-top:14px;">The 3D tours walk a unit before and after; the photos show units as found. Click a photo to enlarge.</p>
         </section>
 
         <section class="reveal">
@@ -649,38 +658,18 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Paneling · lighting · doors · numbering</p>
-          <h2>Design Options</h2>
-          <p class="measure sub" style="margin-bottom:28px;">The four open selections, side by side. The aim is design that feels right for White Heather — improving the building without making it generic; natural materials and mid-century lines.</p>
-          <div class="grid grid-2">
-            <div class="card">
-              <h4>Acoustic paneling</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Acoustic paneling — option A"><div><div class="ft">Option A</div><div class="fd">e.g. walnut slat</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Acoustic paneling — option B"><div><div class="ft">Option B</div><div class="fd">e.g. oak slat / felt back</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Exterior lighting / sconces</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Sconces — option A"><div><div class="ft">Option A</div><div class="fd">Product photo slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Sconces — option B"><div><div class="ft">Option B</div><div class="fd">Product photo slot</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Exterior doors</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Exterior doors — option A"><div><div class="ft">Option A</div><div class="fd">Product photo slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Exterior doors — option B"><div><div class="ft">Option B</div><div class="fd">Product photo slot</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Door number placement</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Door numbers — option A"><div><div class="ft">Option A</div><div class="fd">Mockup slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Door numbers — option B"><div><div class="ft">Option B</div><div class="fd">Mockup slot</div></div></div>
-              </div>
-            </div>
+          <p class="eyebrow">Renderings &amp; selections</p>
+          <h2>Design Direction</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Design that fits White Heather — improving the building without making it generic; natural materials and mid-century lines. Renderings of the renovated common areas below, with lighting still under selection.</p>
+          <div class="gallery">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Rendering — renovated corridor with slat paneling, dark doors, and brass unit numbers"><img src="images/hallway-rendering-1.png" alt="Renovated corridor rendering — slat paneling and dark doors" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Rendering — renovated common-area lounge"><img src="images/hallway-rendering-2.png" alt="Renovated common-area lounge rendering" loading="lazy" /></div>
+          </div>
+          <h4 style="margin:28px 0 14px;">Lighting under consideration</h4>
+          <div class="gallery">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — black flush-mount ceiling fixture"><img src="images/light-fixture-decision-1.png" alt="Black flush-mount ceiling fixture option" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — flush-mount ceiling fixture, alternate"><img src="images/light-fixture-decision-2.png" alt="Flush-mount ceiling fixture option, alternate" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — exterior entry down-light"><img src="images/light-fixture-dexision-3.png" alt="Exterior entry down-light option" loading="lazy" /></div>
           </div>
         </section>
 
@@ -1195,12 +1184,9 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">First impressions</p>
           <h2>Welcome Packet &amp; Move-In Gifts</h2>
-          <div class="grid grid-2" style="margin-bottom:24px;">
-            <div class="card">
-              <h4>Packet contents</h4>
-              <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (AppFolio) · house rules.</p>
-            </div>
-            <div class="frame"><div><div class="ft">Exhibit slot</div><div class="fd">Welcome packet example</div></div></div>
+          <div class="card" style="margin-bottom:24px;">
+            <h4>Packet contents</h4>
+            <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (AppFolio) · house rules.</p>
           </div>
           <div>
             <span class="tag">Local coffee / bakery gift card</span>
