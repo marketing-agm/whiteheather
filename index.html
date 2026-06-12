@@ -310,6 +310,12 @@ a.doc:hover .dmeta{color:var(--accent);}
 .frame.hero{aspect-ratio:3/2;}
 .frame .ft{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; margin-bottom:9px;}
 .frame .fd{font-family:var(--serif); font-size:15px; color:var(--text-3); letter-spacing:-0.01em; max-width:30ch;}
+/* 3D tour embeds (before / after) */
+.tours{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+@media(max-width:760px){.tours{grid-template-columns:1fr;}}
+.tour .tour-h{font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-3); margin:0 0 8px;}
+.embed{position:relative; aspect-ratio:16/9; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface-2);}
+.embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
 .gallery .frame{cursor:zoom-in; transition:border-color .15s var(--ease);}
 .gallery .frame:hover{border-color:var(--border-strong);}
@@ -438,12 +444,12 @@ a.doc:hover .dmeta{color:var(--accent);}
       <button class="nav-link" data-route="agenda">Contents</button>
       <button class="nav-link" data-route="financials">Financials</button>
       <button class="nav-link" data-route="construction">Construction</button>
-      <button class="nav-link" data-route="leasing">Leasing &amp; Market</button>
       <button class="nav-link" data-route="marketing">Marketing</button>
+      <button class="nav-link" data-route="leasing">Leasing &amp; Market</button>
       <button class="nav-link" data-route="tenants">Tenants</button>
     </nav>
     <div class="nav-right">
-      <button class="nav-cta" data-route="portal">Owner Portal</button>
+      <button class="nav-cta" data-route="portal">Owner Platform</button>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
@@ -594,19 +600,18 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <li><span>Move-ins since Sep</span><span class="kvv">3 (+1 underway)</span></li>
                 <li><span>Welcome packet</span><span class="kvv">Standard</span></li>
                 <li><span>Move-in gifts</span><span class="kvv">To select</span></li>
-                <li><span>Process</span><span class="kvv">AppFolio</span></li>
+                <li><span>Process</span><span class="kvv">Digital, end-to-end</span></li>
               </ul>
               <span class="more">Retention approach →</span>
             </div>
 
 
             <div class="card card-link" data-route="portal">
-              <div class="dash-head"><h3>Owner Portal</h3><span class="chip ok">Active</span></div>
+              <div class="dash-head"><h3>Owner Platform</h3><span class="chip ok">Active</span></div>
               <ul class="kv">
-                <li><span>Platform</span><span class="kvv">AppFolio</span></li>
-                <li><span>Statements</span><span class="kvv">Monthly, automatic</span></li>
                 <li><span>Access</span><span class="kvv">Chen family logins</span></li>
-                <li><span>Repository</span><span class="kvv">Bids · Reports · Comps</span></li>
+                <li><span>Statements</span><span class="kvv">Monthly, automatic</span></li>
+                <li><span>Documents</span><span class="kvv">Bids · Reports · Comps</span></li>
               </ul>
               <span class="more">Documents &amp; access →</span>
             </div>
@@ -615,17 +620,24 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Before · during · delivered</p>
-          <h2>The Work in Photographs</h2>
-          <div class="gallery">
-            <div class="frame" tabindex="0" role="button" aria-label="Before — typical unit condition at takeover"><div><div class="ft">Before</div><div class="fd">Typical unit at takeover</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Water incident — affected units, as found"><div><div class="ft">Water incident</div><div class="fd">Affected units, as found</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Hazardous material abatement — containment and clearance"><div><div class="ft">Abatement</div><div class="fd">Containment and clearance</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — kitchen"><div><div class="ft">Renovated</div><div class="fd">Kitchen — delivered unit</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — living space"><div><div class="ft">Renovated</div><div class="fd">Living space — delivered unit</div></div></div>
-            <div class="frame" tabindex="0" role="button" aria-label="Phase 2 unit in progress"><div><div class="ft">In progress</div><div class="fd">Phase 2 unit underway</div></div></div>
+          <p class="eyebrow">Before &amp; after</p>
+          <h2>Inside a Renovated Unit</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Walk a unit in 3D — before and after the renovation — alongside the rooms as they were found.</p>
+          <div class="tours">
+            <div class="tour">
+              <p class="tour-h">Before — 3D tour</p>
+              <div class="embed"><iframe src="https://my.matterport.com/show/?m=uMzFBSpyaok" title="White Heather — unit before renovation, 3D tour" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;" loading="lazy"></iframe></div>
+            </div>
+            <div class="tour">
+              <p class="tour-h">After — 3D tour</p>
+              <div class="embed"><iframe src="https://my.matterport.com/show/?m=2kEofNrRUzY" title="White Heather — unit after renovation, 3D tour" allowfullscreen allow="autoplay; fullscreen; web-share; xr-spatial-tracking;" loading="lazy"></iframe></div>
+            </div>
           </div>
-          <p class="form-note" style="margin-top:14px;">Photographs load into the frames as they are gathered; click any image to enlarge.</p>
+          <div class="gallery" style="margin-top:18px;">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Living room, as found before renovation"><img src="images/unit-living-room-old.jpg" alt="Unit living room before renovation" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Kitchen, as found before renovation"><img src="images/unit-rendering-pre-renovation.jpg" alt="Unit kitchen before renovation" loading="lazy" /></div>
+          </div>
+          <p class="form-note" style="margin-top:14px;">The 3D tours walk a unit before and after; the photos show units as found. Click a photo to enlarge.</p>
         </section>
 
         <section class="reveal">
@@ -645,38 +657,18 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Paneling · lighting · doors · numbering</p>
-          <h2>Design Options</h2>
-          <p class="measure sub" style="margin-bottom:28px;">The four open selections, side by side. The aim is design that feels right for White Heather — improving the building without making it generic; natural materials and mid-century lines.</p>
-          <div class="grid grid-2">
-            <div class="card">
-              <h4>Acoustic paneling</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Acoustic paneling — option A"><div><div class="ft">Option A</div><div class="fd">e.g. walnut slat</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Acoustic paneling — option B"><div><div class="ft">Option B</div><div class="fd">e.g. oak slat / felt back</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Exterior lighting / sconces</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Sconces — option A"><div><div class="ft">Option A</div><div class="fd">Product photo slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Sconces — option B"><div><div class="ft">Option B</div><div class="fd">Product photo slot</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Exterior doors</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Exterior doors — option A"><div><div class="ft">Option A</div><div class="fd">Product photo slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Exterior doors — option B"><div><div class="ft">Option B</div><div class="fd">Product photo slot</div></div></div>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Door number placement</h4>
-              <div class="gallery" style="grid-template-columns:1fr 1fr; margin-top:14px;">
-                <div class="frame" tabindex="0" role="button" aria-label="Door numbers — option A"><div><div class="ft">Option A</div><div class="fd">Mockup slot</div></div></div>
-                <div class="frame" tabindex="0" role="button" aria-label="Door numbers — option B"><div><div class="ft">Option B</div><div class="fd">Mockup slot</div></div></div>
-              </div>
-            </div>
+          <p class="eyebrow">Renderings &amp; selections</p>
+          <h2>Design Direction</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Design that fits White Heather — improving the building without making it generic; natural materials and mid-century lines. Renderings of the renovated common areas below, with lighting still under selection.</p>
+          <div class="gallery">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Rendering — renovated corridor with slat paneling, dark doors, and brass unit numbers"><img src="images/hallway-rendering-1.png" alt="Renovated corridor rendering — slat paneling and dark doors" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Rendering — renovated common-area lounge"><img src="images/hallway-rendering-2.png" alt="Renovated common-area lounge rendering" loading="lazy" /></div>
+          </div>
+          <h4 style="margin:28px 0 14px;">Lighting under consideration</h4>
+          <div class="gallery">
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — black flush-mount ceiling fixture"><img src="images/light-fixture-decision-1.png" alt="Black flush-mount ceiling fixture option" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — flush-mount ceiling fixture, alternate"><img src="images/light-fixture-2-new.png" alt="Flush-mount ceiling fixture option, alternate" loading="lazy" /></div>
+            <div class="frame has-img" tabindex="0" role="button" aria-label="Lighting option — exterior entry down-light"><img src="images/light-fixture-dexision-3.png" alt="Exterior entry down-light option" loading="lazy" /></div>
           </div>
         </section>
 
@@ -698,10 +690,10 @@ a.doc:hover .dmeta{color:var(--accent);}
             <div class="step"><div><h4>Executive Summary</h4><p>Every division on one screen, with the open decisions.</p></div></div>
             <div class="step"><div><h4>Financials</h4><p>Outlook, funding, valuation, and the 2027 refinance.</p></div></div>
             <div class="step"><div><h4>Construction</h4><p>Conditions encountered and the four-phase plan.</p></div></div>
-            <div class="step"><div><h4>Leasing &amp; Market</h4><p>The rent gap, the proof, and the comparable set.</p></div></div>
             <div class="step"><div><h4>Marketing</h4><p>Channel mix, pricing, and current lead activity.</p></div></div>
+            <div class="step"><div><h4>Leasing &amp; Market</h4><p>The rent gap, the proof, and the comparable set.</p></div></div>
             <div class="step"><div><h4>Tenant Experience</h4><p>Resident transfers, the welcome packet, and move-ins.</p></div></div>
-            <div class="step"><div><h4>Owner Portal</h4><p>AppFolio and the property documents.</p></div></div>
+            <div class="step"><div><h4>Owner Platform</h4><p>Statements, reports, and the property documents.</p></div></div>
           </div>
         </section>
 
@@ -710,7 +702,7 @@ a.doc:hover .dmeta{color:var(--accent);}
           <h2>Your Team</h2>
           <div class="grid grid-2">
             <div class="card"><h4>[Name] — Principal</h4><p>One or two sentences: oversight role and history with the building.</p></div>
-            <div class="card"><h4>[Name] — Property Manager</h4><p>Day-to-day operations, tenant relations, AppFolio reporting.</p></div>
+            <div class="card"><h4>[Name] — Property Manager</h4><p>Day-to-day operations, tenant relations, and monthly reporting.</p></div>
             <div class="card"><h4>[Name] — Leasing</h4><p>Showings, applications, market pricing, move-ins.</p></div>
             <div class="card"><h4>[Name] — Construction Coordination</h4><p>Bids, contractors, scheduling, unit delivery.</p></div>
           </div>
@@ -848,33 +840,9 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ CONSTRUCTION ============ -->
       <div class="page" id="page-construction">
         <section class="reveal">
-          <p class="eyebrow">Findings to date</p>
-          <h2>Conditions Encountered</h2>
-          <p class="measure sub" style="margin-bottom:28px;">A building of this era carries its history in the walls — none of what follows is unusual, and each item was addressed deliberately and documented. Status as of June 2026; photographs in the visual record on the Executive Summary, supporting documents in the owner portal.</p>
-          <div class="grid grid-2">
-            <div class="card">
-              <div class="card-head"><h4>Water incident</h4><span class="chip ok">Remediated</span></div>
-              <p>The water loss impacted the first-floor units, including occupied Units 101, 103, 106, and 107, as well as the laundry room and electrical room. The residents in the affected occupied units elected to remain in place. The resulting insurance claim proceeds created an opportunity to advance the asset's broader repositioning strategy by restoring the impacted areas to the new building standard while reducing the Owner's required out-of-pocket capital contribution.</p>
-            </div>
-            <div class="card">
-              <div class="card-head"><h4>Building age &amp; existing conditions</h4><span class="chip warn">Ongoing</span></div>
-              <p>Era-typical plumbing, electrical, and envelope conditions, sequenced into the phase plan.</p>
-            </div>
-            <div class="card">
-              <div class="card-head"><h4>Hazardous materials</h4><span class="chip ok">Abated</span></div>
-              <p>Identified, abated through licensed remediation, and cleared — documentation in the owner portal.</p>
-            </div>
-            <div class="card">
-              <div class="card-head"><h4>Unforeseen conditions</h4><span class="chip warn">Itemized</span></div>
-              <p>Scope and schedule impacts itemized with their cost treatment.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="reveal">
           <p class="eyebrow">Late 2025 &ndash; November 2026</p>
           <h2>The Four-Phase Plan</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Sequenced to create visible momentum early — presentation, leasing readiness, and day-to-day organization first. Each phase completes a set of units that re-lease while the next proceeds, so the building is never taken fully offline; all phases fund through line-of-credit draws (Financials).</p>
+          <p class="measure sub" style="margin-bottom:28px;">The renovation strategy is structured around a four-phase delivery plan, with each phase bringing a defined set of units to the new building standard before releasing them back to market. As completed units return to the leasing pipeline, the next phase begins, creating a steady cadence of renovated inventory without taking the building fully offline. This approach allows the property to maintain leasing activity, preserve operational continuity, and progressively build rental income as each phase is completed.</p>
           <div class="flow">
             <div class="fstep is-done">
               <div class="fs-n">01</div>
@@ -902,6 +870,31 @@ a.doc:hover .dmeta{color:var(--accent);}
             </div>
           </div>
         </section>
+
+        <section class="reveal">
+          <p class="eyebrow">Findings to date</p>
+          <h2>Conditions Encountered</h2>
+          <p class="measure sub" style="margin-bottom:28px;">A building of this era carries its history in the walls — none of what follows is unusual, and each item was addressed deliberately and documented. Status as of June 2026; photographs in the visual record on the Executive Summary, supporting documents in the owner portal.</p>
+          <div class="grid grid-2">
+            <div class="card">
+              <div class="card-head"><h4>Water incident</h4><span class="chip ok">Remediated</span></div>
+              <p>The water loss impacted the first-floor units, including occupied Units 101, 103, 106, and 107, as well as the laundry room and electrical room. The residents in the affected occupied units elected to remain in place. The resulting insurance claim proceeds created an opportunity to advance the asset's broader repositioning strategy by restoring the impacted areas to the new building standard while reducing the Owner's required out-of-pocket capital contribution.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Building age &amp; existing conditions</h4><span class="chip warn">Ongoing</span></div>
+              <p>Era-typical plumbing, electrical, and envelope conditions, sequenced into the phase plan.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Hazardous materials</h4><span class="chip ok">Abated</span></div>
+              <p>Identified, abated through licensed remediation, and cleared — documentation in the owner portal.</p>
+            </div>
+            <div class="card">
+              <div class="card-head"><h4>Unforeseen conditions</h4><span class="chip warn">Itemized</span></div>
+              <p>Scope and schedule impacts itemized with their cost treatment.</p>
+            </div>
+          </div>
+        </section>
+
 
         <section class="reveal">
           <div class="card card-quiet">
@@ -939,6 +932,16 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Proof to date</p>
           <h2>Renovated Units Are Achieving Target Rents</h2>
+          <div class="table-wrap" style="margin-bottom:24px;">
+            <table class="table">
+              <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>New rent</th><th>Prior rent</th><th>Annual increase</th></tr></thead>
+              <tbody>
+                <tr><td>102</td><td>2/2</td><td>985 SF</td><td>$2,150</td><td>$1,800</td><td>$4,200</td></tr>
+                <tr><td>202</td><td>2/2</td><td>985 SF</td><td>$2,595</td><td>$1,825</td><td>$9,240</td></tr>
+                <tr><td>307</td><td>2/2</td><td>985 SF</td><td>$2,350</td><td>$1,895</td><td>$5,460</td></tr>
+              </tbody>
+            </table>
+          </div>
           <div class="grid grid-2">
             <div class="card">
               <div class="card-head"><h4>Unit 307 · 2/2</h4><span class="chip ok">$2,350</span></div>
@@ -950,7 +953,7 @@ a.doc:hover .dmeta{color:var(--accent);}
             </div>
             <div class="card">
               <div class="card-head"><h4>Unit 102 · 2/2</h4><span class="chip ok">$2,150</span></div>
-              <p>Leased in June 2026 at $2,150 per month, slightly below the target market rent of $2,295 for the renovated unit. The reduced rate was provided because the unit was pre-leased prior to completion of the renovation. Prior to renovation, the unit rented at $1,800 per month, resulting in $4,200 in additional annual rental income.</p>
+              <p>Leased in June 2026 at $2,150 per month, achieving the market rent for the unit. Prior to renovation, the unit was rented at $1,800 per month, resulting in $4,200 in additional annual rental income.</p>
             </div>
             <div class="card">
               <div class="card-head"><h4>Three move-ins since Sept 2025</h4><span class="chip ok">+1 pre-lease</span></div>
@@ -982,7 +985,7 @@ a.doc:hover .dmeta{color:var(--accent);}
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:14px;">As of June 11, 2026 (AppFolio). Advertised rent shown where a unit is actively listed; Phase 2 units price at delivery.</p>
+          <p class="form-note" style="margin-top:14px;">As of June 11, 2026 (rent roll). Advertised rent shown where a unit is actively listed; Phase 2 units price at delivery.</p>
         </section>
 
         <section class="reveal">
@@ -1003,21 +1006,6 @@ a.doc:hover .dmeta{color:var(--accent);}
           <p class="form-note" style="margin-top:14px;">Several long-term residents affected by the water event chose to remain. Tenure per the June 11, 2026 rent roll.</p>
         </section>
 
-        <section class="reveal">
-          <p class="eyebrow">Concessions</p>
-          <h2>Advertised vs. Net Effective</h2>
-          <p class="measure sub" style="margin-bottom:24px;">Concessions hold a strong advertised rate while staying competitive on move-in cost. Both figures are tracked so actual earnings stay transparent.</p>
-          <div class="table-wrap">
-            <table class="table">
-              <thead><tr><th>Unit type</th><th>Advertised</th><th>Concession</th><th>Net effective</th></tr></thead>
-              <tbody>
-                <tr><td>1/1 renovated</td><td>$1,750</td><td>—</td><td>$ —</td></tr>
-                <tr><td>2/2 renovated</td><td>$2,295</td><td>—</td><td>$ —</td></tr>
-                <tr><td>1/1 classic</td><td>$1,500</td><td>—</td><td>$ —</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
 
         <section class="reveal">
           <p class="eyebrow">Pricing methodology</p>
@@ -1058,7 +1046,7 @@ a.doc:hover .dmeta{color:var(--accent);}
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:14px;">Source: AppFolio lead tracking. Current volume reflects entry-level placement — the recommendations below are the lever for raising it.</p>
+          <p class="form-note" style="margin-top:14px;">Source: internal lead tracking. Current volume reflects entry-level placement — the recommendations below are the lever for raising it.</p>
         </section>
 
         <section class="reveal">
@@ -1162,12 +1150,9 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">First impressions</p>
           <h2>Welcome Packet &amp; Move-In Gifts</h2>
-          <div class="grid grid-2" style="margin-bottom:24px;">
-            <div class="card">
-              <h4>Packet contents</h4>
-              <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (AppFolio) · house rules.</p>
-            </div>
-            <div class="frame"><div><div class="ft">Exhibit slot</div><div class="fd">Welcome packet example</div></div></div>
+          <div class="card" style="margin-bottom:24px;">
+            <h4>Packet contents</h4>
+            <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (resident portal) · house rules.</p>
           </div>
           <div>
             <span class="tag">Local coffee / bakery gift card</span>
@@ -1181,7 +1166,7 @@ a.doc:hover .dmeta{color:var(--accent);}
           <p class="eyebrow">Operations</p>
           <h2>The Move-In Process</h2>
           <div class="steps">
-            <div class="step"><div><h4>Application &amp; screening</h4><p>Through AppFolio — consistent criteria, documented decisions.</p></div></div>
+            <div class="step"><div><h4>Application &amp; screening</h4><p>Through the resident portal — consistent criteria, documented decisions.</p></div></div>
             <div class="step"><div><h4>Lease signing &amp; deposit</h4><p>Digital signing; deposits and terms per the Leasing page.</p></div></div>
             <div class="step"><div><h4>Unit ready &amp; walkthrough</h4><p>Delivered units only; photo-documented condition report.</p></div></div>
             <div class="step"><div><h4>Move-in day</h4><p>Keys, packet, and gift, with a check-in message in week one.</p></div></div>
@@ -1193,14 +1178,14 @@ a.doc:hover .dmeta{color:var(--accent);}
       <div class="page" id="page-portal">
         <section class="reveal" style="margin-bottom:36px;">
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary btn-arrow" href="#" id="portalLink" target="_blank" rel="noopener">Open the AppFolio owner portal</a>
+            <a class="btn btn-primary btn-arrow" href="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?activation_state&amp;client_id=client-2b6a90b2e2ee157bf0b2f7736a3c1ed5d64fa984&amp;portfolio_uuid&amp;redirect_uri=https%3A%2F%2Fagmrealestategroup.appfolio.com%2Fconnect%2Fusers%2Foauth%2Fcallback&amp;response_type=code&amp;scope=openid+offline_access&amp;session_timed_out=false&amp;state" id="portalLink" target="_blank" rel="noopener">Open the owner platform</a>
           </div>
         </section>
 
         <section class="reveal" style="border-top:none; padding-top:0;">
           <p class="eyebrow">Quick reference</p>
           <h2>Property Documents</h2>
-          <p class="sub" style="margin:0 0 24px; max-width:62ch;">One place to see progress, review materials, and track decisions. Each folder opens to its documents — mirrored from the records in AppFolio.</p>
+          <p class="sub" style="margin:0 0 24px; max-width:62ch;">One place to see progress, review materials, and track decisions. Each folder opens to its documents — mirrored from the official records.</p>
 
           <!-- =============================================================
                TO ADD A DOCUMENT: drop the PDF into a /docs folder in the
@@ -1224,7 +1209,7 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <span class="fchev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
               </summary>
               <div class="fbody">
-                <a class="doc" href="#" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open in the AppFolio portal</span><span class="dmeta">AppFolio</span></a>
+                <a class="doc" href="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?activation_state&amp;client_id=client-2b6a90b2e2ee157bf0b2f7736a3c1ed5d64fa984&amp;portfolio_uuid&amp;redirect_uri=https%3A%2F%2Fagmrealestategroup.appfolio.com%2Fconnect%2Fusers%2Foauth%2Fcallback&amp;response_type=code&amp;scope=openid+offline_access&amp;session_timed_out=false&amp;state" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open on the platform</span><span class="dmeta">Platform</span></a>
               </div>
             </details>
 
@@ -1252,7 +1237,7 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <span class="fchev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
               </summary>
               <div class="fbody">
-                <a class="doc" href="#" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open in the AppFolio portal</span><span class="dmeta">AppFolio</span></a>
+                <a class="doc" href="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?activation_state&amp;client_id=client-2b6a90b2e2ee157bf0b2f7736a3c1ed5d64fa984&amp;portfolio_uuid&amp;redirect_uri=https%3A%2F%2Fagmrealestategroup.appfolio.com%2Fconnect%2Fusers%2Foauth%2Fcallback&amp;response_type=code&amp;scope=openid+offline_access&amp;session_timed_out=false&amp;state" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open on the platform</span><span class="dmeta">Platform</span></a>
               </div>
             </details>
 
@@ -1266,7 +1251,7 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <span class="fchev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
               </summary>
               <div class="fbody">
-                <a class="doc" href="#" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open in the AppFolio portal</span><span class="dmeta">AppFolio</span></a>
+                <a class="doc" href="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?activation_state&amp;client_id=client-2b6a90b2e2ee157bf0b2f7736a3c1ed5d64fa984&amp;portfolio_uuid&amp;redirect_uri=https%3A%2F%2Fagmrealestategroup.appfolio.com%2Fconnect%2Fusers%2Foauth%2Fcallback&amp;response_type=code&amp;scope=openid+offline_access&amp;session_timed_out=false&amp;state" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open on the platform</span><span class="dmeta">Platform</span></a>
               </div>
             </details>
 
@@ -1275,12 +1260,12 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <span class="fic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"/></svg></span>
                 <span class="fmeta">
                   <span class="fname">Monthly statements <span class="chip ok">Automatic</span></span>
-                  <span class="fcount">Income, expenses, and distributions — generated by AppFolio each month</span>
+                  <span class="fcount">Income, expenses, and distributions — generated each month</span>
                 </span>
                 <span class="fchev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
               </summary>
               <div class="fbody">
-                <a class="doc" href="#" id="statementsLink" target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">View statements in the AppFolio owner portal</span><span class="dmeta">Portal</span></a>
+                <a class="doc" href="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?activation_state&amp;client_id=client-2b6a90b2e2ee157bf0b2f7736a3c1ed5d64fa984&amp;portfolio_uuid&amp;redirect_uri=https%3A%2F%2Fagmrealestategroup.appfolio.com%2Fconnect%2Fusers%2Foauth%2Fcallback&amp;response_type=code&amp;scope=openid+offline_access&amp;session_timed_out=false&amp;state" id="statementsLink" target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">View statements on the owner platform</span><span class="dmeta">Platform</span></a>
               </div>
             </details>
 
@@ -1515,7 +1500,7 @@ var RAILS = {
     glance:[['Income today','$20,911 / mo'],['At stabilization','$34,046 / mo'],['2027 NOI','≈ $248,000'],['Refi DSCR','≈ 1.68×']],
     primary:['portal','Documents in the portal'], secondary:['leasing','The path to stabilization'],
     print:true,
-    foot:'Statements and the full pro forma live in AppFolio.'
+    foot:'Statements and the full pro forma live on the owner platform.'
   },
   'construction': {
     eyebrow:'Construction', title:'Four Phases to Completion',
@@ -1539,21 +1524,21 @@ var RAILS = {
     glance:[['Units to lease','8 (+1 notice)'],['Leads, last 30 days','7'],['Zillow Enhanced','$625 / mo'],['EDDM','$640 / route']],
     primary:['leasing','The rents being marketed'], secondary:null,
     print:true,
-    foot:'Vendor pricing as of June 2026; lead data from AppFolio.'
+    foot:'Vendor pricing as of June 2026; lead data from internal tracking.'
   },
   'tenants': {
     eyebrow:'Tenant Experience', title:'Resident Retention Strategy',
     pos:'In-house transfers, the welcome packet, and a move-in process that keeps good residents.',
-    glance:[['Move-ins since Sep','3 (+1 underway)'],['Transfers','1 done · 2 in motion'],['Process','AppFolio end-to-end']],
+    glance:[['Move-ins since Sep','3 (+1 underway)'],['Transfers','1 done · 2 in motion'],['Process','Digital, end-to-end']],
     primary:['leasing','Leasing progress'], secondary:null,
     foot:'Move-in materials in the owner portal.'
   },
   'portal': {
-    eyebrow:'Owner Portal', title:'Official Records and Access',
-    pos:'AppFolio holds everything official; Property Documents mirrors the essentials here.',
-    glance:[['Platform','AppFolio'],['Access','Chen family logins'],['Statements','Monthly, automatic'],['Documents','Bids · Reports · Comps']],
+    eyebrow:'Owner Platform', title:'Official Records and Access',
+    pos:'The owner platform holds everything official; Property Documents mirrors the essentials here.',
+    glance:[['Access','Chen family logins'],['Statements','Monthly, automatic'],['Documents','Bids · Reports · Comps']],
     primary:null, secondary:['financials','The financial review'],
-    foot:'AppFolio is the single source for all property documents.'
+    foot:'A single, secure source for all property documents.'
   }
 };
 
@@ -1582,7 +1567,7 @@ function renderRail(route){
 /* ============================================================
    Router
    ============================================================ */
-var ROUTES = ['summary','agenda','financials','construction','leasing','marketing','tenants','portal'];
+var ROUTES = ['summary','agenda','financials','construction','marketing','leasing','tenants','portal'];
 var TITLES = {
   'summary':'Executive Summary — White Heather Apartments',
   'agenda':'Contents — White Heather Apartments',
@@ -1591,13 +1576,13 @@ var TITLES = {
   'leasing':'Leasing & Market — White Heather Apartments',
   'marketing':'Marketing — White Heather Apartments',
   'tenants':'Tenant Experience — White Heather Apartments',
-  'portal':'Owner Portal — White Heather Apartments'
+  'portal':'Owner Platform — White Heather Apartments'
 };
 /* short labels for the floating side nav + section pager */
 var NAVLABELS = {
   'summary':'Executive Summary', 'agenda':'Contents',
   'financials':'Financials', 'construction':'Construction', 'leasing':'Leasing & Market',
-  'marketing':'Marketing', 'tenants':'Tenants', 'portal':'Owner Portal'
+  'marketing':'Marketing', 'tenants':'Tenants', 'portal':'Owner Platform'
 };
 function currentRoute(){
   var h = (location.hash || '').replace(/^#\/?/,'');
