@@ -640,21 +640,6 @@ a.doc:hover .dmeta{color:var(--accent);}
           <p class="form-note" style="margin-top:14px;">The 3D tours walk a unit before and after; the photos show units as found. Click a photo to enlarge.</p>
         </section>
 
-        <section class="reveal">
-          <p class="eyebrow">Awaiting your direction</p>
-          <h2>Open Decisions</h2>
-          <p class="measure sub" style="margin-bottom:24px;">To keep things moving efficiently, these are the points where your direction helps most.</p>
-          <div class="studies" style="margin-top:0;">
-            <div class="study"><div class="s-k">Rent positioning</div><div class="s-v">Confirm targets</div><div class="s-d">Market-rate targets for the vacant and renovated units.</div></div>
-            <div class="study"><div class="s-k">Marketing budget</div><div class="s-v">Approve spend</div><div class="s-d">The recommended channel mix on the Marketing page.</div></div>
-            <div class="study"><div class="s-k">Design selections</div><div class="s-v">Four selections</div><div class="s-d">Paneling, sconces, doors, and door numbering.</div></div>
-            <div class="study"><div class="s-k">Refinance timing</div><div class="s-v">Now or later</div><div class="s-d">Begin lender discussions now or following lease-up.</div></div>
-          </div>
-          <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary btn-arrow" data-route="financials">The financial review</button>
-            <button class="btn btn-ghost" data-route="leasing">The leasing analysis</button>
-          </div>
-        </section>
 
         <section class="reveal">
           <p class="eyebrow">Renderings &amp; selections</p>
@@ -890,6 +875,11 @@ a.doc:hover .dmeta{color:var(--accent);}
               <span class="more">See the Unit 104 findings →</span>
             </div>
           </div>
+          <ul class="points" style="margin-top:24px;">
+            <li>White Heather — Phase 2 Change Order 1</li>
+            <li>White Heather — condensation pipes</li>
+            <li>6113 — remediation and rebuild</li>
+          </ul>
         </section>
       </div>
 
@@ -1547,13 +1537,6 @@ function renderRail(route){
   if (d.glance && d.glance.length){
     html += '<div class="rail-glance">';
     d.glance.forEach(function(g){ html += '<div class="rg"><span class="k">'+g[0]+'</span><span class="v">'+g[1]+'</span></div>'; });
-    html += '</div>';
-  }
-  if (d.primary || d.secondary || d.print){
-    html += '<div class="rail-cta">';
-    if (d.primary) html += '<button class="btn btn-primary" data-route="'+d.primary[0]+'">'+d.primary[1]+'</button>';
-    if (d.secondary) html += '<button class="btn btn-ghost" data-route="'+d.secondary[0]+'">'+d.secondary[1]+'</button>';
-    if (d.print) html += '<button class="btn btn-ghost" onclick="track(\'tearsheet_print\',{page:location.hash});window.print()">Print this page</button>';
     html += '</div>';
   }
   html += '<div class="rail-foot"><div class="sep">'+d.foot+'</div></div>';
