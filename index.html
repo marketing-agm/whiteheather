@@ -214,14 +214,18 @@ a.doc:hover .dmeta{color:var(--accent);}
 /* channel detail modal */
 .modal{position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; place-items:center; z-index:240; padding:28px;}
 .modal.open{display:grid;}
-.modal-panel{position:relative; width:min(780px,94vw); max-height:86vh; overflow:auto; background:var(--surface); border:1px solid var(--border-strong); border-radius:10px; padding:40px 44px;}
+.modal-panel{position:relative; width:min(940px,94vw); max-height:92vh; overflow:auto; background:var(--surface); border:1px solid var(--border-strong); border-radius:10px; padding:52px 56px;}
 .modal-close{position:absolute; top:14px; right:16px; width:32px; height:32px; border:none; background:none; color:var(--muted); font-size:22px; cursor:pointer; border-radius:8px; line-height:1;}
 .modal-close:hover{background:var(--surface-2); color:var(--text);}
 .modal-panel h3{font-size:20px; margin-bottom:8px;}
 .modal-panel .m-sub{font-size:13.5px; color:var(--text-3); margin:0 0 20px; line-height:1.65; max-width:60ch;}
-.modal-panel h4{margin:26px 0 12px;}
+.modal-panel h4{margin:34px 0 14px;}
 .modal-panel .table-wrap{margin:0 0 4px;}
-.modal-panel ul.points li{padding:12px 0;}
+.mgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+.mgrid .mcell{background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius); padding:20px 22px;}
+.mcell .mc-t{font-weight:600; color:var(--text); font-size:13.5px; margin:0 0 6px;}
+.mcell p{margin:0; font-size:13px; color:var(--text-3); line-height:1.65;}
+@media(max-width:700px){.mgrid{grid-template-columns:1fr;}}
 @media(max-width:700px){.modal-panel{padding:28px 22px;}}
 
 /* floating side nav (presentation jump menu) */
@@ -1268,29 +1272,29 @@ a.doc:hover .dmeta{color:var(--accent);}
     </table></div>
     <p class="m-sub" style="margin-top:10px;">The Enhanced package roughly doubles views, impressions, and listing prospects versus base — a significant increase in exposure with eight units to lease.</p>
     <h4>Why Zillow Leads the Mix</h4>
-    <ul class="points">
-      <li><strong>Lead volume.</strong> The massive consumer audience across Zillow, Trulia, and HotPads consistently generates the most inquiries.</li>
-      <li><strong>Occupancy speed.</strong> The strongest tool when the objective is filling vacancies and lease-ups quickly.</li>
-      <li><strong>Market intelligence.</strong> Shows which units draw attention, whether pricing and concessions are working, and whether renovations are producing rent premiums.</li>
-      <li><strong>Small-building coverage.</strong> Captures walk-ups, fourplexes, and independent landlords — White Heather's actual neighborhood competitors appear more completely on Zillow.</li>
-      <li><strong>Concession visibility.</strong> Pricing and move-in specials are prominent, so effective-rent marketing performs well.</li>
-    </ul>
+    <div class="mgrid">
+      <div class="mcell"><p class="mc-t">Lead volume</p><p>The massive consumer audience across Zillow, Trulia, and HotPads consistently generates the most inquiries.</p></div>
+      <div class="mcell"><p class="mc-t">Occupancy speed</p><p>The strongest tool when the objective is filling vacancies and lease-ups quickly.</p></div>
+      <div class="mcell"><p class="mc-t">Market intelligence</p><p>Shows which units draw attention, whether pricing and concessions are working, and whether renovations earn premiums.</p></div>
+      <div class="mcell"><p class="mc-t">Small-building coverage</p><p>Captures walk-ups, fourplexes, and independent landlords — White Heather's actual neighborhood competitors.</p></div>
+      <div class="mcell"><p class="mc-t">Concession visibility</p><p>Pricing and move-in specials are prominent, so effective-rent marketing performs well.</p></div>
+    </div>
   </div>
 
   <div id="md-website">
     <h3>Website, SEO &amp; Google Campaign — The Owned Pipeline</h3>
     <p class="m-sub">Relying only on listing platforms means they own the customer relationship — you are effectively renting attention. The building's own website, backed by SEO and a Google campaign, builds visibility the property keeps.</p>
     <h4>Cost to Launch</h4>
-    <ul class="points">
-      <li><strong>Google drip campaign.</strong> Pay-per-click at roughly $10/day — approximately $200&ndash;$250 per month. The package scales up if the directive is high leasing velocity in a short window.</li>
-      <li><strong>SEO integration.</strong> Typically shows results and increased traffic within about three weeks of launch.</li>
-    </ul>
+    <div class="mgrid">
+      <div class="mcell"><p class="mc-t">Google drip campaign</p><p>Pay-per-click at roughly $10/day — approximately $200&ndash;$250 per month. Scales up if the directive is high leasing velocity.</p></div>
+      <div class="mcell"><p class="mc-t">SEO integration</p><p>Typically shows results and increased traffic within about three weeks of launch.</p></div>
+    </div>
     <h4>Why It Compounds</h4>
-    <ul class="points">
-      <li><strong>Paid traffic stops when payment stops.</strong> Zillow, Apartments.com, and Google Ads rent visibility; organic search keeps producing after the initial investment.</li>
-      <li><strong>Marketing assets become searchable.</strong> Photography, tours, and neighborhood content only have lasting value when they live somewhere Google can find — searches like "apartments Northgate Seattle" become leads that cost nothing per click.</li>
-      <li><strong>Website leads convert better.</strong> They sought the property out intentionally and arrive more educated, so lead-to-tour and tour-to-lease rates run higher.</li>
-    </ul>
+    <div class="mgrid">
+      <div class="mcell"><p class="mc-t">Paid traffic stops when payment stops</p><p>Zillow, Apartments.com, and Google Ads rent visibility; organic search keeps producing after the initial investment.</p></div>
+      <div class="mcell"><p class="mc-t">Marketing assets become searchable</p><p>Photography, tours, and neighborhood content gain lasting value on a site Google can find — searches like "apartments Northgate Seattle" become free leads.</p></div>
+      <div class="mcell"><p class="mc-t">Website leads convert better</p><p>They sought the property out intentionally and arrive more educated, so lead-to-tour and tour-to-lease rates run higher.</p></div>
+    </div>
     <h4>Illustrative Cost per Lease (from the marketing analysis)</h4>
     <div class="table-wrap"><table class="table">
       <thead><tr><th>Source</th><th>Annual cost</th><th>Leases</th><th>Cost / lease</th></tr></thead>
@@ -1315,23 +1319,24 @@ a.doc:hover .dmeta{color:var(--accent);}
 
   <div id="md-eddm">
     <h3>EDDM — Every Door Direct Mail</h3>
-    <p class="m-sub">USPS postcards delivered to every address on selected carrier routes around 15th Ave NE. Renters frequently move within the neighborhood they already live in, and a mailer reaches them without a per-lead referral fee.</p>
+    <p class="m-sub">USPS postcards delivered to every address on four mapped routes — labeled A through D — that subdivide the larger carrier route around 15th Ave NE, together covering the most ground in the immediate area. Renters frequently move within the neighborhood they already live in, and a mailer reaches them without a per-lead referral fee.</p>
     <h4>Mapped Routes &amp; Costs</h4>
     <div class="table-wrap"><table class="table">
-      <thead><tr><th>Route</th><th>Apartment addresses</th><th>Total addresses</th><th>Homeowner %</th><th>Cost per drop</th></tr></thead>
+      <thead><tr><th>Route</th><th>Apartment addresses</th><th>Total addresses</th><th>Owner-occupied %</th><th>Cost per drop</th></tr></thead>
       <tbody>
-        <tr class="row-hl"><td>C022</td><td>588</td><td>780</td><td>84%</td><td>$640</td></tr>
-        <tr><td>C093</td><td>279</td><td>828</td><td>87%</td><td>$640</td></tr>
-        <tr><td>C053</td><td>324</td><td>592</td><td>86%</td><td>$640</td></tr>
-        <tr><td>C043</td><td>121</td><td>223</td><td>87%</td><td>$640</td></tr>
+        <tr class="row-hl"><td>Route A</td><td>588</td><td>780</td><td>84%</td><td>$640</td></tr>
+        <tr><td>Route B</td><td>279</td><td>828</td><td>87%</td><td>$640</td></tr>
+        <tr><td>Route C</td><td>324</td><td>592</td><td>86%</td><td>$640</td></tr>
+        <tr><td>Route D</td><td>121</td><td>223</td><td>87%</td><td>$640</td></tr>
       </tbody>
       <tfoot><tr><td>4 routes</td><td>1,312</td><td>2,423</td><td>—</td><td>$2,560</td></tr></tfoot>
     </table></div>
-    <ul class="points">
-      <li><strong>Highest-value route.</strong> C022 carries the densest renter audience — 588 apartment addresses of 780 total.</li>
-      <li><strong>Silver Bundle option.</strong> Adds matched digital outreach via email to the same routes at roughly double the cost per route ($640 &rarr; $1,288).</li>
-      <li><strong>Flexible cadence.</strong> Priced per drop, so routes can be run individually, staggered, or repeated around unit deliveries.</li>
-    </ul>
+    <p class="m-sub" style="margin-top:10px;">Owner-occupied % is the share of households on a route that own their home; the remainder are renter households — the audience the mailer is meant to reach.</p>
+    <div class="mgrid">
+      <div class="mcell"><p class="mc-t">Highest-value route</p><p>Route A carries the densest renter audience — 588 apartment addresses of 780 total.</p></div>
+      <div class="mcell"><p class="mc-t">Silver Bundle option</p><p>Adds matched email outreach to the same routes at roughly double the cost per route ($640 &rarr; $1,288).</p></div>
+      <div class="mcell"><p class="mc-t">Flexible cadence</p><p>Priced per drop, so routes can be run individually, staggered, or repeated around unit deliveries.</p></div>
+    </div>
   </div>
 
   <div id="md-aptscom">
@@ -1360,11 +1365,11 @@ a.doc:hover .dmeta{color:var(--accent);}
       </tbody>
     </table></div>
     <h4>Position for White Heather</h4>
-    <ul class="points">
-      <li><strong>Built for institutional assets.</strong> Strongest for professionally managed communities of roughly 100+ units; for a 21-unit lease-up, Zillow is the traffic engine.</li>
-      <li><strong>Standalone value in Gold.</strong> The 12-month Gold package's included photo shoot and two virtual tours produce assets reusable across every other channel — the website, Zillow, and the mailer.</li>
-      <li><strong>When to revisit.</strong> If conversion rather than traffic becomes the constraint, or for presentation depth once the building stabilizes.</li>
-    </ul>
+    <div class="mgrid">
+      <div class="mcell"><p class="mc-t">Built for institutional assets</p><p>Strongest for professionally managed communities of roughly 100+ units; for a 21-unit lease-up, Zillow is the traffic engine.</p></div>
+      <div class="mcell"><p class="mc-t">Standalone value in Gold</p><p>The 12-month Gold package's photo shoot and two virtual tours produce assets reusable across every other channel.</p></div>
+      <div class="mcell"><p class="mc-t">When to revisit</p><p>If conversion rather than traffic becomes the constraint, or for presentation depth once the building stabilizes.</p></div>
+    </div>
   </div>
 
 </div>
