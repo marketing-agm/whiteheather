@@ -203,6 +203,12 @@ a.doc:hover .dmeta{color:var(--accent);}
 .doc.empty{color:var(--faint); font-style:italic;}
 .doc.empty .dmeta{font-style:normal;}
 
+/* section flow arrows — slide-style advance */
+.content section{scroll-margin-top:84px;}
+.sec-next{display:grid; place-items:center; width:36px; height:36px; margin:44px auto 0; border-radius:50%; border:1px solid var(--border); background:var(--surface); color:var(--faint); cursor:pointer; transition:color .15s var(--ease), border-color .15s var(--ease), transform .15s var(--ease);}
+.sec-next:hover{color:var(--accent); border-color:var(--accent); transform:translateY(2px);}
+.sec-next svg{width:16px; height:16px;}
+
 /* channel detail modal */
 .modal{position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; place-items:center; z-index:240; padding:28px;}
 .modal.open{display:grid;}
@@ -347,7 +353,7 @@ a.doc:hover .dmeta{color:var(--accent);}
 
 /* print tear-sheets */
 @media print{
-  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager,.modal{display:none!important;}
+  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager,.modal,.sec-next{display:none!important;}
   body{background:#fff; color:#000; font-size:11pt;}
   .shell{display:block; max-width:none; border:none;}
   .rail{border:none; border-bottom:1.5pt solid #000;}
@@ -446,16 +452,22 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Building specifications</p>
-          <h2>Property Summary</h2>
-          <div class="glance" style="margin-bottom:24px;">
-            <div><div class="g-lbl">Address</div><div class="g-val">12556 15th Ave NE, Seattle 98125</div></div>
-            <div><div class="g-lbl">Units</div><div class="g-val">21</div></div>
-            <div><div class="g-lbl">Rentable area</div><div class="g-val">17,645 SF</div></div>
-            <div><div class="g-lbl">Occupancy</div><div class="g-val">61.9% (lease-up)</div></div>
-            <div><div class="g-lbl">Renovated units</div><div class="g-val">7 complete</div></div>
-            <div><div class="g-lbl">Year built</div><div class="g-val">—</div></div>
+          <h2>Current Position</h2>
+          <div class="metrics" style="margin-bottom:32px;">
+            <div class="metric"><div class="num">13</div><div class="lbl">of 21 units occupied, plus one pre-leased</div></div>
+            <div class="metric"><div class="num">7</div><div class="lbl">units renovated and delivered</div></div>
+            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place</div></div>
+            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at market, fully leased</div></div>
           </div>
+          <p class="measure sub">The work ahead: deliver the remaining renovations and lease them at market. Income — and value — follow.</p>
+          <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn btn-primary btn-arrow" data-route="leasing">The leasing analysis</button>
+            <button class="btn btn-ghost" data-route="summary">Executive summary</button>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <h2>Unit Mix &amp; Pricing</h2>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit type</th><th>Count</th><th>Size</th><th>Market rent</th><th>Renovated</th></tr></thead>
@@ -471,24 +483,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Current status</p>
-          <h2>Position at a Glance</h2>
-          <div class="metrics" style="margin-bottom:36px;">
-            <div class="metric"><div class="num">13</div><div class="lbl">of 21 units occupied, plus one pre-leased and moving in</div></div>
-            <div class="metric"><div class="num">7</div><div class="lbl">units renovated and delivered to date</div></div>
-            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place today</div></div>
-            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at full occupancy, at market</div></div>
-          </div>
-          <p class="measure sub">The difference between current and stabilized income represents the remaining work: completing the outstanding unit renovations and leasing them at market rates. As income increases, the building's value increases with it. The Leasing &amp; Market page details this plan.</p>
-          <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary btn-arrow" data-route="leasing">Review the leasing analysis</button>
-            <button class="btn btn-ghost" data-route="agenda">Browse all sections</button>
-          </div>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Availabilities</p>
-          <h2>Units Currently or Soon Available</h2>
+          <h2>Availability</h2>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit</th><th>Type</th><th>Size</th><th>Status</th><th>Market rent</th></tr></thead>
@@ -509,9 +504,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Amenities</p>
-          <h2>Building Amenities</h2>
-          
+          <h2>Amenities</h2>
           <div>
             <span class="tag">On-site laundry</span>
             <span class="tag">Off-street parking</span>
@@ -525,17 +518,13 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ EXECUTIVE SUMMARY ============ -->
       <div class="page" id="page-summary">
         <section class="reveal">
-          <p class="eyebrow">Executive summary</p>
-          <h2>The Engagement at a Glance</h2>
-          <p class="lead" style="margin-bottom:36px;">A single-screen overview of White Heather Apartments — the building, the financial position, the work completed and remaining, and the open decisions ahead. Each panel below links to its full section.</p>
           <div class="frame wide" role="img" aria-label="White Heather Apartments — exterior photograph placeholder">
             <div><div class="ft">Photo slot</div><div class="fd">Current exterior photograph</div></div>
           </div>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Headline figures</p>
-          <h2>The Numbers That Matter</h2>
+          <h2>At a Glance</h2>
           <div class="metrics">
             <div class="metric"><div class="num">21</div><div class="lbl">units · 12 one-bed, 9 two-bed</div></div>
             <div class="metric"><div class="num" data-static>61.9%</div><div class="lbl">occupied — 13 of 21 units</div></div>
@@ -547,8 +536,8 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">The dashboard</p>
-          <h2>Every Workstream, Summarized</h2>
+          <h2>The Work, by Division</h2>
+          <p class="measure sub" style="margin-bottom:28px;">Each panel links to its full section.</p>
           <div class="dash">
 
             <div class="card card-link" data-route="home">
@@ -661,8 +650,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Open decisions</p>
-          <h2>Four Decisions to Settle</h2>
+          <h2>Open Decisions</h2>
           <div class="studies" style="margin-top:0;">
             <div class="study"><div class="s-k">Rent positioning</div><div class="s-v">Confirm targets</div><div class="s-d">Market-rate targets for the vacant and renovated units.</div></div>
             <div class="study"><div class="s-k">Marketing budget</div><div class="s-v">Approve spend</div><div class="s-d">The recommended channel mix on the Marketing page.</div></div>
@@ -670,8 +658,8 @@ a.doc:hover .dmeta{color:var(--accent);}
             <div class="study"><div class="s-k">Refinance timing</div><div class="s-v">Now or later</div><div class="s-d">Begin lender discussions now or following lease-up.</div></div>
           </div>
           <div style="margin-top:28px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn btn-primary btn-arrow" data-route="agenda">Browse all sections</button>
-            <button class="btn btn-ghost" data-route="leasing">Open the leasing analysis</button>
+            <button class="btn btn-primary btn-arrow" data-route="financials">The financial review</button>
+            <button class="btn btn-ghost" data-route="leasing">The leasing analysis</button>
           </div>
         </section>
       </div>
@@ -679,38 +667,22 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ AGENDA ============ -->
       <div class="page" id="page-agenda">
         <section class="reveal">
-          <p class="eyebrow">How this record is organized</p>
-          <h2>What This Record Covers</h2>
-          <p class="lead" style="margin-bottom:36px;">Each section below is a live area of work on the building, kept current as it progresses. Use this page as a map to the full record.</p>
+          <h2>Section Guide</h2>
           <div class="steps">
-            <div class="step"><div><h4>Overview</h4><p>The building at a glance — specifications, occupancy, and current availabilities. → Overview</p></div></div>
-            <div class="step"><div><h4>Executive Summary</h4><p>Every area of work summarized on a single screen. → Executive Summary</p></div></div>
-            <div class="step"><div><h4>Financials</h4><p>The 2026&ndash;2027 outlook, the construction and insurance-claim summary, valuation, and the 2027 financing decision. → Financials</p></div></div>
-            <div class="step"><div><h4>Construction</h4><p>Conditions identified, work completed, and remaining scope. → Construction</p></div></div>
-            <div class="step"><div><h4>Leasing &amp; Market</h4><p>Current rents versus market, the comparable set, and how rents drive value. → Leasing &amp; Market</p></div></div>
-            <div class="step"><div><h4>Marketing</h4><p>The channel mix and pricing, current lead activity, and the website and SEO strategy. → Marketing</p></div></div>
-            <div class="step"><div><h4>Tenant Experience</h4><p>The welcome packet, move-in process, and how we keep good tenants. → Tenants</p></div></div>
-            <div class="step"><div><h4>Gallery &amp; Design</h4><p>The visual record of the project and the open design decisions. → Gallery</p></div></div>
-            <div class="step"><div><h4>Owner Portal</h4><p>Statements, approved bids, reports, and the property documents. → Owner Portal</p></div></div>
+            <div class="step"><div><h4>Overview</h4><p>Position, unit mix, and availability.</p></div></div>
+            <div class="step"><div><h4>Executive Summary</h4><p>Every division on one screen, with the open decisions.</p></div></div>
+            <div class="step"><div><h4>Financials</h4><p>Outlook, funding, valuation, and the 2027 financing decision.</p></div></div>
+            <div class="step"><div><h4>Construction</h4><p>Conditions encountered and the four-phase plan.</p></div></div>
+            <div class="step"><div><h4>Leasing &amp; Market</h4><p>The rent gap, the proof, and the comparable set.</p></div></div>
+            <div class="step"><div><h4>Marketing</h4><p>Channel mix, pricing, and current lead activity.</p></div></div>
+            <div class="step"><div><h4>Tenant Experience</h4><p>Resident transfers, the welcome packet, and move-ins.</p></div></div>
+            <div class="step"><div><h4>Gallery &amp; Design</h4><p>The visual record and the design decisions.</p></div></div>
+            <div class="step"><div><h4>Owner Portal</h4><p>AppFolio and the property documents.</p></div></div>
           </div>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Open decisions</p>
-          <h2>Open Decisions for Your Direction</h2>
-          <ul class="points">
-            <li><strong>Rent positioning.</strong> Confirmation of the market-rate targets for the remaining vacant and renovated units.</li>
-            <li><strong>Marketing budget.</strong> Approval (or adjustment) of the recommended channel spend on the Marketing page.</li>
-            <li><strong>Design selections.</strong> Marlene's selections for paneling, sconces, doors, and door numbering.</li>
-            <li><strong>Refinance timing.</strong> Direction on whether to begin lender discussions now or following lease-up.</li>
-          </ul>
-          
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Your team</p>
-          <h2>The Team Serving White Heather</h2>
-          
+          <h2>Your Team</h2>
           <div class="grid grid-2">
             <div class="card"><h4>[Name] — Principal</h4><p>One or two sentences: oversight role and history with the building.</p></div>
             <div class="card"><h4>[Name] — Property Manager</h4><p>Day-to-day operations, tenant relations, AppFolio reporting.</p></div>
@@ -723,28 +695,27 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ FINANCIALS ============ -->
       <div class="page" id="page-financials">
         <section class="reveal">
-          <p class="eyebrow">Financial review</p>
-          <h2>Financial Summary</h2>
-          <p class="lead">The pro forma tracks cash flow month by month through 2025 and 2026, then models two paths for 2027 — paying the construction line down from operations, or refinancing into permanent debt at stabilization. This review covers three areas: the 2026&ndash;2027 outlook, the construction and insurance-claim summary, and valuation.</p>
-          <div class="studies" style="margin-top:24px;">
+          <h2>2026&ndash;2027 Outlook</h2>
+          <div class="studies" style="margin-bottom:28px;">
             <div class="study"><div class="s-k">In-place income</div><div class="s-v">$20,911 / mo</div><div class="s-d">13 of 21 units occupied (61.9%)</div></div>
             <div class="study"><div class="s-k">Stabilized income</div><div class="s-v">$38,035 / mo</div><div class="s-d">Fully leased at market</div></div>
-            <div class="study"><div class="s-k">Construction line at completion</div><div class="s-v">&#8776; $1,000,000</div><div class="s-d">Funded by draws through Nov 2026</div></div>
             <div class="study"><div class="s-k">Projected 2027 NOI</div><div class="s-v">&#8776; $322,000</div><div class="s-d">At stabilization</div></div>
+            <div class="study"><div class="s-k">Free cash flow, 2027</div><div class="s-v">&#8776; $242,000</div><div class="s-d">After interest expense</div></div>
           </div>
+          <ul class="points">
+            <li><strong>Through 2026.</strong> The pro forma stages income month by month as each phase delivers — from $20,911 toward $38,035 per month.</li>
+            <li><strong>2027, stabilized.</strong> Two paths modeled side by side: pay the construction line down from operations, or refinance into permanent debt.</li>
+          </ul>
+          <div class="frame wide" style="margin-top:28px;"><div><div class="ft">Exhibit slot</div><div class="fd">Lease-up pro forma — monthly cash flow 2025&ndash;2026, 2027 scenarios</div></div></div>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">2026 &amp; 2027 outlook</p>
-          <h2>Projected Income as Units Are Delivered</h2>
-          <p class="measure sub" style="margin-bottom:28px;">The building collects $20,911 per month today and $38,035 fully leased at market — a gap of $17,124 per month that closes as renovated units are delivered and leased. The pro forma stages that climb month by month through 2026, then projects 2027 at stabilization: net operating income of roughly $322,000 and free cash flow after interest of about $242,000.</p>
-          <div class="frame wide"><div><div class="ft">Exhibit slot</div><div class="fd">Lease-up pro forma — monthly cash flow 2025&ndash;2026, with 2027 scenarios</div></div></div>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Construction &amp; insurance claim summary</p>
-          <h2>How the Work Is Funded</h2>
-          <p class="measure sub" style="margin-bottom:24px;">The renovation runs in four sequential phases so the building is never taken fully offline: each phase completes a set of units, those units re-lease, and the resulting cash flow supports operations while the next phase proceeds. Each phase is funded through draws on the existing line of credit, which reaches an estimated balance of approximately $1,000,000 once all phases are complete. The water event and related abatement are covered in the insurance-claim summary in the owner portal; the full phase plan and conditions are on the Construction page.</p>
+          <h2>Construction &amp; Insurance Funding</h2>
+          <ul class="points" style="margin-bottom:28px;">
+            <li><strong>Four sequential phases.</strong> Completed units re-lease while the next phase proceeds — the building keeps producing income throughout.</li>
+            <li><strong>Funded by line-of-credit draws.</strong> Estimated balance at completion: approximately $1,000,000.</li>
+            <li><strong>Insurance claim.</strong> The water-event claim record and proceeds reconciliation are maintained in the owner portal.</li>
+          </ul>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Category</th><th>Budget</th><th>Actual</th><th>Variance</th><th>Note</th></tr></thead>
@@ -758,43 +729,53 @@ a.doc:hover .dmeta{color:var(--accent);}
               <tfoot><tr><td>Construction line at completion</td><td colspan="4">&#8776; $1,000,000</td></tr></tfoot>
             </table>
           </div>
-          <p class="form-note" style="margin-top:14px;">Category detail, approved bids, and the insurance-claim record are maintained in the owner portal.</p>
+          <p class="form-note" style="margin-top:14px;">Category detail and approved bids in the owner portal.</p>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Valuation</p>
-          <h2>Income Drives Value</h2>
-          <p class="measure sub" style="margin-bottom:0;">A building's value follows its income. Closing the $17,124-per-month gap between in-place and market rents lifts net operating income to roughly $322,000 at stabilization — the figure a lender or appraiser underwrites. At a refinance, that income supports a projected debt-service coverage ratio of about 2.53×, well above typical lender minimums and the mark of a healthy, serviceable capital structure. The Leasing &amp; Market page details the rent gap and the comparable set behind these targets.</p>
+          <h2>Valuation</h2>
+          <div class="metrics" style="margin-bottom:28px;">
+            <div class="metric"><div class="num" data-static>$322,000</div><div class="lbl">projected 2027 net operating income</div></div>
+            <div class="metric"><div class="num" data-static>2.53&times;</div><div class="lbl">projected debt-service coverage at refinance</div></div>
+            <div class="metric"><div class="num" data-static>$200,000</div><div class="lbl">value supported by each $1,000/mo of added rent</div></div>
+          </div>
+          <p class="measure sub">Lenders and appraisers underwrite the building on what it collects. Closing the rent gap is the valuation strategy.</p>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Per-renovation impact</p>
-          <h2>What Each Renovation Adds</h2>
+          <h2>Renovation Economics</h2>
           <div class="grid grid-2">
-            <div class="card"><h4>Per-unit uplift</h4><p>Each renovated one-bedroom moves from $1,500 to $1,750 at market; each two-bedroom from $2,150 to $2,295. Renovated units have leased at or above these targets — unit 307 at $2,350 and unit 305 at $1,850.</p></div>
-            <div class="card"><h4>Across the building</h4><p>Phases 2 through 4 extend that uplift across the remaining units as they turn, carrying the building from $20,911 toward $38,035 per month at full market.</p></div>
+            <div class="card"><h4>Per unit</h4><p>One-bedrooms move from $1,500 to $1,750 at market; two-bedrooms from $2,150 to $2,295. Delivered units have leased at or above target — 307 at $2,350, 305 at $1,850.</p></div>
+            <div class="card"><h4>Across the building</h4><p>Phases 2&ndash;4 extend the uplift as units turn, carrying income from $20,911 toward $38,035 per month.</p></div>
           </div>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">The 2027 financing decision</p>
-          <h2>Pay Down the Line, or Refinance</h2>
-          <p class="measure sub" style="margin-bottom:24px;">Once renovation is complete and the property stabilizes, ownership faces a straightforward but important choice: continue paying down the construction line from cash flow, or refinance into a permanent loan. The pro forma models both side by side so the assumptions — and the rate and loan-amount inputs — can be evaluated and stress-tested directly.</p>
+          <h2>The 2027 Financing Decision</h2>
+          <p class="measure sub" style="margin-bottom:24px;">At stabilization: keep paying down the construction line, or refinance. The pro forma models both side by side.</p>
           <div class="grid grid-2" style="margin-bottom:24px;">
             <div class="card">
-              <div class="tagrow"><span class="tag">Path A</span></div>
-              <h3>Pay down the construction line</h3>
-              <p>Already in place, with no closing costs. At roughly $1,000,000 and an 8% interest-only rate, the line costs about $80,000 a year just to carry, before any principal is retired. Against 2027 free cash flow of about $242,000, directing every dollar to principal would retire it in about four years and two months — and realistically five to seven years once management fees, reserves, and distributions are accounted for. Ownership receives no capital return in the interim and carries floating-rate risk throughout.</p>
+              <div class="tagrow"><span class="tag">Path A — pay down the line</span></div>
+              <ul class="points">
+                <li>Already in place; no closing costs</li>
+                <li>&#8776;$80,000/yr interest-only carry — 8% on &#8776;$1.0M</li>
+                <li>Full payoff in &#8776;4.2 years at best; realistically 5&ndash;7</li>
+                <li>No capital returned; floating-rate risk throughout</li>
+              </ul>
             </div>
             <div class="card">
-              <div class="tagrow"><span class="tag accent">Path B</span></div>
-              <h3>Refinance at stabilization</h3>
-              <p>A $1,500,000 permanent loan at roughly 6.5% on a 30-year amortization carries annual debt service of about $113,800. It retires the construction line entirely, returns an estimated $500,000 in net proceeds to ownership at closing, and converts floating debt into a fixed, predictably amortizing obligation. Projected debt-service coverage at stabilization is about 2.53×.</p>
+              <div class="tagrow"><span class="tag accent">Path B — refinance at stabilization</span></div>
+              <ul class="points">
+                <li>$1,500,000 permanent loan — &#8776;6.5%, 30-year amortization</li>
+                <li>&#8776;$113,800 annual debt service, fixed and amortizing</li>
+                <li>Retires the line entirely; &#8776;$500,000 returned at closing</li>
+                <li>&#8776;2.53&times; debt-service coverage at stabilization</li>
+              </ul>
             </div>
           </div>
           <div class="card card-quiet">
             <h3>The break-even</h3>
-            <p>The two paths differ by roughly $34,000 a year in debt service. The $500,000 freed at a refinance, at a conservative 6% return, is worth about $30,000 a year in opportunity value — making the refinance essentially cost-neutral on a cash-flow basis while delivering immediate liquidity to ownership. The longer the pay-down timeline runs, the wider that gap becomes.</p>
+            <p>Debt service differs by roughly $34,000 a year. The $500,000 returned at closing, at a conservative 6%, is worth about $30,000 a year — making the refinance roughly cost-neutral on cash flow while delivering immediate liquidity. The longer the pay-down runs, the wider that gap becomes.</p>
           </div>
         </section>
       </div>
@@ -802,41 +783,32 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ CONSTRUCTION ============ -->
       <div class="page" id="page-construction">
         <section class="reveal">
-          <p class="eyebrow">Project review</p>
-          <h2>Conditions Identified During Construction</h2>
-          <p class="lead">Buildings of this era frequently present conditions that cannot be assessed until walls are opened. Some of the items below were anticipated in the original scope; others could not reasonably have been foreseen. All are documented here in full, with photographs in the Gallery and every approved bid in the owner portal.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Conditions encountered</p>
-          <h2>Issue by Issue</h2>
+          <h2>Conditions Encountered</h2>
           <div class="reality">
             <h3>Status as of June 2026</h3>
-            <p class="sub" style="margin-bottom:8px;">Each item links to photos in the Gallery; supporting documents are in the owner portal.</p>
-            <div class="constraint"><div class="ch"><span class="ct">Water incident</span><span class="chip ok">Remediated</span></div><p>A water event affected several units, including occupied units 101, 103, and 106; those long-term tenants elected to remain in place rather than relocate. Remediation is complete. Insurance treatment is covered in the claim summary on the Financials page; photographs are in the Gallery.</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Building age / existing conditions</span><span class="chip warn">Ongoing management</span></div><p>The practical implications of the building's era — plumbing, electrical, envelope — and how the work is sequenced to address them.</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Hazardous materials</span><span class="chip ok">Abated per protocol</span></div><p>Materials identified, coordination of licensed remediation, and clearance documentation (owner portal).</p></div>
-            <div class="constraint"><div class="ch"><span class="ct">Unforeseen conditions</span><span class="chip warn">Itemized</span></div><p>Discoveries that affected scope or schedule, each with its corresponding cost treatment.</p></div>
+            <p class="sub" style="margin-bottom:8px;">Photographs in the Gallery; supporting documents in the owner portal.</p>
+            <div class="constraint"><div class="ch"><span class="ct">Water incident</span><span class="chip ok">Remediated</span></div><p>Affected several units, including occupied 101, 103, and 106, whose long-term residents chose to remain. Insurance treatment on the Financials page.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Building age / existing conditions</span><span class="chip warn">Ongoing management</span></div><p>Era-typical plumbing, electrical, and envelope conditions, sequenced into the phase plan.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Hazardous materials</span><span class="chip ok">Abated per protocol</span></div><p>Identified, abated through licensed remediation, and cleared — documentation in the owner portal.</p></div>
+            <div class="constraint"><div class="ch"><span class="ct">Unforeseen conditions</span><span class="chip warn">Itemized</span></div><p>Scope and schedule impacts itemized with their cost treatment.</p></div>
           </div>
-          
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">The phased plan</p>
-          <h2>Four Phases, in Sequence</h2>
-          <p class="measure sub" style="margin-bottom:28px;">The work runs in four sequential phases, each completing a set of units and a share of common-area scope. Completed units re-lease and generate cash flow while the next phase proceeds, so the building is never taken fully offline. Every phase is funded through draws on the line of credit (see Financials).</p>
+          <h2>The Four-Phase Plan</h2>
+          <p class="measure sub" style="margin-bottom:28px;">Each phase completes a set of units that re-lease while the next proceeds — the building is never taken fully offline. All phases fund through line-of-credit draws (Financials).</p>
           <div class="steps">
-            <div class="step"><div><h4>Phase 1 — complete <span class="tag" style="margin-left:8px;">Late 2025 – May 2026</span></h4><p>Units 102, 104, 105, 202, 204, and 307, plus common-area work. Unit 307 leased at $2,350; unit 102 is pre-leased and 202 is occupied; 104, 105, and 204 are in lease-up.</p></div></div>
-            <div class="step"><div><h4>Phase 2 — in progress <span class="tag" style="margin-left:8px;">May – July 2026</span></h4><p>Units 107, 201, 301, and 304, with unit 306 under a change order. Unit 304's tenant relocated into renovated unit 307.</p></div></div>
-            <div class="step"><div><h4>Phases 3 &amp; 4 <span class="tag" style="margin-left:8px;">Through November 2026</span></h4><p>The remaining units, renovated as they turn — coordinated with existing tenants, several of whom have asked to move into renovated units at market rent.</p></div></div>
-            <div class="step"><div><h4>Common areas, exterior &amp; closeout</h4><p>Includes Marlene's design selections — acoustic paneling, exterior lighting, doors, and door numbering — followed by punch list, final inspections, and warranty documentation to the owner portal.</p></div></div>
+            <div class="step"><div><h4>Phase 1 — complete <span class="tag" style="margin-left:8px;">Late 2025 &ndash; May 2026</span></h4><p>Units 102, 104, 105, 202, 204, 307, plus common areas. 307 leased at $2,350; 102 pre-leased; 104, 105, 204 in lease-up.</p></div></div>
+            <div class="step"><div><h4>Phase 2 — in progress <span class="tag" style="margin-left:8px;">May &ndash; July 2026</span></h4><p>Units 107, 201, 301, 304; unit 306 under change order. 304's resident transferred into renovated 307.</p></div></div>
+            <div class="step"><div><h4>Phases 3 &amp; 4 <span class="tag" style="margin-left:8px;">Through November 2026</span></h4><p>Remaining units, renovated as they turn — coordinated with residents requesting transfers.</p></div></div>
+            <div class="step"><div><h4>Common areas, exterior &amp; closeout</h4><p>Marlene's design selections, punch list, inspections, and warranty documentation to the owner portal.</p></div></div>
           </div>
         </section>
 
         <section class="reveal">
           <div class="card card-quiet">
-            <h3>How construction and leasing remain coordinated</h3>
-            <p>Units are released to leasing upon delivery, not before. Marketing expenditures scale with available inventory, ensuring we never advertise units that cannot be shown. The delivery schedule above drives the lease-up forecast on the Financials page.</p>
+            <h3>Construction and leasing stay coordinated</h3>
+            <p>Units release to leasing on delivery. Marketing spend scales with available inventory. The delivery schedule drives the lease-up forecast on the Financials page.</p>
           </div>
         </section>
       </div>
@@ -844,20 +816,13 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ LEASING & MARKET ============ -->
       <div class="page" id="page-leasing">
         <section class="reveal">
-          <p class="eyebrow">The central point</p>
-          <h2>Below-Market Rents Have a Measurable Cost to the Building's Value</h2>
-          <p class="lead">Maintaining rents below market preserved excellent long-term tenancies. It also constrained the building's income, and a building's value is a direct function of its income. The figures below quantify that gap and outline the plan to close it on the renovated units while honoring commitments to existing tenants.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Current vs. market</p>
-          <h2>The Gap, per the Rent Roll</h2>
+          <h2>Rents Drive Value</h2>
+          <p class="measure sub" style="margin-bottom:32px;">Years of below-market rents kept excellent long-term residents — and capped the building's income and value. The plan closes the gap on turnover, not on existing tenants.</p>
           <div class="metrics" style="margin-bottom:32px;">
-            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place today (13 occupied units)</div></div>
-            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at full occupancy, at market</div></div>
+            <div class="metric"><div class="num" data-static>$20,911</div><div class="lbl">monthly rent in place (13 occupied units)</div></div>
+            <div class="metric"><div class="num" data-static>$38,035</div><div class="lbl">monthly rent at market, fully leased</div></div>
             <div class="metric"><div class="num" data-static>$17,124</div><div class="lbl">monthly gap — roughly $205,000 a year</div></div>
           </div>
-          <p class="measure sub" style="margin-bottom:24px;">A portion of that gap is vacancy (8 units, closing through lease-up). The remainder is in-place rents below market on long-term leases. By way of illustration: at typical Seattle small-building capitalization rates, each $1,000 per month of additional rent supports approximately $200,000 of building value. The supporting cap-rate detail is in Jerry's comparable report in the owner portal.</p>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit type</th><th>Avg in-place rent</th><th>Market rent</th><th>Renovated market</th></tr></thead>
@@ -868,24 +833,22 @@ a.doc:hover .dmeta{color:var(--accent);}
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:14px;">In-place averages computed from the June 11, 2026 rent roll, occupied units only.</p>
+          <p class="form-note" style="margin-top:14px;">June 11, 2026 rent roll, occupied units. Vacancy accounts for part of the gap (8 units); below-market in-place rents the remainder. At typical Seattle small-building cap rates, each $1,000/mo of added rent supports &#8776;$200,000 of value.</p>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Performance to date</p>
-          <h2>Renovated Units Are Achieving Their Target Rents</h2>
+          <h2>Renovated Units Are Achieving Target Rents</h2>
           <ul class="points">
-            <li><strong>Unit 307 (2/2, renovated)</strong> leased April 2026 at <strong>$2,350</strong> — above the $2,295 renovated target. The resident transferred from unit 304 while it was renovated.</li>
-            <li><strong>Unit 305 (1/1, renovated)</strong> leased September 2025 at <strong>$1,850</strong> — above the $1,750 renovated target, against a classic one-bed average near $1,430.</li>
-            <li><strong>Unit 202 (2/2, renovated)</strong> occupied June 2026; <strong>unit 102 (2/2, renovated)</strong> is pre-leased at the $2,295 market rate.</li>
-            <li><strong>Three renovated move-ins since September 2025,</strong> plus one pre-lease — demand at these rents is demonstrated, not projected.</li>
+            <li><strong>Unit 307 (2/2)</strong> — leased April 2026 at <strong>$2,350</strong>, above the $2,295 target; the resident transferred from 304.</li>
+            <li><strong>Unit 305 (1/1)</strong> — leased September 2025 at <strong>$1,850</strong>, above the $1,750 target.</li>
+            <li><strong>Unit 202 (2/2)</strong> — occupied June 2026; <strong>unit 102 (2/2)</strong> pre-leased at $2,295.</li>
+            <li><strong>Three renovated move-ins since September 2025,</strong> plus one pre-lease — demand at these rents is demonstrated.</li>
           </ul>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Our residents</p>
-          <h2>Long-Term Tenants Anchor the Building</h2>
-          <p class="measure sub" style="margin-bottom:24px;">Below-market rents were never accidental — they kept good people in place for years. Those tenancies are exactly why the repositioning happens on turnover, at renovation, rather than through increases on the residents who have stayed loyal to the building.</p>
+          <h2>Long-Term Residents</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Below-market rents kept good people in place for years. Repositioning happens at turnover and renovation — not through increases on loyal residents.</p>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit</th><th>Resident since</th><th>Tenure</th><th>In-place rent</th><th>Market</th></tr></thead>
@@ -897,14 +860,12 @@ a.doc:hover .dmeta{color:var(--accent);}
               </tbody>
             </table>
           </div>
-          <p class="form-note" style="margin-top:14px;">Several long-term residents were affected by the water event and chose to remain rather than relocate. Tenure as of the June 11, 2026 rent roll.</p>
+          <p class="form-note" style="margin-top:14px;">Several long-term residents affected by the water event chose to remain. Tenure per the June 11, 2026 rent roll.</p>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Advertised vs. net effective</p>
-          <h2>Advertised Rents Versus Collected Rents</h2>
-          <p class="measure sub" style="margin-bottom:24px;">Concessions (such as a complimentary week or a reduced deposit) allow us to maintain a strong advertised rate while remaining competitive on the prospective renter's initial costs. The table presents both figures so the building's actual earnings are fully transparent.</p>
-          
+          <h2>Advertised vs. Net Effective</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Concessions hold a strong advertised rate while staying competitive on move-in cost. Both figures are tracked so actual earnings stay transparent.</p>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Unit type</th><th>Advertised</th><th>Concession</th><th>Net effective</th></tr></thead>
@@ -918,26 +879,23 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">The comparable set</p>
-          <h2>Why Pricing Is Based on a Half-Mile Radius</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Prospective renters evaluating White Heather compare it against nearby buildings — not against averages from other neighborhoods. A half-mile radius around 15th Ave NE captures the properties genuinely competing for the same renter, which is the basis for our rent targets. The full comparable-set report (HelloData) is available <a href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" target="_blank" rel="noopener">as a live report</a> and in the owner portal.</p>
-          
+          <h2>The Half-Mile Comp Set</h2>
+          <p class="measure sub" style="margin-bottom:28px;">Renters compare White Heather to buildings minutes away, so pricing is set against the half-mile radius around 15th Ave NE. The full comparable-set report (HelloData) is available <a href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" target="_blank" rel="noopener">as a live report</a> and in the owner portal.</p>
           <div class="table-wrap">
             <table class="table">
               <thead><tr><th>Property</th><th>Distance</th><th>1-bed</th><th>2-bed</th><th>Note</th></tr></thead>
               <tbody>
                 <tr class="row-hl"><td>White Heather (renovated)</td><td>—</td><td>$1,750</td><td>$2,295</td><td>Subject</td></tr>
-                <tr><td>[Comp 1]</td><td>≤ 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
-                <tr><td>[Comp 2]</td><td>≤ 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
-                <tr><td>[Comp 3]</td><td>≤ 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
+                <tr><td>[Comp 1]</td><td>&le; 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
+                <tr><td>[Comp 2]</td><td>&le; 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
+                <tr><td>[Comp 3]</td><td>&le; 0.5 mi</td><td>$ —</td><td>$ —</td><td></td></tr>
               </tbody>
             </table>
           </div>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Anticipated questions</p>
-          <h2>Prepared Responses</h2>
+          <h2>Anticipated Questions</h2>
           <div>
             <details class="faq"><summary>Are rents being raised on long-term tenants?</summary><p>Existing tenants are not part of the repositioning. Rents move toward market only on turnover — as units vacate and are renovated — rather than through increases imposed on current long-term residents.</p></details>
             <details class="faq"><summary>Does the below-market rent position affect the building's value?</summary><p>Yes. Value follows income. Below-market rents were a deliberate trade-off the family chose, and the plan on this page addresses it through unit turnover rather than through increases on existing tenancies.</p></details>
@@ -949,14 +907,7 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ MARKETING ============ -->
       <div class="page" id="page-marketing">
         <section class="reveal">
-          <p class="eyebrow">The approach</p>
-          <h2>A Channel Mix Built Around Cost per Lease</h2>
-          <p class="lead">With eight units to lease, marketing is a near-term expenditure with a measurable return: cost per lease. Zillow drives traffic and occupancy; the building's website and a Google campaign build a lead pipeline we own; a neighborhood mailer reaches renters already in the area. Each channel below opens to its full pricing and analysis.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Current lead activity</p>
-          <h2>Where Inquiries Come From Today</h2>
+          <h2>Lead Activity Today</h2>
           <div class="metrics" style="margin-bottom:28px;">
             <div class="metric"><div class="num">7</div><div class="lbl">leads in the trailing 30 days (5/10&ndash;6/10)</div></div>
             <div class="metric"><div class="num" data-static>596</div><div class="lbl">Zillow listing views in the last 30 days</div></div>
@@ -977,9 +928,8 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">The channel mix</p>
-          <h2>Four Channels, Each With a Role</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Select any card for pricing, performance data, and the full analysis.</p>
+          <h2>The Channel Mix</h2>
+          <p class="measure sub" style="margin-bottom:28px;">With eight units to lease, every channel is judged on one number: cost per lease. Select a card for pricing and the full analysis.</p>
           <div class="grid grid-2" style="margin-bottom:28px;">
             <div class="card card-link" data-detail="md-zillow" tabindex="0" role="button">
               <div class="tagrow"><span class="tag accent">Recommended — primary</span></div>
@@ -1025,8 +975,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Digital presence</p>
-          <h2>The Building's Website Is a Long-Term Asset</h2>
+          <h2>The Website as a Long-Term Asset</h2>
           <ul class="points">
             <li><strong>Owned, not rented.</strong> Stop paying a listing platform and its traffic stops. SEO converts marketing expense into a long-term digital asset that keeps producing.</li>
             <li><strong>Search visibility.</strong> Searches for "White Heather Apartments" and neighborhood phrases like "apartments Northgate / Pinehurst" should land on our page, our photographs, and our application link — not a listing aggregator's.</li>
@@ -1039,39 +988,25 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ TENANTS ============ -->
       <div class="page" id="page-tenants">
         <section class="reveal">
-          <p class="eyebrow">Tenant experience</p>
-          <h2>Tenant Retention Begins With the Resident Experience</h2>
-          <p class="lead">Turnover is among the most significant costs a small building incurs. The welcome packet, move-in process, and thoughtful details below are how we retain the tenants we have invested in finding.</p>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Resident transfers</p>
-          <h2>Renovated Units, Offered to Residents First</h2>
-          <p class="measure sub" style="margin-bottom:24px;">As units are renovated, they are offered to existing residents first — at a preferred in-house rate, before public advertising. The program keeps good tenants in the building, upgrades the overall resident profile, and fills vacancies faster.</p>
+          <h2>Resident Transfer Program</h2>
+          <p class="measure sub" style="margin-bottom:24px;">Turnover is among the costliest events in a small building. Renovated units are therefore offered to existing residents first — at a preferred in-house rate, before public advertising — keeping good tenants, upgrading the resident profile, and filling vacancies faster.</p>
           <ul class="points">
-            <li><strong>How it works.</strong> Vacant renovated units are offered to current residents at a below-market, in-house rate. The resident's existing security deposit is returned and applied toward the new unit's deposit, handled case-by-case — and the renovated unit's condition keeps deposit exposure low.</li>
-            <li><strong>Completed.</strong> The resident of unit 304 transferred into renovated unit 307 at $2,350; unit 304 then entered Phase 2 renovation.</li>
-            <li><strong>In motion.</strong> The resident of unit 106 has asked to move into unit 107 once it is renovated, at the market rate; unit 207 has been offered a transfer and is considering it.</li>
-            <li><strong>Honored in place.</strong> Several long-term, water-event-affected residents — including units 101, 103, and 303 — have chosen to stay. Where a market increase is not feasible for them, their current tenancy is respected and the repositioning waits for natural turnover.</li>
+            <li><strong>How it works.</strong> Vacant renovated units are offered at a below-market, in-house rate. The existing security deposit is returned and applied toward the new unit's deposit, case-by-case — the renovated unit's condition keeps exposure low.</li>
+            <li><strong>Completed.</strong> Unit 304's resident transferred into renovated 307 at $2,350; 304 then entered Phase 2 renovation.</li>
+            <li><strong>In motion.</strong> Unit 106's resident has asked to move into 107 once renovated, at the market rate; unit 207 has been offered a transfer and is considering it.</li>
+            <li><strong>Honored in place.</strong> Long-term, water-event-affected residents — including 101, 103, and 303 — have chosen to stay. Where a market increase is not feasible, their tenancy is respected and repositioning waits for natural turnover.</li>
           </ul>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Welcome packet</p>
-          <h2>What Every New Tenant Receives</h2>
+          <h2>Welcome Packet &amp; Move-In Gifts</h2>
           <div class="grid grid-2" style="margin-bottom:24px;">
             <div class="card">
               <h4>Packet contents</h4>
-              <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (AppFolio) · clearly written house rules.</p>
+              <p>Move-in checklist · building contacts and emergency numbers · utility setup · neighborhood guide · maintenance request instructions (AppFolio) · house rules.</p>
             </div>
             <div class="frame"><div><div class="ft">Exhibit slot</div><div class="fd">Welcome packet example</div></div></div>
           </div>
-        </section>
-
-        <section class="reveal">
-          <p class="eyebrow">Move-in gifts</p>
-          <h2>A Modest Investment in Tenant Goodwill</h2>
-          
           <div>
             <span class="tag">Local coffee / bakery gift card</span>
             <span class="tag">Door welcome basket</span>
@@ -1081,13 +1016,12 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Operations</p>
           <h2>The Move-In Process</h2>
           <div class="steps">
             <div class="step"><div><h4>Application &amp; screening</h4><p>Through AppFolio — consistent criteria, documented decisions.</p></div></div>
-            <div class="step"><div><h4>Lease signing &amp; deposit</h4><p>Digital signing; deposits and terms per the schedule on the Leasing page.</p></div></div>
-            <div class="step"><div><h4>Unit ready &amp; walkthrough</h4><p>Delivered units only — coordination rule on the Construction page. Photo-documented condition report.</p></div></div>
-            <div class="step"><div><h4>Move-in day</h4><p>Keys, welcome packet, and gift, followed by a check-in message during the first week.</p></div></div>
+            <div class="step"><div><h4>Lease signing &amp; deposit</h4><p>Digital signing; deposits and terms per the Leasing page.</p></div></div>
+            <div class="step"><div><h4>Unit ready &amp; walkthrough</h4><p>Delivered units only; photo-documented condition report.</p></div></div>
+            <div class="step"><div><h4>Move-in day</h4><p>Keys, packet, and gift, with a check-in message in week one.</p></div></div>
           </div>
         </section>
       </div>
@@ -1095,14 +1029,12 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ GALLERY ============ -->
       <div class="page" id="page-gallery">
         <section class="reveal">
-          <p class="eyebrow">Visual record</p>
           <h2>Before, During, and Ahead</h2>
-          <p class="lead" style="margin-bottom:8px;">A complete visual history of the project — including the conditions encountered along the way — together with the design options still open for selection. This page also serves as Marlene's ongoing design reference.</p>
+          <p class="measure sub" style="margin-bottom:8px;">The project's visual history, and the design options open for selection — maintained as Marlene's ongoing reference.</p>
           
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Before &amp; damage</p>
           <h2>Initial Conditions</h2>
           <div class="gallery">
             <div class="frame" tabindex="0" role="button" aria-label="Before — typical unit condition at takeover"><div><div class="ft">Before</div><div class="fd">Typical unit condition at takeover</div></div></div>
@@ -1115,7 +1047,6 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Progress</p>
           <h2>Current Progress</h2>
           <div class="gallery">
             <div class="frame" tabindex="0" role="button" aria-label="Renovated unit — kitchen"><div><div class="ft">Renovated</div><div class="fd">Kitchen — delivered unit</div></div></div>
@@ -1126,9 +1057,8 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Design options — for Marlene</p>
-          <h2>Four Decisions, With Options Presented Side by Side</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Curated toward natural materials and mid-century lines. Each pairing below is an open design decision; renderings and product photographs are added to the frames as options are sourced.</p>
+          <h2>Design Decisions for Marlene</h2>
+          <p class="measure sub" style="margin-bottom:28px;">Natural materials, mid-century lines. Renderings and product photographs load as options are sourced.</p>
           <div class="grid grid-2">
             <div class="card">
               <h4>Acoustic paneling</h4>
@@ -1165,9 +1095,11 @@ a.doc:hover .dmeta{color:var(--accent);}
       <!-- ============ OWNER PORTAL ============ -->
       <div class="page" id="page-portal">
         <section class="reveal">
-          <p class="eyebrow">Owner access</p>
-          <h2>All Official Records, Accessible Through a Single Login</h2>
-          <p class="lead" style="margin-bottom:28px;">AppFolio is the system of record for everything official — statements, approved bids, reports, and Jerry's market comparable study all live there, and it should be your single source for any property document. For convenience, the key property documents are also gathered on this page, so you can open them here without leaving the site.</p>
+          <h2>AppFolio Is the System of Record</h2>
+          <ul class="points" style="margin-bottom:28px;">
+            <li><strong>Everything official lives in AppFolio</strong> — statements, approved bids, reports, and the comparable study.</li>
+            <li><strong>Mirrored here for convenience.</strong> The same key documents are gathered under Property Documents below.</li>
+          </ul>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn btn-primary btn-arrow" href="#" id="portalLink" target="_blank" rel="noopener">Open the AppFolio owner portal</a>
           </div>
@@ -1175,9 +1107,8 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Property Documents</p>
-          <h2>Your Records, Organized by Folder</h2>
-          <p class="sub" style="margin:0 0 24px; max-width:62ch;">Each folder opens to the documents it holds — click to expand. These mirror the records kept in AppFolio, gathered here so you can reach them without leaving the site.</p>
+          <h2>Property Documents</h2>
+          <p class="sub" style="margin:0 0 24px; max-width:62ch;">Each folder opens to its documents — mirrored from the records in AppFolio.</p>
 
           <!-- =============================================================
                TO ADD A DOCUMENT: drop the PDF into a /docs folder in the
@@ -1265,8 +1196,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Using the portal</p>
-          <h2>What You'll Find in AppFolio</h2>
+          <h2>Inside the Portal</h2>
           <div class="steps">
             <div class="step"><div><h4>Log in</h4><p>Each family member receives individual credentials — provisioned by AGM and resettable at any time.</p></div></div>
             <div class="step"><div><h4>Monthly statements</h4><p>Income, expenses, and distributions, delivered every month without the need for a request.</p></div></div>
@@ -1465,79 +1395,79 @@ function track(event, props){
    ============================================================ */
 var RAILS = {
   'home': {
-    eyebrow:'Owner Record · Confidential', title:'White Heather Apartments',
-    pos:'A 21-unit building in North Seattle, currently in lease-up following renovation. Maintained by AGM Real Estate Group for Ernie and Marlene Chen.',
+    eyebrow:'Overview · Confidential', title:'White Heather Apartments',
+    pos:'In lease-up following a building-wide renovation. Maintained for Ernie and Marlene Chen by AGM Real Estate Group.',
     glance:[['Address','12556 15th Ave NE'],['Units','21'],['Mix','12×1bd · 9×2bd'],['Rentable','17,645 SF'],['Occupancy','61.9%'],['Renovated','7 units']],
-    primary:['summary','See the executive summary'], secondary:['portal','Open the owner portal'],
-    foot:'Rent roll data as of June 11, 2026 (AppFolio). Managed by AGM Real Estate Group.'
+    primary:['summary','Executive summary'], secondary:['portal','Owner portal'],
+    foot:'Rent roll as of June 11, 2026 (AppFolio).'
   },
   'summary': {
-    eyebrow:'Executive Summary · Confidential', title:'Executive Summary',
-    pos:'The full engagement on one screen — the building, the numbers, the work completed and remaining, and the decisions ahead. Each panel links to its full page.',
-    glance:[['Units','21'],['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 units']],
-    primary:['leasing','The leasing analysis'], secondary:['financials','The financials'],
+    eyebrow:'Executive Summary', title:'The Property, on One Screen',
+    pos:'Position, workstreams, and open decisions — each panel links into the full record.',
+    glance:[['Occupancy','61.9%'],['In place','$20,911 / mo'],['At market','$38,035 / mo'],['Gap','$17,124 / mo'],['Renovated','7 units']],
+    primary:['financials','The financial review'], secondary:['leasing','The leasing analysis'],
     print:true,
-    foot:'A one-page overview of the full record. All figures from the June 11, 2026 AppFolio rent roll.'
+    foot:'All figures from the June 11, 2026 rent roll.'
   },
   'agenda': {
-    eyebrow:'Contents', title:'What This Record Covers, and Your Team',
-    pos:'A map to every section of the record, the open decisions we’re tracking with you, and the team managing the property.',
-    glance:[['Sections','9'],['Open decisions','4'],['Team','AGM'],['Updated','Continually']],
-    primary:['summary','Open the executive summary'], secondary:null,
+    eyebrow:'Contents', title:'A Map of the Record',
+    pos:'Where everything lives, and the team behind the property.',
+    glance:[['Sections','9'],['Open decisions','4'],['Updated','Continually']],
+    primary:['summary','Executive summary'], secondary:null,
     print:true,
-    foot:'Maintained by AGM Real Estate Group and updated as the work progresses.'
+    foot:'Maintained by AGM Real Estate Group.'
   },
   'financials': {
-    eyebrow:'Financials', title:'The Outlook, Funding, and Valuation',
-    pos:'The 2026\u20132027 outlook, the construction and insurance-claim summary, valuation, and the 2027 financing decision — pay down the construction line or refinance.',
-    glance:[['Income today','$20,911 / mo'],['At stabilization','$38,035 / mo'],['2027 NOI','\u2248 $322,000'],['Refi DSCR','\u2248 2.53\u00d7']],
-    primary:['portal','Documents in the portal'], secondary:['leasing','The path to stabilized income'],
+    eyebrow:'Financials', title:'Outlook, Funding & Valuation',
+    pos:'The 2026–2027 pro forma, the construction line, valuation at stabilization, and the 2027 financing decision.',
+    glance:[['Income today','$20,911 / mo'],['At stabilization','$38,035 / mo'],['2027 NOI','≈ $322,000'],['Refi DSCR','≈ 2.53×']],
+    primary:['portal','Documents in the portal'], secondary:['leasing','The path to stabilization'],
     print:true,
-    foot:'Updated as costs are finalized. Statements are available in AppFolio.'
+    foot:'Statements and the full pro forma live in AppFolio.'
   },
   'construction': {
-    eyebrow:'Construction', title:'Conditions Identified, Work Completed, and Remaining Scope',
-    pos:'A candid account of the project — the water incident, existing conditions, abatement, and unforeseen discoveries — and the four-phase renovation plan.',
-    glance:[['Water incident','Remediated'],['Hazmat','Abated'],['Units delivered','7'],['Remaining scope','Phases 2\u20134']],
-    primary:['gallery','View the photographs'], secondary:['financials','Cost treatment'],
+    eyebrow:'Construction', title:'Four Phases to Completion',
+    pos:'What the building revealed, what has been corrected, and the schedule through November 2026.',
+    glance:[['Water incident','Remediated'],['Hazmat','Abated'],['Units delivered','7'],['Remaining','Phases 2–4']],
+    primary:['gallery','The photographs'], secondary:['financials','Cost treatment'],
     print:true,
-    foot:'Approved bids and clearance reports are kept in the owner portal.'
+    foot:'Approved bids and clearance reports in the owner portal.'
   },
   'leasing': {
-    eyebrow:'Leasing & Market', title:'Rents Drive Value: The Gap and the Plan to Close It',
-    pos:'Current rents versus market, the half-mile comparable methodology, concession structure, and evidence that renovated units are achieving their targets.',
+    eyebrow:'Leasing & Market', title:'Closing the Rent Gap',
+    pos:'$17,124 a month between in-place and market — closed on turnover, proven by the renovated units.',
     glance:[['In place','$20,911 / mo'],['At market, full','$38,035 / mo'],['Gap','$17,124 / mo'],['Vacant','8 (+1 notice)'],['Pre-leased','1']],
     primary:['marketing','The plan to lease the units'], secondary:['portal','The comparable report'],
     print:true,
-    foot:'All figures from the June 11, 2026 AppFolio rent roll. Comp detail per the market comp report.'
+    foot:'Figures from the June 11, 2026 rent roll.'
   },
   'marketing': {
-    eyebrow:'Marketing', title:'A Channel Mix Built Around Cost per Lease',
-    pos:'Zillow for traffic, the website and a Google campaign for an owned lead pipeline, and a neighborhood mailer for local reach — with the Zillow vs. apartments.com analysis in full.',
+    eyebrow:'Marketing', title:'Spending Measured in Cost per Lease',
+    pos:'Zillow for traffic, the website for an owned pipeline, EDDM for the neighborhood — and the apartments.com analysis.',
     glance:[['Units to lease','8 (+1 notice)'],['Leads, last 30 days','7'],['Zillow Enhanced','$625 / mo'],['EDDM','$640 / route']],
     primary:['leasing','The rents being marketed'], secondary:null,
     print:true,
-    foot:'Pricing per vendor quotes, June 2026. Lead activity from AppFolio.'
+    foot:'Vendor pricing as of June 2026; lead data from AppFolio.'
   },
   'tenants': {
-    eyebrow:'Tenant Experience', title:'Retaining the Tenants We Have Invested in Finding',
-    pos:'The welcome packet, move-in process, and considered details that reduce turnover.',
-    glance:[['Move-ins since Sep','3 (+1 underway)'],['Packet','On this page'],['Process','AppFolio end-to-end']],
+    eyebrow:'Tenant Experience', title:'Retention by Design',
+    pos:'In-house transfers, the welcome packet, and a move-in process that keeps good residents.',
+    glance:[['Move-ins since Sep','3 (+1 underway)'],['Transfers','1 done · 2 in motion'],['Process','AppFolio end-to-end']],
     primary:['leasing','Leasing progress'], secondary:null,
-    foot:'Updated as the welcome packet and gift program are finalized.'
+    foot:'Move-in materials in the owner portal.'
   },
   'gallery': {
-    eyebrow:'Gallery & Design', title:'The Visual Record, and Marlene’s Design Decisions',
-    pos:'Before, damage, and progress photographs, together with side-by-side options for paneling, lighting, doors, and door numbering.',
-    glance:[['Categories','Before · Damage · Progress'],['Design decisions','4'],['Direction','Natural · mid-century'],['Status','Updated over time']],
-    primary:['construction','The context behind the photographs'], secondary:null,
-    foot:'Kept as Marlene’s ongoing design reference.'
+    eyebrow:'Gallery & Design', title:'Documented, Start to Finish',
+    pos:'Before, damage, and progress photographs, with Marlene’s four design decisions side by side.',
+    glance:[['Categories','Before · Damage · Progress'],['Design decisions','4'],['Direction','Natural · mid-century']],
+    primary:['construction','The work behind the photos'], secondary:null,
+    foot:'Maintained as Marlene’s ongoing design reference.'
   },
   'portal': {
-    eyebrow:'Owner Portal', title:'Statements, Bids, and Reports — A Single Login',
-    pos:'AppFolio is the system of record for every document. The key property documents are also gathered here for quick reference.',
-    glance:[['Platform','AppFolio'],['Access','Chen family logins'],['Statements','Monthly, automatic'],['Repository','Bids · Reports · Comps']],
-    primary:null, secondary:['financials','Return to the financials'],
+    eyebrow:'Owner Portal', title:'The System of Record',
+    pos:'AppFolio holds everything official; Property Documents mirrors the essentials here.',
+    glance:[['Platform','AppFolio'],['Access','Chen family logins'],['Statements','Monthly, automatic'],['Documents','Bids · Reports · Comps']],
+    primary:null, secondary:['financials','The financial review'],
     foot:'AppFolio is the single source for all property documents.'
   }
 };
@@ -1622,6 +1552,26 @@ function renderPager(route){
   el.innerHTML = html;
 }
 
+/* section flow arrows — slide-style advance between sections */
+function buildSectionArrows(){
+  document.querySelectorAll('.sec-next').forEach(function(b){ b.remove(); });
+  var page = document.querySelector('.page.active');
+  if (!page) return;
+  var secs = Array.prototype.filter.call(page.children, function(el){ return el.tagName === 'SECTION'; });
+  secs.forEach(function(sec, i){
+    if (i >= secs.length - 1) return;
+    var btn = document.createElement('button');
+    btn.className = 'sec-next';
+    btn.setAttribute('aria-label', 'Next section');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>';
+    btn.addEventListener('click', function(){
+      secs[i+1].scrollIntoView({behavior:'smooth', block:'start'});
+      track('section_advance', {page:currentRoute(), to:i+1});
+    });
+    sec.appendChild(btn);
+  });
+}
+
 function showRoute(route){
   ROUTES.forEach(function(r){
     var el = document.getElementById('page-'+r);
@@ -1636,6 +1586,7 @@ function showRoute(route){
   window.scrollTo({top:0, behavior:'auto'});
   closeMobileNav();
   runReveal();
+  buildSectionArrows();
   engageRoute(route);
   track('page_view', {page:route});
 }
