@@ -203,6 +203,19 @@ a.doc:hover .dmeta{color:var(--accent);}
 .doc.empty{color:var(--faint); font-style:italic;}
 .doc.empty .dmeta{font-style:normal;}
 
+/* channel detail modal */
+.modal{position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; place-items:center; z-index:240; padding:28px;}
+.modal.open{display:grid;}
+.modal-panel{position:relative; width:min(780px,94vw); max-height:86vh; overflow:auto; background:var(--surface); border:1px solid var(--border-strong); border-radius:10px; padding:40px 44px;}
+.modal-close{position:absolute; top:14px; right:16px; width:32px; height:32px; border:none; background:none; color:var(--muted); font-size:22px; cursor:pointer; border-radius:8px; line-height:1;}
+.modal-close:hover{background:var(--surface-2); color:var(--text);}
+.modal-panel h3{font-size:20px; margin-bottom:8px;}
+.modal-panel .m-sub{font-size:13.5px; color:var(--text-3); margin:0 0 20px; line-height:1.65; max-width:60ch;}
+.modal-panel h4{margin:26px 0 12px;}
+.modal-panel .table-wrap{margin:0 0 4px;}
+.modal-panel ul.points li{padding:12px 0;}
+@media(max-width:700px){.modal-panel{padding:28px 22px;}}
+
 /* floating side nav (presentation jump menu) */
 .sidenav{position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:120; width:212px; background:var(--surface); border:1px solid var(--border); border-radius:12px; box-shadow:0 10px 34px rgba(0,0,0,.12); padding:10px; transition:right .25s var(--ease), bottom .25s var(--ease), top .25s var(--ease);}
 .sidenav-head{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:6px 8px 9px; border-bottom:1px solid var(--border-soft); margin-bottom:6px;}
@@ -334,7 +347,7 @@ a.doc:hover .dmeta{color:var(--accent);}
 
 /* print tear-sheets */
 @media print{
-  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager{display:none!important;}
+  .topbar,.hamburger,.theme-toggle,.btn,.rail-cta,.lightbox,.sidenav,.pager,.modal{display:none!important;}
   body{background:#fff; color:#000; font-size:11pt;}
   .shell{display:block; max-width:none; border:none;}
   .rail{border:none; border-bottom:1.5pt solid #000;}
@@ -600,10 +613,10 @@ a.doc:hover .dmeta{color:var(--accent);}
             <div class="card card-link" data-route="marketing">
               <div class="dash-head"><h3>Marketing</h3><span class="chip warn">For approval</span></div>
               <ul class="kv">
-                <li><span>Zillow package</span><span class="kvv">Recommended</span></li>
-                <li><span>Google drip campaign</span><span class="kvv">Recommended</span></li>
-                <li><span>EDDM mailer</span><span class="kvv">Recommended</span></li>
-                <li><span>Apartments.com</span><span class="kvv">Not recommended</span></li>
+                <li><span>Zillow Enhanced</span><span class="kvv">$625 / mo · primary</span></li>
+                <li><span>Google drip + website</span><span class="kvv">$200–250 / mo</span></li>
+                <li><span>EDDM mailer</span><span class="kvv">$640 / route</span></li>
+                <li><span>Apartments.com</span><span class="kvv">Situational</span></li>
               </ul>
               <p class="sub" style="margin:14px 0 0;">Measured on cost per lease against one month's rent.</p>
               <span class="more">Channel recommendations →</span>
@@ -675,7 +688,7 @@ a.doc:hover .dmeta{color:var(--accent);}
             <div class="step"><div><h4>Financials</h4><p>The 2026&ndash;2027 outlook, the construction and insurance-claim summary, valuation, and the 2027 financing decision. → Financials</p></div></div>
             <div class="step"><div><h4>Construction</h4><p>Conditions identified, work completed, and remaining scope. → Construction</p></div></div>
             <div class="step"><div><h4>Leasing &amp; Market</h4><p>Current rents versus market, the comparable set, and how rents drive value. → Leasing &amp; Market</p></div></div>
-            <div class="step"><div><h4>Marketing</h4><p>Recommended channels, expected returns, and the channel we advise against. → Marketing</p></div></div>
+            <div class="step"><div><h4>Marketing</h4><p>The channel mix and pricing, current lead activity, and the website and SEO strategy. → Marketing</p></div></div>
             <div class="step"><div><h4>Tenant Experience</h4><p>The welcome packet, move-in process, and how we keep good tenants. → Tenants</p></div></div>
             <div class="step"><div><h4>Gallery &amp; Design</h4><p>The visual record of the project and the open design decisions. → Gallery</p></div></div>
             <div class="step"><div><h4>Owner Portal</h4><p>Statements, approved bids, reports, and the property documents. → Owner Portal</p></div></div>
@@ -907,7 +920,7 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">The comparable set</p>
           <h2>Why Pricing Is Based on a Half-Mile Radius</h2>
-          <p class="measure sub" style="margin-bottom:28px;">Prospective renters evaluating White Heather compare it against nearby buildings — not against averages from other neighborhoods. A half-mile radius around 15th Ave NE captures the properties genuinely competing for the same renter, which is the basis for our rent targets. Jerry's complete digital comparable report is available in the owner portal.</p>
+          <p class="measure sub" style="margin-bottom:28px;">Prospective renters evaluating White Heather compare it against nearby buildings — not against averages from other neighborhoods. A half-mile radius around 15th Ave NE captures the properties genuinely competing for the same renter, which is the basis for our rent targets. The full comparable-set report (HelloData) is available <a href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" target="_blank" rel="noopener">as a live report</a> and in the owner portal.</p>
           
           <div class="table-wrap">
             <table class="table">
@@ -937,45 +950,77 @@ a.doc:hover .dmeta{color:var(--accent);}
       <div class="page" id="page-marketing">
         <section class="reveal">
           <p class="eyebrow">The approach</p>
-          <h2>Invest in the Channels Where Renters Search; Forgo the Rest</h2>
-          <p class="lead">With eight units to lease, marketing is a near-term expenditure with a measurable return: cost per lease. Below are the channels we recommend funding, the expected return from each, and one channel we recommend declining.</p>
+          <h2>A Channel Mix Built Around Cost per Lease</h2>
+          <p class="lead">With eight units to lease, marketing is a near-term expenditure with a measurable return: cost per lease. Zillow drives traffic and occupancy; the building's website and a Google campaign build a lead pipeline we own; a neighborhood mailer reaches renters already in the area. Each channel below opens to its full pricing and analysis.</p>
         </section>
 
         <section class="reveal">
-          <p class="eyebrow">Recommended channels</p>
-          <h2>Three Recommended Channels; One Not Recommended</h2>
-          <div class="grid grid-2" style="margin-bottom:28px;">
-            <div class="card">
-              <div class="tagrow"><span class="tag accent">Recommended</span></div>
-              <h3>Zillow package</h3>
-              <p>The platform where the largest share of Seattle renters begin their search. Paid placement keeps our eight availabilities at the top of the feed. Return framing: cost ÷ expected leases = cost per lease, measured against one month's rent.</p>
-            </div>
-            <div class="card">
-              <div class="tagrow"><span class="tag accent">Recommended</span></div>
-              <h3>Google drip / digital campaign</h3>
-              <p>Search and display advertising targeting "apartments Northgate / Pinehurst" intent, directed to the building's own website. This builds a lead pipeline the building owns rather than rents.</p>
-            </div>
-            <div class="card">
-              <div class="tagrow"><span class="tag accent">Recommended</span></div>
-              <h3>EDDM / neighborhood mailer</h3>
-              <p>Every-door direct mail across surrounding postal routes. The cost per household is low, and renters frequently relocate within the neighborhood where they already live.</p>
-            </div>
-            <div class="card">
-              <div class="tagrow"><span class="tag">Not recommended</span></div>
-              <h3>Apartments.com</h3>
-              <p>Its audience and pricing are oriented toward large, amenity-rich complexes; for a 21-unit building, the cost per qualified lead is not economically justified.</p>
-            </div>
+          <p class="eyebrow">Current lead activity</p>
+          <h2>Where Inquiries Come From Today</h2>
+          <div class="metrics" style="margin-bottom:28px;">
+            <div class="metric"><div class="num">7</div><div class="lbl">leads in the trailing 30 days (5/10&ndash;6/10)</div></div>
+            <div class="metric"><div class="num" data-static>596</div><div class="lbl">Zillow listing views in the last 30 days</div></div>
+            <div class="metric"><div class="num" data-static>4,030</div><div class="lbl">Zillow impressions in the last 30 days</div></div>
           </div>
-          
           <div class="table-wrap">
             <table class="table">
-              <thead><tr><th>Channel</th><th>Monthly cost</th><th>Expected leads/mo</th><th>Est. cost per lease</th></tr></thead>
+              <thead><tr><th>Source</th><th>Leads (trailing 30 days)</th><th>Placement</th></tr></thead>
               <tbody>
-                <tr><td>Zillow package</td><td>$ —</td><td>—</td><td>$ —</td></tr>
-                <tr><td>Google drip campaign</td><td>$ —</td><td>—</td><td>$ —</td></tr>
-                <tr><td>EDDM mailer (per drop)</td><td>$ —</td><td>—</td><td>$ —</td></tr>
+                <tr><td>Zumper</td><td>3</td><td>Unpaid syndication</td></tr>
+                <tr><td>Apartment List</td><td>2</td><td>Unpaid syndication</td></tr>
+                <tr><td>Zillow</td><td>1</td><td>Base package ($99.27/mo)</td></tr>
+                <tr><td>Uloop</td><td>1</td><td>Unpaid syndication</td></tr>
               </tbody>
             </table>
+          </div>
+          <p class="form-note" style="margin-top:14px;">Source: AppFolio lead tracking. Current volume reflects entry-level placement — the recommendations below are the lever for raising it.</p>
+        </section>
+
+        <section class="reveal">
+          <p class="eyebrow">The channel mix</p>
+          <h2>Four Channels, Each With a Role</h2>
+          <p class="measure sub" style="margin-bottom:28px;">Select any card for pricing, performance data, and the full analysis.</p>
+          <div class="grid grid-2" style="margin-bottom:28px;">
+            <div class="card card-link" data-detail="md-zillow" tabindex="0" role="button">
+              <div class="tagrow"><span class="tag accent">Recommended — primary</span></div>
+              <h3>Zillow — Enhanced package</h3>
+              <p>The largest consumer rental audience (Zillow, Trulia, HotPads). The Enhanced tier roughly doubles views, impressions, and prospects versus our current base listing — the fastest path to occupancy during lease-up.</p>
+              <span class="more">Pricing &amp; performance →</span>
+            </div>
+            <div class="card card-link" data-detail="md-website" tabindex="0" role="button">
+              <div class="tagrow"><span class="tag accent">Recommended</span></div>
+              <h3>Website, SEO &amp; Google campaign</h3>
+              <p>Paid platforms rent attention; the building's own site builds it. A pay-per-click campaign (~$200&ndash;$250/mo) launches the pipeline, and SEO typically shows results within about three weeks.</p>
+              <span class="more">Economics &amp; measurement →</span>
+            </div>
+            <div class="card card-link" data-detail="md-eddm" tabindex="0" role="button">
+              <div class="tagrow"><span class="tag accent">Recommended</span></div>
+              <h3>EDDM — neighborhood mailer</h3>
+              <p>USPS every-door postcards across four mapped routes around the building — 2,423 addresses, 1,312 of them apartments, at $640 per route per drop. Renters frequently move within their own neighborhood.</p>
+              <span class="more">Routes &amp; costs →</span>
+            </div>
+            <div class="card card-link" data-detail="md-aptscom" tabindex="0" role="button">
+              <div class="tagrow"><span class="tag">Situational</span></div>
+              <h3>Apartments.com</h3>
+              <p>Fewer but more qualified leads and the strongest property showcase — a conversion platform rather than a traffic engine, typically suited to communities of 100+ units. The Gold package includes a professional photo shoot.</p>
+              <span class="more">Pricing &amp; head-to-head →</span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Channel</th><th>Pricing</th><th>Coverage / projection</th><th>Role</th></tr></thead>
+              <tbody>
+                <tr class="row-hl"><td>Zillow Enhanced</td><td>$625/mo (6-mo) · $550/mo (12-mo)</td><td>&#8776;2&times; base exposure</td><td>Primary traffic</td></tr>
+                <tr><td>Zillow Base (current)</td><td>$99.27/mo</td><td>~20 leads/mo projected avg</td><td>In place today</td></tr>
+                <tr><td>Google drip campaign</td><td>$200&ndash;$250/mo (&#8776;$10/day PPC)</td><td>Scales with leasing velocity</td><td>Owned pipeline</td></tr>
+                <tr><td>EDDM mailer</td><td>$640/route per drop ($2,560 all four)</td><td>2,423 addresses · 1,312 apartments</td><td>Neighborhood reach</td></tr>
+                <tr><td>Apartments.com Gold</td><td>$319/mo (12-mo, incl. photo shoot)</td><td>Lower volume, higher quality</td><td>Conversion / showcase</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card card-quiet" style="margin-top:28px;">
+            <h3>The takeaway</h3>
+            <p>Zillow drives traffic; Apartments.com helps convert. The strongest operators use both — but for a 21-unit building in lease-up, Zillow is the primary spend, the website is the durable asset, and Apartments.com is best revisited if conversion, rather than traffic, becomes the constraint.</p>
           </div>
         </section>
 
@@ -983,9 +1028,10 @@ a.doc:hover .dmeta{color:var(--accent);}
           <p class="eyebrow">Digital presence</p>
           <h2>The Building's Website Is a Long-Term Asset</h2>
           <ul class="points">
-            <li><strong>Owned, not rented.</strong> Listing sites carry an indefinite monthly cost; the building's own site and its Google presence appreciate over time.</li>
-            <li><strong>Search visibility.</strong> Searches for "White Heather Apartments" and the surrounding neighborhood should lead to our page, our photographs, and our application link — not to a listing aggregator's.</li>
-            <li><strong>Conversion.</strong> Every paid channel above directs traffic here, so a strong site improves the return on all of them.</li>
+            <li><strong>Owned, not rented.</strong> Stop paying a listing platform and its traffic stops. SEO converts marketing expense into a long-term digital asset that keeps producing.</li>
+            <li><strong>Search visibility.</strong> Searches for "White Heather Apartments" and neighborhood phrases like "apartments Northgate / Pinehurst" should land on our page, our photographs, and our application link — not a listing aggregator's.</li>
+            <li><strong>Better-qualified leads.</strong> Website prospects sought the property out intentionally; they arrive more educated and convert to tours and leases at higher rates.</li>
+            <li><strong>Measured like an investment.</strong> Lead-source mix, lead-to-tour and tour-to-lease conversion, cost per lease by channel, days vacant, and renewal rate — reported in the owner portal as channels are booked.</li>
           </ul>
         </section>
       </div>
@@ -1001,10 +1047,11 @@ a.doc:hover .dmeta{color:var(--accent);}
         <section class="reveal">
           <p class="eyebrow">Resident transfers</p>
           <h2>Renovated Units, Offered to Residents First</h2>
-          <p class="measure sub" style="margin-bottom:24px;">As units are renovated, current residents are offered the opportunity to move into them at market rent before the units are advertised. It keeps good tenants in the building, fills renovated units faster, and lets the repositioning happen by choice rather than by pressure.</p>
+          <p class="measure sub" style="margin-bottom:24px;">As units are renovated, they are offered to existing residents first — at a preferred in-house rate, before public advertising. The program keeps good tenants in the building, upgrades the overall resident profile, and fills vacancies faster.</p>
           <ul class="points">
+            <li><strong>How it works.</strong> Vacant renovated units are offered to current residents at a below-market, in-house rate. The resident's existing security deposit is returned and applied toward the new unit's deposit, handled case-by-case — and the renovated unit's condition keeps deposit exposure low.</li>
             <li><strong>Completed.</strong> The resident of unit 304 transferred into renovated unit 307 at $2,350; unit 304 then entered Phase 2 renovation.</li>
-            <li><strong>In motion.</strong> The resident of unit 106 has asked to move into unit 107 once it is renovated, at market rent; unit 207 has been offered a transfer and is considering it.</li>
+            <li><strong>In motion.</strong> The resident of unit 106 has asked to move into unit 107 once it is renovated, at the market rate; unit 207 has been offered a transfer and is considering it.</li>
             <li><strong>Honored in place.</strong> Several long-term, water-event-affected residents — including units 101, 103, and 303 — have chosen to stay. Where a market increase is not feasible for them, their current tenancy is respected and the repositioning waits for natural turnover.</li>
           </ul>
         </section>
@@ -1168,7 +1215,7 @@ a.doc:hover .dmeta{color:var(--accent);}
                 <span class="fchev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></span>
               </summary>
               <div class="fbody">
-                <a class="doc" href="#" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">Open in the AppFolio portal</span><span class="dmeta">AppFolio</span></a>
+                <a class="doc" href="https://app.hellodata.ai/property-reports/public/a26ae570-5fc2-4ef6-801b-7b24edcf8aaf" data-portal-doc target="_blank" rel="noopener"><span class="dic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span><span class="dname">HelloData comp set report</span><span class="dmeta">Live report</span></a>
               </div>
             </details>
 
@@ -1262,6 +1309,140 @@ a.doc:hover .dmeta{color:var(--accent);}
   <div class="sidenav-list" id="sidenavList"></div>
 </nav>
 
+<!-- ===================== CHANNEL DETAIL MODAL ===================== -->
+<div class="modal" id="detailModal" role="dialog" aria-modal="true" aria-label="Channel detail">
+  <div class="modal-panel">
+    <button class="modal-close" id="detailClose" aria-label="Close">&times;</button>
+    <div id="detailBody"></div>
+  </div>
+</div>
+
+<div hidden id="detailLibrary">
+
+  <div id="md-zillow">
+    <h3>Zillow — Traffic, Visibility &amp; Market Demand</h3>
+    <p class="m-sub">The largest consumer rental audience — Zillow, Trulia, and HotPads combined — and where many renters start their search. Recommended as the primary paid channel during lease-up.</p>
+    <h4>Current Performance — Base Package, Last 30 Days</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Metric</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Impressions</td><td>4,030</td></tr>
+        <tr><td>Listing views</td><td>596</td></tr>
+        <tr><td>Leads</td><td>5</td></tr>
+        <tr><td>Projected average</td><td>~20 leads / mo</td></tr>
+      </tbody>
+    </table></div>
+    <h4>Pricing</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Package</th><th>6-month term</th><th>12-month term</th></tr></thead>
+      <tbody>
+        <tr><td>Base</td><td>$125 / mo</td><td>$100 / mo</td></tr>
+        <tr class="row-hl"><td>Enhanced — recommended</td><td>$625 / mo</td><td>$550 / mo</td></tr>
+      </tbody>
+    </table></div>
+    <p class="m-sub" style="margin-top:10px;">The Enhanced package roughly doubles views, impressions, and listing prospects versus base — a significant increase in exposure with eight units to lease.</p>
+    <h4>Why Zillow Leads the Mix</h4>
+    <ul class="points">
+      <li><strong>Lead volume.</strong> The massive consumer audience across Zillow, Trulia, and HotPads consistently generates the most inquiries.</li>
+      <li><strong>Occupancy speed.</strong> The strongest tool when the objective is filling vacancies and lease-ups quickly.</li>
+      <li><strong>Market intelligence.</strong> Shows which units draw attention, whether pricing and concessions are working, and whether renovations are producing rent premiums.</li>
+      <li><strong>Small-building coverage.</strong> Captures walk-ups, fourplexes, and independent landlords — White Heather's actual neighborhood competitors appear more completely on Zillow.</li>
+      <li><strong>Concession visibility.</strong> Pricing and move-in specials are prominent, so effective-rent marketing performs well.</li>
+    </ul>
+  </div>
+
+  <div id="md-website">
+    <h3>Website, SEO &amp; Google Campaign — The Owned Pipeline</h3>
+    <p class="m-sub">Relying only on listing platforms means they own the customer relationship — you are effectively renting attention. The building's own website, backed by SEO and a Google campaign, builds visibility the property keeps.</p>
+    <h4>Cost to Launch</h4>
+    <ul class="points">
+      <li><strong>Google drip campaign.</strong> Pay-per-click at roughly $10/day — approximately $200&ndash;$250 per month. The package scales up if the directive is high leasing velocity in a short window.</li>
+      <li><strong>SEO integration.</strong> Typically shows results and increased traffic within about three weeks of launch.</li>
+    </ul>
+    <h4>Why It Compounds</h4>
+    <ul class="points">
+      <li><strong>Paid traffic stops when payment stops.</strong> Zillow, Apartments.com, and Google Ads rent visibility; organic search keeps producing after the initial investment.</li>
+      <li><strong>Marketing assets become searchable.</strong> Photography, tours, and neighborhood content only have lasting value when they live somewhere Google can find — searches like "apartments Northgate Seattle" become leads that cost nothing per click.</li>
+      <li><strong>Website leads convert better.</strong> They sought the property out intentionally and arrive more educated, so lead-to-tour and tour-to-lease rates run higher.</li>
+    </ul>
+    <h4>Illustrative Cost per Lease (from the marketing analysis)</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Source</th><th>Annual cost</th><th>Leases</th><th>Cost / lease</th></tr></thead>
+      <tbody>
+        <tr><td>Zillow</td><td>$30,000</td><td>100</td><td>$300</td></tr>
+        <tr><td>Apartments.com</td><td>$24,000</td><td>60</td><td>$400</td></tr>
+        <tr class="row-hl"><td>Website / SEO</td><td>$12,000</td><td>80</td><td>$150</td></tr>
+      </tbody>
+    </table></div>
+    <p class="m-sub" style="margin-top:10px;">Industry example, scaled for illustration — the point is the shape: once built, the website is the lowest-cost lease source and reduces dependence on paid platforms.</p>
+    <h4>How Results Are Measured</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>KPI</th><th>What it shows</th></tr></thead>
+      <tbody>
+        <tr><td>Lead-source mix</td><td>Share of direct website leads vs. paid platforms</td></tr>
+        <tr><td>Lead &rarr; tour &rarr; lease %</td><td>Lead quality by source</td></tr>
+        <tr><td>Cost per lease</td><td>Spend &divide; leases, by channel</td></tr>
+        <tr><td>Days vacant &amp; renewal rate</td><td>Operational and revenue impact</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div id="md-eddm">
+    <h3>EDDM — Every Door Direct Mail</h3>
+    <p class="m-sub">USPS postcards delivered to every address on selected carrier routes around 15th Ave NE. Renters frequently move within the neighborhood they already live in, and a mailer reaches them without a per-lead referral fee.</p>
+    <h4>Mapped Routes &amp; Costs</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Route</th><th>Apartment addresses</th><th>Total addresses</th><th>Homeowner %</th><th>Cost per drop</th></tr></thead>
+      <tbody>
+        <tr class="row-hl"><td>C022</td><td>588</td><td>780</td><td>84%</td><td>$640</td></tr>
+        <tr><td>C093</td><td>279</td><td>828</td><td>87%</td><td>$640</td></tr>
+        <tr><td>C053</td><td>324</td><td>592</td><td>86%</td><td>$640</td></tr>
+        <tr><td>C043</td><td>121</td><td>223</td><td>87%</td><td>$640</td></tr>
+      </tbody>
+      <tfoot><tr><td>4 routes</td><td>1,312</td><td>2,423</td><td>—</td><td>$2,560</td></tr></tfoot>
+    </table></div>
+    <ul class="points">
+      <li><strong>Highest-value route.</strong> C022 carries the densest renter audience — 588 apartment addresses of 780 total.</li>
+      <li><strong>Silver Bundle option.</strong> Adds matched digital outreach via email to the same routes at roughly double the cost per route ($640 &rarr; $1,288).</li>
+      <li><strong>Flexible cadence.</strong> Priced per drop, so routes can be run individually, staggered, or repeated around unit deliveries.</li>
+    </ul>
+  </div>
+
+  <div id="md-aptscom">
+    <h3>Apartments.com — Conversion &amp; Presentation</h3>
+    <p class="m-sub">Fewer but more qualified leads, and the strongest property showcase. It serves a different purpose than Zillow rather than replacing it: Zillow drives traffic; Apartments.com helps convert.</p>
+    <h4>Pricing</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Package</th><th>Term</th><th>Monthly</th><th>Includes</th></tr></thead>
+      <tbody>
+        <tr class="row-hl"><td>Gold</td><td>12 months</td><td>$319</td><td>Professional photo shoot + 2 virtual tours</td></tr>
+        <tr><td>Gold</td><td>6 months</td><td>$369</td><td>—</td></tr>
+        <tr><td>Silver</td><td>12 months</td><td>$139</td><td>—</td></tr>
+        <tr><td>Silver</td><td>6 months</td><td>$159</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <h4>Head-to-Head</h4>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>Category</th><th>Zillow</th><th>Apartments.com</th></tr></thead>
+      <tbody>
+        <tr><td>Lead volume</td><td>Higher</td><td>Lower</td></tr>
+        <tr><td>Lead quality</td><td>More casual shoppers</td><td>More qualified prospects</td></tr>
+        <tr><td>Conversion rate</td><td>Lower</td><td>Higher</td></tr>
+        <tr><td>Occupancy impact</td><td>Stronger</td><td>Moderate</td></tr>
+        <tr><td>Property showcase</td><td>Good</td><td>Excellent</td></tr>
+        <tr><td>Small buildings &amp; walk-ups</td><td>Excellent</td><td>Moderate</td></tr>
+      </tbody>
+    </table></div>
+    <h4>Position for White Heather</h4>
+    <ul class="points">
+      <li><strong>Built for institutional assets.</strong> Strongest for professionally managed communities of roughly 100+ units; for a 21-unit lease-up, Zillow is the traffic engine.</li>
+      <li><strong>Standalone value in Gold.</strong> The 12-month Gold package's included photo shoot and two virtual tours produce assets reusable across every other channel — the website, Zillow, and the mailer.</li>
+      <li><strong>When to revisit.</strong> If conversion rather than traffic becomes the constraint, or for presentation depth once the building stabilizes.</li>
+    </ul>
+  </div>
+
+</div>
+
 <!-- ===================== LIGHTBOX ===================== -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
   <button class="lb-close" id="lbClose" aria-label="Close">×</button>
@@ -1326,17 +1507,17 @@ var RAILS = {
     eyebrow:'Leasing & Market', title:'Rents Drive Value: The Gap and the Plan to Close It',
     pos:'Current rents versus market, the half-mile comparable methodology, concession structure, and evidence that renovated units are achieving their targets.',
     glance:[['In place','$20,911 / mo'],['At market, full','$38,035 / mo'],['Gap','$17,124 / mo'],['Vacant','8 (+1 notice)'],['Pre-leased','1']],
-    primary:['marketing','The plan to lease the units'], secondary:['portal','Jerry’s comparable report'],
+    primary:['marketing','The plan to lease the units'], secondary:['portal','The comparable report'],
     print:true,
     foot:'All figures from the June 11, 2026 AppFolio rent roll. Comp detail per the market comp report.'
   },
   'marketing': {
-    eyebrow:'Marketing', title:'Three Recommended Channels; One Not Recommended',
-    pos:'Zillow, a Google drip campaign, and a neighborhood mailer — each framed in cost per lease — together with the rationale for declining apartments.com.',
-    glance:[['Units to lease','8 (+1 notice)'],['Recommended','3 channels'],['Not recommended','Apartments.com'],['Measure','Cost per lease']],
+    eyebrow:'Marketing', title:'A Channel Mix Built Around Cost per Lease',
+    pos:'Zillow for traffic, the website and a Google campaign for an owned lead pipeline, and a neighborhood mailer for local reach — with the Zillow vs. apartments.com analysis in full.',
+    glance:[['Units to lease','8 (+1 notice)'],['Leads, last 30 days','7'],['Zillow Enhanced','$625 / mo'],['EDDM','$640 / route']],
     primary:['leasing','The rents being marketed'], secondary:null,
     print:true,
-    foot:'Package costs and lead estimates are updated as channels are booked.'
+    foot:'Pricing per vendor quotes, June 2026. Lead activity from AppFolio.'
   },
   'tenants': {
     eyebrow:'Tenant Experience', title:'Retaining the Tenants We Have Invested in Finding',
@@ -1551,6 +1732,33 @@ document.addEventListener('keydown', function(e){
 });
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', function(e){ if(e.target===lightbox) closeLightbox(); });
+
+/* ============================================================
+   Channel detail modal
+   ============================================================ */
+var detailModal = document.getElementById('detailModal');
+var detailBody = document.getElementById('detailBody');
+function openDetail(id){
+  var src = document.getElementById(id);
+  if (!src || !detailModal) return;
+  detailBody.innerHTML = src.innerHTML;
+  detailModal.classList.add('open');
+  detailModal.scrollTop = 0;
+  track('channel_detail_open', {id:id});
+}
+function closeDetail(){ if (detailModal) detailModal.classList.remove('open'); }
+document.addEventListener('click', function(e){
+  var t = e.target.closest('[data-detail]');
+  if (t){ openDetail(t.getAttribute('data-detail')); return; }
+  if (e.target.closest('#detailClose')){ closeDetail(); return; }
+  if (e.target === detailModal) closeDetail();
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeDetail();
+  if ((e.key==='Enter'||e.key===' ') && document.activeElement && document.activeElement.hasAttribute('data-detail')){
+    e.preventDefault(); openDetail(document.activeElement.getAttribute('data-detail'));
+  }
+});
 
 /* ============================================================
    Count-up on stats (skips data-static and reduced motion)
