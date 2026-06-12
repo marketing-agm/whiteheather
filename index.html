@@ -307,6 +307,7 @@ a.doc:hover .dmeta{color:var(--accent);}
 /* image frames / gallery */
 .frame{aspect-ratio:4/3; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface-2); position:relative; overflow:hidden; display:grid; place-items:center; text-align:center; padding:28px;}
 .frame.wide{aspect-ratio:21/9;}
+.frame.hero{aspect-ratio:3/2;}
 .frame .ft{font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--accent); font-weight:600; margin-bottom:9px;}
 .frame .fd{font-family:var(--serif); font-size:15px; color:var(--text-3); letter-spacing:-0.01em; max-width:30ch;}
 .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px;}
@@ -517,8 +518,8 @@ a.doc:hover .dmeta{color:var(--accent);}
       <div class="page" id="page-summary">
         <section class="reveal">
           <p class="eyebrow">The property</p>
-          <div class="frame wide" role="img" aria-label="White Heather Apartments — exterior photograph placeholder">
-            <div><div class="ft">Photo slot</div><div class="fd">Current exterior photograph</div></div>
+          <div class="frame has-img hero" role="img" aria-label="White Heather Apartments — exterior">
+            <img src="images/exterior-hero.png" alt="White Heather Apartments, exterior corner against a clear sky" />
           </div>
         </section>
 
